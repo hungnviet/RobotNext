@@ -1,0 +1,49 @@
+{
+  "form_template": [
+    {
+      "machine_name": "Example machine name of form",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "maintenace_time": {
+        "start_date": "",
+        "end_date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "check the oil leakage",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "check hydraulic oil quality",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "robot",
+          "requirement": [
+            {
+              "name": "Change the robot grease",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": [
+        {
+          "image_url": ""
+        }
+      ]
+    }
+  ]
+}

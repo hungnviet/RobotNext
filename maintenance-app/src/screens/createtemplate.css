@@ -1,0 +1,156 @@
+.Create_Form_Template_Screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 78vw;
+  row-gap: 20px;
+}
+.header_create_form_template {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  left: 22vw;
+  height: 150px;
+  background-color: #fff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header_create_form_template h3,
+h4 {
+  margin: 0px;
+}
+.header_create_form_template h3 {
+  color: red;
+}
+.content_create_form {
+  position: fixed;
+  top: 170px;
+  right: 10px;
+  left: 22vw;
+  bottom: 0;
+  height: 1 flex;
+  background-color: #fff;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.form_in4_create_template {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 40px;
+}
+.form_in4_create_template div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.form_in4_create_template input,
+select {
+  height: 30px;
+}
+.content_container_create_template {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+.field_header_create_template {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.field_header_create_template input {
+  height: 30px;
+}
+.field_header_create_template p {
+  font-weight: bold;
+}
+.field_header_create_template button {
+  height: 30px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+  color: #c1121f;
+  transition: 0.5s ease;
+}
+.field_header_create_template button:hover {
+  background-color: #c1121f;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.field_header_create_template input {
+  font-weight: bold;
+}
+.requirement_container_create_template {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-left: 75px;
+}
+.requirement_container_create_template div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.requirement_container_create_template button {
+  height: 30px;
+  width: max-content;
+  background-color: transparent;
+  border: none;
+  color: #c1121f;
+  transition: 0.5s ease;
+}
+.requirement_container_create_template button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.btn_add_requirement {
+  background-color: #00b4d8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 75px;
+  transition: 0.2s ease;
+}
+.btn_add_requirement:hover {
+  background-color: #0077b6;
+  cursor: pointer;
+}
+.btn_add_field_container {
+  width: 75%;
+  margin-top: 20px;
+}
+.btn_add_field {
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  transition: 0.2s ease;
+}
+.btn_add_field:hover {
+  background-color: #1a1a1d;
+  cursor: pointer;
+  color: #fff;
+}

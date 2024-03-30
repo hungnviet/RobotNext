@@ -1,0 +1,93 @@
+.managementscreen {
+  margin-left: 10px;
+  width: 78vw;
+  height: 20vh;
+  background: white;
+}
+
+.managehead {
+  color: red;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}
+.managesubtext {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  padding-left: 3%;
+}
+.managecalendartext {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+}
+.managesubtext2 {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  padding-left: 3%;
+}
+.manageinput {
+  border: none;
+  width: 100px;
+}
+.managedropdown {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+.filter {
+  background: black;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin-left: 3%;
+  width: 100px;
+  text-align: center;
+}
+.managebody {
+  margin-top: 30px;
+  width: 78vw;
+  height: 77vh;
+  background: white;
+}
+.managetitle {
+  margin-left: 3%;
+  display: inline-block;
+}
+.managesubtext3 {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  padding-left: 3%;
+  padding-top: 1%;
+}
+.managesubtext4 {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  padding-left: 3%;
+  padding-top: 1%;
+}
+.managename {
+  margin-left: 8%;
+  display: inline-block;
+}
+.managenumber {
+  margin-left: 7%;
+  display: inline-block;
+}
+.managelasttime {
+  margin-left: 10%;
+  display: inline-block;
+}
+.managetype {
+  margin-left: 14%;
+  display: inline-block;
+}
+.manageoperator {
+  margin-left: 18%;
+  display: inline-block;
+}
