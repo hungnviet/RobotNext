@@ -1,58 +1,56 @@
 [
   {
-    "data": [
-      {
-        "machine_name": "Machine A",
-        "type_of_maintenance": "Weekly",
-        "machine_number": "12345",
-        "maintenace_time": {
-          "date": "14/5/2023",
-          "start": "14:00:00",
-          "end": "15:00:00"
+    "data": {
+      "machine_name": "Machine A",
+      "type_of_maintenance": "Weekly",
+      "machine_number": "12345",
+      "maintenace_time": {
+        "date": "14/5/2023",
+        "start": "14:00:00",
+        "end": "15:00:00"
+      },
+      "maintenace_operater": "Nguyen Van A",
+      "prepared_by": "Nguyen Van B",
+      "approved_by": "Nguyen Van C",
+      "checked_by": "Nguyen Van D",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "check the oil leakage",
+              "status": "OK",
+              "corrective_action": "None"
+            },
+            {
+              "name": "check hydraulic oil quality",
+              "status": "NG",
+              "corrective_action": "Do something"
+            }
+          ]
         },
-        "maintenace_operater": "Nguyen Van A",
-        "prepared_by": "Nguyen Van B",
-        "approved_by": "Nguyen Van C",
-        "checked_by": "Nguyen Van D",
-        "maintenance_details": [
-          {
-            "field": "Die Casting",
-            "requirement": [
-              {
-                "name": "check the oil leakage",
-                "status": "OK",
-                "corrective_action": "None"
-              },
-              {
-                "name": "check hydraulic oil quality",
-                "status": "NG",
-                "corrective_action": "Do something"
-              }
-            ]
-          },
-          {
-            "field": "robot",
-            "requirement": [
-              {
-                "name": "Change the robot grease",
-                "status": "OK",
-                "corrective_action": "None"
-              }
-            ]
-          }
-        ],
-        "image": [
-          {
-            "image_url": "http://localhost:3000/images/sddefault.jpg"
-          },
-          {
-            "image_url": "http://localhost:3000/images/bk2.jpg"
-          },
-          {
-            "image_url": "http://localhost:3000/images/bk3.jpg"
-          }
-        ]
-      }
-    ]
+        {
+          "field": "robot",
+          "requirement": [
+            {
+              "name": "Change the robot grease",
+              "status": "OK",
+              "corrective_action": "None"
+            }
+          ]
+        }
+      ],
+      "image": [
+        {
+          "image_url": "http://localhost:3000/images/sddefault.jpg"
+        },
+        {
+          "image_url": "http://localhost:3000/images/bk2.jpg"
+        },
+        {
+          "image_url": "http://localhost:3000/images/bk3.jpg"
+        }
+      ]
+    }
   }
 ]

@@ -1,57 +1,65 @@
 [
   {
-    "form_template": [
-      {
-        "machine_name": "Toshiba",
-        "type_of_maintenance": "weekly",
-        "machine_number": "",
-        "maintenace_time": {
-          "start": "",
-          "end": "",
-          "date": ""
+    "form_template": {
+      "machine_name": "Toshiba",
+      "type_of_maintenance": "daily",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
         },
-        "maintenace_operater": "",
-        "prepared_by": "",
-        "approved_by": "",
-        "checked_by": "",
-        "maintenance_details": [
-          {
-            "field": "Die Casting",
-            "requirement": [
-              {
-                "name": "Checking oil leakage",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check tempreature",
-                "status": "",
-                "corrective_action": ""
-              }
-            ]
-          },
-          {
-            "field": "Robot",
-            "requirement": [
-              {
-                "name": "check robot arm",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "check oil of robot",
-                "status": "",
-                "corrective_action": ""
-              }
-            ]
-          }
-        ],
-        "image": [
-          {
-            "image_url": ""
-          }
-        ]
-      }
-    ]
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "2",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": [
+        {
+          "image_url": ""
+        }
+      ]
+    }
   }
 ]
