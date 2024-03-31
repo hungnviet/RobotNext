@@ -96,8 +96,9 @@ function CreateTemplate() {
       type_of_maintenance: typeOfMaintenance,
       machine_number: "",
       maintenace_time: {
-        start_date: "",
-        end_date: "",
+        start: "",
+        end: "",
+        date: "",
       },
       maintenace_operater: "",
       prepared_by: "",

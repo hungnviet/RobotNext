@@ -23,10 +23,9 @@ function Detail() {
       (item) =>
         item.machine_name.toLowerCase().includes(machineName.toLowerCase()) &&
         item.machine_number.includes(machineCode) &&
-        (maintenanceType === "" ||
-          item.type_of_maintenance
-            .toLowerCase()
-            .includes(maintenanceType.toLowerCase()))
+        item.type_of_maintenance
+          .toLowerCase()
+          .includes(maintenanceType.toLowerCase())
     );
     setData(filteredData);
   };
@@ -61,7 +60,6 @@ function Detail() {
             value={maintenanceType}
             onChange={(e) => setMaintenanceType(e.target.value)}
           >
-            <option value="">All</option>
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="halfyearly">Half-yearly</option>
@@ -92,31 +90,30 @@ function Detail() {
               </p>
               <p className="detailbodytext">
                 {" "}
-                Maintenance time: Start date:{" "}
+                Maintenance time: Start:{" "}
                 <span className="detaildata">
-                  {item.maintenace_time.start_date}
+                  {item.maintenace_time.start}
                 </span>{" "}
-                End date:{" "}
-                <span className="detaildata">
-                  {" "}
-                  {item.maintenace_time.end_date}
-                </span>
+                End:{" "}
+                <span className="detaildata"> {item.maintenace_time.end}</span>
+                Date{" "}
+                <span className="detaildata">{item.maintenace_time.date}</span>
               </p>
               <div className="drawline"></div>
 
-              <p className="detailbodytext">
-                {" "}
-                Machine Picture
+              <p className="detailbodytext"> Machine Picture </p>
+
+              <div className="image-container">
                 {item.image &&
                   item.image.map((img, imgIndex) => (
                     <img
                       key={imgIndex}
                       src={img.image_url}
-                      className="detailimg"
                       alt="Maintenance"
+                      className={`image-${imgIndex}`}
                     />
                   ))}
-              </p>
+              </div>
               <div className="drawline"></div>
 
               <header className="detailbodyheader">
@@ -149,7 +146,9 @@ function Detail() {
                   </div>
                 ))}
               <div className="drawline"></div>
+              <p className="remarktext">Remarks</p>
 
+              <div className="remark"></div>
               <div style={{ display: "flex" }}>
                 <div className="detailfoot">
                   <p>Prepared by:</p>
