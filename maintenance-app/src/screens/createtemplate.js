@@ -107,7 +107,7 @@ function CreateTemplate() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ form_template: [data] }),
+      body: JSON.stringify({ form_template: data }),
     });
 
     if (response.ok) {

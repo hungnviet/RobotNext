@@ -51,9 +51,10 @@
 .filer_update_form_template div {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  width: 30%;
+  column-gap: 20px;
+  width: 40%;
 }
 .filer_update_form_template button {
   width: 60px;
@@ -62,4 +63,11 @@
   border-radius: 5px;
   padding: 5px;
   background-color: #f0f0f0;
+  transition: 0.5s ease;
+}
+.filer_update_form_template button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
 }

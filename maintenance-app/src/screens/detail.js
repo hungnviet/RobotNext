@@ -18,26 +18,41 @@ function Detail() {
       .catch((error) => console.error(error));
   }, []);
 
-  const handleFind = () => {
-    const filteredData = originalData.filter((item) => {
-      const isMachineNameMatch = machineName
-        ? item.machine_name.toLowerCase() === machineName.toLowerCase()
-        : false;
+  async function handleFind() {
+    try {
+      const response = await fetch(`http://localhost:3001/data`);
+      const dataFetching = await response.json();
+      alert(dataFetching[0].data.machine_name);
+      alert(dataFetching[0].type_of_maintenance);
+      alert(dataFetching[0].machine_number);
+      const initData = dataFetching.filter((item) => {
+        const isMachineNameMatch = machineName
+          ? item.data.machine_name.toLowerCase() === machineName.toLowerCase()
+          : false;
 
-      const isMachineCodeMatch = machineCode
-        ? item.machine_number === machineCode
-        : false;
+        const isMachineCodeMatch = machineCode
+          ? item.data.machine_number === machineCode
+          : false;
 
-      const isMaintenanceTypeMatch = maintenanceType
-        ? item.type_of_maintenance.toLowerCase() ===
-          maintenanceType.toLowerCase()
-        : false;
+        const isMaintenanceTypeMatch = maintenanceType
+          ? item.data.type_of_maintenance.toLowerCase() ===
+            maintenanceType.toLowerCase()
+          : false;
 
-      return isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch;
-    });
-
-    setData(filteredData);
-  };
+        return (
+          isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch
+        );
+      });
+      if (initData.length === 0) {
+        alert("cannot find data");
+        return;
+      }
+      alert(initData.data.machine_name);
+      console.log(data);
+    } catch (error) {
+      alert("cannot find data");
+    }
+  }
 
   return (
     <div>

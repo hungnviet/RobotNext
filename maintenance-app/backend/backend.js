@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json()); // This middleware is used to parse JSON bodies
 
 app.get("/data", (req, res) => {
+  console.log("hello");
   fs.readFile(
     path.join(__dirname, "../../Data/maintenance_data.json"),
     (err, data) => {
@@ -23,7 +24,6 @@ app.get("/data", (req, res) => {
 
 app.post("/formTemplate", (req, res) => {
   const newData = req.body;
-
   fs.readFile(
     path.join(__dirname, "../../Data/form_template.json"),
     (err, data) => {
@@ -42,10 +42,11 @@ app.post("/formTemplate", (req, res) => {
           existingData = [existingData];
         }
       }
+      console.log(existingData);
       const checkExist = existingData.find(
         (item) =>
-          item.machine_name === newData.machine_name &&
-          item.type_of_maintenance === newData.type_of_maintenance
+          item.machine_name === newData.form_template.machine_name &&
+          item.type_of_maintenance === newData.form_template.type_of_maintenance
       );
 
       if (checkExist) {
@@ -75,8 +76,9 @@ app.post("/formTemplate", (req, res) => {
     }
   );
 });
-app.get("/formTemplate", (req, res) => {
-  const filter = req.body;
+app.get("/formTemplate/:machineName/:maintenanceType", (req, res) => {
+  const machine_name = req.params.machineName;
+  const type_of_maintenance = req.params.maintenanceType;
   fs.readFile(
     path.join(__dirname, "../../Data/form_template.json"),
     (err, data) => {
@@ -85,24 +87,20 @@ app.get("/formTemplate", (req, res) => {
         res.status(500).send("Error reading file");
         return;
       }
-      let existingData;
-      if (data.length === 0) {
-        existingData = [];
-      } else {
-        existingData = JSON.parse(data);
-        if (!Array.isArray(existingData)) {
-          existingData = [existingData];
-        }
+      const existingData = JSON.parse(data);
+      if (!Array.isArray(existingData)) {
+        existingData = [existingData];
       }
       const checkExist = existingData.find(
         (item) =>
-          item.machine_name === filter.machine_name &&
-          item.type_of_maintenance === filter.type_of_maintenance
+          item.form_template.machine_name === machine_name &&
+          item.form_template.type_of_maintenance === type_of_maintenance
       );
+
       if (checkExist) {
-        res.status(200).json(checkExist);
+        res.json(checkExist);
       } else {
-        res.status(404).send("Template for device not found");
+        res.status(404).send("Data not found");
       }
     }
   );
