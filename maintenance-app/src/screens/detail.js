@@ -19,14 +19,23 @@ function Detail() {
   }, []);
 
   const handleFind = () => {
-    const filteredData = originalData.filter(
-      (item) =>
-        item.machine_name.toLowerCase().includes(machineName.toLowerCase()) &&
-        item.machine_number.includes(machineCode) &&
-        item.type_of_maintenance
-          .toLowerCase()
-          .includes(maintenanceType.toLowerCase())
-    );
+    const filteredData = originalData.filter((item) => {
+      const isMachineNameMatch = machineName
+        ? item.machine_name.toLowerCase() === machineName.toLowerCase()
+        : false;
+
+      const isMachineCodeMatch = machineCode
+        ? item.machine_number === machineCode
+        : false;
+
+      const isMaintenanceTypeMatch = maintenanceType
+        ? item.type_of_maintenance.toLowerCase() ===
+          maintenanceType.toLowerCase()
+        : false;
+
+      return isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch;
+    });
+
     setData(filteredData);
   };
 

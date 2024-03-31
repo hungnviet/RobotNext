@@ -4,24 +4,7 @@ import { useState } from "react";
 function CreateTemplate() {
   const [machineName, setMachineName] = useState("");
   const [typeOfMaintenance, setTypeOfMaintenance] = useState("daily");
-  const [formDetail, setFormDetail] = useState([
-    {
-      field: "DieCasting",
-      requirement: [
-        "Check the oil level",
-        "Check the temperature",
-        "Check the pressure",
-      ],
-    },
-    {
-      field: "Injection",
-      requirement: [
-        "Check the oil level",
-        "Check the temperature",
-        "Check the pressure",
-      ],
-    },
-  ]);
+  const [formDetail, setFormDetail] = useState([]);
   function addField() {
     setFormDetail([
       ...formDetail,
@@ -119,7 +102,7 @@ function CreateTemplate() {
       ],
     };
 
-    const response = await fetch("http://localhost:3001/data", {
+    const response = await fetch("http://localhost:3001/formTemplate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +113,8 @@ function CreateTemplate() {
     if (response.ok) {
       alert("Form template created successfully");
     } else {
-      alert("Error creating form template");
+      const error = await response.text();
+      alert(`Error creating form template: ${error}`);
     }
   }
   return (

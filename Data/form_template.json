@@ -2,12 +2,13 @@
   {
     "form_template": [
       {
-        "machine_name": "Test",
-        "type_of_maintenance": "daily",
+        "machine_name": "Toshiba",
+        "type_of_maintenance": "weekly",
         "machine_number": "",
         "maintenace_time": {
-          "start_date": "",
-          "end_date": ""
+          "start": "",
+          "end": "",
+          "date": ""
         },
         "maintenace_operater": "",
         "prepared_by": "",
@@ -15,104 +16,30 @@
         "checked_by": "",
         "maintenance_details": [
           {
-            "field": "DieCasting",
+            "field": "Die Casting",
             "requirement": [
               {
-                "name": "Check the oil level",
+                "name": "Checking oil leakage",
                 "status": "",
                 "corrective_action": ""
               },
               {
-                "name": "Check the temperature",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the pressure",
+                "name": "Check tempreature",
                 "status": "",
                 "corrective_action": ""
               }
             ]
           },
           {
-            "field": "Injection",
+            "field": "Robot",
             "requirement": [
               {
-                "name": "Check the oil level",
+                "name": "check robot arm",
                 "status": "",
                 "corrective_action": ""
               },
               {
-                "name": "Check the temperature",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the pressure",
-                "status": "",
-                "corrective_action": ""
-              }
-            ]
-          }
-        ],
-        "image": [
-          {
-            "image_url": ""
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "form_template": [
-      {
-        "machine_name": "X",
-        "type_of_maintenance": "daily",
-        "machine_number": "",
-        "maintenace_time": {
-          "start_date": "",
-          "end_date": ""
-        },
-        "maintenace_operater": "",
-        "prepared_by": "",
-        "approved_by": "",
-        "checked_by": "",
-        "maintenance_details": [
-          {
-            "field": "DieCasting",
-            "requirement": [
-              {
-                "name": "Check the oil level",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the temperature",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the pressure",
-                "status": "",
-                "corrective_action": ""
-              }
-            ]
-          },
-          {
-            "field": "Injection",
-            "requirement": [
-              {
-                "name": "Check the oil level",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the temperature",
-                "status": "",
-                "corrective_action": ""
-              },
-              {
-                "name": "Check the pressure",
+                "name": "check oil of robot",
                 "status": "",
                 "corrective_action": ""
               }
