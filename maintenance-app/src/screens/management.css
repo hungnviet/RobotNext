@@ -1,8 +1,10 @@
 .managementscreen {
-  margin-left: 10px;
-  width: 78vw;
+  width: 79vw;
   height: 20vh;
   background: white;
+}
+.headermanage {
+  width: 79vw;
 }
 
 .managehead {

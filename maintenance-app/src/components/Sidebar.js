@@ -17,6 +17,7 @@ function Sidebar() {
     >
       <img
         src={logo}
+        alt="Logo"
         style={{
           width: "70%",
           height: "auto",

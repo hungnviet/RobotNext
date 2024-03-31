@@ -1,11 +1,10 @@
 import { AiOutlineCalendar } from "react-icons/ai";
-import logo from "../logo.svg";
 import "./management.css";
 
 function Management() {
   return (
     <div className="managementscreen">
-      <div>
+      <div className="headermanage">
         <header className="managehead">
           List of machines that need maintenance
         </header>
