@@ -1,49 +1,66 @@
-{
-  "form_template": [
-    {
-      "machine_name": "Example machine name of form",
-      "type_of_maintenance": "weekly",
-      "machine_number": "",
-      "maintenace_time": {
-        "start_date": "",
-        "end_date": ""
-      },
-      "maintenace_operater": "",
-      "prepared_by": "",
-      "approved_by": "",
-      "checked_by": "",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "check the oil leakage",
-              "status": "",
-              "corrective_action": ""
-            },
-            {
-              "name": "check hydraulic oil quality",
-              "status": "",
-              "corrective_action": ""
-            }
-          ]
+[
+  {
+    "form_template": [
+      {
+        "machine_name": "Test",
+        "type_of_maintenance": "daily",
+        "machine_number": "",
+        "maintenace_time": {
+          "start_date": "",
+          "end_date": ""
         },
-        {
-          "field": "robot",
-          "requirement": [
-            {
-              "name": "Change the robot grease",
-              "status": "",
-              "corrective_action": ""
-            }
-          ]
-        }
-      ],
-      "image": [
-        {
-          "image_url": ""
-        }
-      ]
-    }
-  ]
-}
+        "maintenace_operater": "",
+        "prepared_by": "",
+        "approved_by": "",
+        "checked_by": "",
+        "maintenance_details": [
+          {
+            "field": "DieCasting",
+            "requirement": [
+              {
+                "name": "Check the oil level",
+                "status": "",
+                "corrective_action": ""
+              },
+              {
+                "name": "Check the temperature",
+                "status": "",
+                "corrective_action": ""
+              },
+              {
+                "name": "Check the pressure",
+                "status": "",
+                "corrective_action": ""
+              }
+            ]
+          },
+          {
+            "field": "Injection",
+            "requirement": [
+              {
+                "name": "Check the oil level",
+                "status": "",
+                "corrective_action": ""
+              },
+              {
+                "name": "Check the temperature",
+                "status": "",
+                "corrective_action": ""
+              },
+              {
+                "name": "Check the pressure",
+                "status": "",
+                "corrective_action": ""
+              }
+            ]
+          }
+        ],
+        "image": [
+          {
+            "image_url": ""
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -91,7 +91,46 @@ function CreateTemplate() {
     }
   }
   async function CreateFormTemplate() {
-    alert("Create form template successfully");
+    let data = {
+      machine_name: machineName,
+      type_of_maintenance: typeOfMaintenance,
+      machine_number: "",
+      maintenace_time: {
+        start_date: "",
+        end_date: "",
+      },
+      maintenace_operater: "",
+      prepared_by: "",
+      approved_by: "",
+      checked_by: "",
+      maintenance_details: formDetail.map((detail) => ({
+        field: detail.field,
+        requirement: detail.requirement.map((req) => ({
+          name: req,
+          status: "",
+          corrective_action: "",
+        })),
+      })),
+      image: [
+        {
+          image_url: "",
+        },
+      ],
+    };
+
+    const response = await fetch("http://localhost:3001/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ form_template: [data] }),
+    });
+
+    if (response.ok) {
+      alert("Form template created successfully");
+    } else {
+      alert("Error creating form template");
+    }
   }
   return (
     <div className="Create_Form_Template_Screen">
