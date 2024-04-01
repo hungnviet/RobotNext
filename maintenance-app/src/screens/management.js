@@ -1,4 +1,3 @@
-import { AiOutlineCalendar } from "react-icons/ai";
 import "./management.css";
 import { useEffect, useState } from "react";
 
@@ -7,6 +6,8 @@ function Management() {
   const [machineName, setMachineName] = useState("");
   const [machineCode, setMachineCode] = useState("");
   const [maintenanceType, setMaintenanceType] = useState("");
+  const [Start, setStart] = useState("");
+  const [End, setEnd] = useState("");
 
   async function handleFind() {
     try {
@@ -27,9 +28,17 @@ function Management() {
           ? item.type_of_maintenance.toLowerCase() ===
             maintenanceType.toLowerCase()
           : true;
+        const isDateInRange =
+          Start && End
+            ? new Date(item.maintenace_time.date) >= new Date(Start) &&
+              new Date(item.maintenace_time.date) <= new Date(End)
+            : true;
 
         return (
-          isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch
+          isMachineNameMatch &&
+          isMachineCodeMatch &&
+          isMaintenanceTypeMatch &&
+          isDateInRange
         );
       });
       console.log(initData); // This will log the filtered data
@@ -55,7 +64,17 @@ function Management() {
         <p className="managesubtext">
           The machines have to make maintenance from{" "}
           <span className="managecalendartext">
-            <AiOutlineCalendar /> 10/3/2024 to <AiOutlineCalendar /> 30/3/2024
+            <input
+              type="date"
+              value={Start}
+              onChange={(e) => setStart(e.target.value)}
+            />{" "}
+            to{" "}
+            <input
+              type="date"
+              value={End}
+              onChange={(e) => setEnd(e.target.value)}
+            />
           </span>
         </p>
         <p className="managesubtext">Filter: </p>

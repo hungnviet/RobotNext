@@ -1,6 +1,10 @@
 import React from "react";
 import "./createtemplate.css";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function CreateTemplate() {
   const [machineName, setMachineName] = useState("");
   const [typeOfMaintenance, setTypeOfMaintenance] = useState("daily");
@@ -20,7 +24,7 @@ function CreateTemplate() {
       newFormDetail[fieldIndex].requirement.push("");
       setFormDetail(newFormDetail);
     } else {
-      alert(`Invalid fieldIndex: ${fieldIndex}`);
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
   function deleteField(fieldIndex) {
@@ -29,7 +33,7 @@ function CreateTemplate() {
       newFormDetail.splice(fieldIndex, 1);
       setFormDetail(newFormDetail);
     } else {
-      alert(`Invalid fieldIndex: ${fieldIndex}`);
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
   function deleteRequirement(fieldIndex, requirementIndex) {
@@ -42,10 +46,10 @@ function CreateTemplate() {
         newFormDetail[fieldIndex].requirement.splice(requirementIndex, 1);
         setFormDetail(newFormDetail);
       } else {
-        alert(`Invalid requirementIndex: ${requirementIndex}`);
+        toast.error(`Invalid requirementIndex: ${requirementIndex}`);
       }
     } else {
-      alert(`Invalid fieldIndex: ${fieldIndex}`);
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
   function onChangeField(fieldIndex, value) {
@@ -54,7 +58,7 @@ function CreateTemplate() {
       newFormDetail[fieldIndex].field = value;
       setFormDetail(newFormDetail);
     } else {
-      alert(`Invalid fieldIndex: ${fieldIndex}`);
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
   function onChangeRequirement(fieldIndex, requirementIndex, value) {
@@ -67,10 +71,10 @@ function CreateTemplate() {
         newFormDetail[fieldIndex].requirement[requirementIndex] = value;
         setFormDetail(newFormDetail);
       } else {
-        alert(`Invalid requirementIndex: ${requirementIndex}`);
+        toast.error(`Invalid requirementIndex: ${requirementIndex}`);
       }
     } else {
-      alert(`Invalid fieldIndex: ${fieldIndex}`);
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
   async function CreateFormTemplate() {
@@ -112,10 +116,10 @@ function CreateTemplate() {
     });
 
     if (response.ok) {
-      alert("Form template created successfully");
+      toast.success("Form template created successfully");
     } else {
       const error = await response.text();
-      alert(`Error creating form template: ${error}`);
+      toast.error(`Error creating form template: ${error}`);
     }
   }
   return (
@@ -214,6 +218,7 @@ function CreateTemplate() {
         >
           Create form template
         </button>
+        <ToastContainer />
       </div>
     </div>
   );

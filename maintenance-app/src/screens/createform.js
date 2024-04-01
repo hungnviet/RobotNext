@@ -1,5 +1,8 @@
 import "./createform.css";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function CreateForm() {
   const [machineName, setMachineName] = useState("");
   const [maintenanceType, setMaintenanceType] = useState("daily");
@@ -22,7 +25,7 @@ function CreateForm() {
         let img = event.target.files[0];
         setImages([...images, URL.createObjectURL(img)]);
       } else {
-        alert("You can only upload a maximum of 3 images");
+        toast.error("You can only upload a maximum of 3 images");
       }
     }
   };
@@ -35,13 +38,13 @@ function CreateForm() {
       setTemplate(data.form_template);
     } catch (error) {
       console.error(error);
-      alert("Can not find the data");
+      toast.error("Can not find the data");
     }
   }
 
   async function onSave() {
     if (machineName === "" || maintenanceType === "") {
-      alert("Please input machine name and maintenance type");
+      toast.error("Please input machine name and maintenance type");
       return;
     } else {
       const data = { ...template };
@@ -65,7 +68,9 @@ function CreateForm() {
         body: JSON.stringify({ data }),
       });
       if (!response.ok) {
-        alert("Update form failed, please try again");
+        toast.error("Update form failed, please try again");
+      } else {
+        toast.success("Update form successfully");
       }
     }
   }
@@ -285,6 +290,7 @@ function CreateForm() {
             value={remark}
           ></input>
           <button onClick={onSave}>SAVE</button>
+          <ToastContainer />
         </div>
       )}
     </div>

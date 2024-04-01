@@ -126,8 +126,10 @@ app.get("/formTemplate/:machineName/:maintenanceType", (req, res) => {
       }
       const checkExist = existingData.find(
         (item) =>
-          item.form_template.machine_name === machine_name &&
-          item.form_template.type_of_maintenance === type_of_maintenance
+          item.form_template.machine_name.toLowerCase() ===
+            machine_name.toLowerCase() &&
+          item.form_template.type_of_maintenance.toLowerCase() ===
+            type_of_maintenance.toLowerCase()
       );
 
       if (checkExist) {
