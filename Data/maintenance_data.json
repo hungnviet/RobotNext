@@ -1,110 +1,68 @@
 [
   {
     "data": {
-      "machine_name": "Machine B",
-      "type_of_maintenance": "Weekly",
-      "machine_number": "12345",
+      "machine_name": "Toshiba",
+      "type_of_maintenance": "daily",
+      "machine_number": "1234",
       "maintenace_time": {
-        "date": "14/5/2023",
-        "start": "14:00:00",
-        "end": "15:00:00"
+        "start": "13:08",
+        "end": "13:08",
+        "date": "2024-04-01"
       },
-      "maintenace_operater": "Nguyen Van A",
-      "prepared_by": "Nguyen Van B",
+      "maintenace_operater": "Nguyen Viet Hung",
+      "prepared_by": "Nguyen Van A",
       "approved_by": "Nguyen Van C",
-      "checked_by": "Nguyen Van D",
+      "checked_by": "Nguyen Van B",
+      "check_out": "",
       "maintenance_details": [
         {
-          "field": "Die Casting",
+          "field": "Field 1",
           "requirement": [
             {
-              "name": "check the oil leakage",
+              "name": "req 1 ",
               "status": "OK",
-              "corrective_action": "None"
+              "corrective_action": "none"
             },
             {
-              "name": "check hydraulic oil quality",
+              "name": "req 2",
               "status": "NG",
-              "corrective_action": "Do something"
+              "corrective_action": "action 1"
+            },
+            {
+              "name": "req 3",
+              "status": "OK",
+              "corrective_action": "none"
             }
           ]
         },
         {
-          "field": "robot",
+          "field": "Field 2",
           "requirement": [
             {
-              "name": "Change the robot grease",
+              "name": "req 1",
               "status": "OK",
-              "corrective_action": "None"
+              "corrective_action": "none"
+            },
+            {
+              "name": "req 2",
+              "status": "NG",
+              "corrective_action": "action 2"
             }
           ]
         }
       ],
       "image": [
         {
-          "image_url": "http://localhost:3001/images/sddefault.jpg"
+          "image_url": "blob:http://localhost:3000/b59c9e8c-f57c-4adf-9422-8d4a991849ab"
         },
         {
-          "image_url": "http://localhost:3001/images/bk2.jpg"
+          "image_url": "blob:http://localhost:3000/68dbc78a-2a89-4db4-b4f2-17fb0d595332"
         },
         {
-          "image_url": "http://localhost:3001/images/bk2.jpg"
-        }
-      ]
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Machine A",
-      "type_of_maintenance": "Daily",
-      "machine_number": "123456",
-      "maintenace_time": {
-        "date": "14/5/2023",
-        "start": "14:00:00",
-        "end": "15:00:00"
-      },
-      "maintenace_operater": "Nguyen Van A",
-      "prepared_by": "Nguyen Van B",
-      "approved_by": "Nguyen Van C",
-      "checked_by": "Nguyen Van D",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "check the oil leakage",
-              "status": "OK",
-              "corrective_action": "None"
-            },
-            {
-              "name": "check hydraulic oil quality",
-              "status": "NG",
-              "corrective_action": "Do something"
-            }
-          ]
-        },
-        {
-          "field": "robot",
-          "requirement": [
-            {
-              "name": "Change the robot grease",
-              "status": "OK",
-              "corrective_action": "None"
-            }
-          ]
+          "image_url": "blob:http://localhost:3000/4ab899d1-3138-456a-8c5c-8d94672454cf"
         }
       ],
-      "image": [
-        {
-          "image_url": "http://localhost:3000/images/sddefault.jpg"
-        },
-        {
-          "image_url": "http://localhost:3000/images/bk2.jpg"
-        },
-        {
-          "image_url": "http://localhost:3000/images/bk3.jpg"
-        }
-      ]
+      "remark": "note for the maintenance"
     }
   }
 ]

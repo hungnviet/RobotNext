@@ -20,7 +20,41 @@ app.get("/data", (req, res) => {
     }
   );
 });
-
+app.post("/data", (req, res) => {
+  const newData = req.body;
+  fs.readFile(
+    path.join(__dirname, "../../Data/maintenance_data.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+        return;
+      }
+      let existingData;
+      if (data.length === 0) {
+        existingData = [];
+      } else {
+        existingData = JSON.parse(data);
+        if (!Array.isArray(existingData)) {
+          existingData = [existingData];
+        }
+      }
+      existingData.push(newData);
+      fs.writeFile(
+        path.join(__dirname, "../../Data/maintenance_data.json"),
+        JSON.stringify(existingData, null, 2),
+        (err) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send("Error writing file");
+          } else {
+            res.send("Form template created successfully");
+          }
+        }
+      );
+    }
+  );
+});
 app.post("/formTemplate", (req, res) => {
   const newData = req.body;
   fs.readFile(

@@ -70,26 +70,34 @@
   font-family: "Inter", sans-serif;
   font-weight: normal;
   font-size: 14px;
-  padding-left: 3%;
   padding-top: 1%;
+  padding-left: 3%;
 }
+.manageItem {
+  display: flex;
+  justify-content: space-between;
+}
+
 .managename {
-  margin-left: 8%;
-  display: inline-block;
+  flex-basis: 20%;
 }
 .managenumber {
-  margin-left: 7%;
-  display: inline-block;
+  flex-basis: 20%;
 }
 .managelasttime {
-  margin-left: 10%;
-  display: inline-block;
+  flex-basis: 20%;
 }
 .managetype {
-  margin-left: 14%;
-  display: inline-block;
+  flex-basis: 20%;
 }
 .manageoperator {
-  margin-left: 18%;
-  display: inline-block;
+  flex-basis: 20%;
+}
+.drawline2 {
+  border-top: 1.5px solid black;
+  height: 2px;
+  margin-right: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 150;
 }

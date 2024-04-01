@@ -87,6 +87,7 @@ function CreateTemplate() {
       prepared_by: "",
       approved_by: "",
       checked_by: "",
+      check_out: "",
       maintenance_details: formDetail.map((detail) => ({
         field: detail.field,
         requirement: detail.requirement.map((req) => ({

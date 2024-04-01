@@ -161,9 +161,11 @@ function Detail() {
                   </div>
                 ))}
               <div className="drawline"></div>
-              <p className="remarktext">Remarks</p>
+              <p className="remarktext">Remark</p>
 
-              <div className="remark"></div>
+              <div className="remark">
+                <p>{item.remark}</p>
+              </div>
               <div style={{ display: "flex" }}>
                 <div className="detailfoot">
                   <p>Prepared by:</p>

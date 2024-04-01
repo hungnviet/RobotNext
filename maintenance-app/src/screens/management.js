@@ -1,7 +1,51 @@
 import { AiOutlineCalendar } from "react-icons/ai";
 import "./management.css";
+import { useEffect, useState } from "react";
 
 function Management() {
+  const [data, setData] = useState(null);
+  const [machineName, setMachineName] = useState("");
+  const [machineCode, setMachineCode] = useState("");
+  const [maintenanceType, setMaintenanceType] = useState("");
+
+  async function handleFind() {
+    try {
+      const response = await fetch("http://localhost:3001/data");
+      const jsonResponse = await response.json();
+      const originalData = jsonResponse.map((item) => item.data);
+
+      const initData = originalData.filter((item) => {
+        const isMachineNameMatch = machineName
+          ? item.machine_name.toLowerCase() === machineName.toLowerCase()
+          : true;
+
+        const isMachineCodeMatch = machineCode
+          ? item.machine_number === machineCode
+          : true;
+
+        const isMaintenanceTypeMatch = maintenanceType
+          ? item.type_of_maintenance.toLowerCase() ===
+            maintenanceType.toLowerCase()
+          : true;
+
+        return (
+          isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch
+        );
+      });
+      console.log(initData); // This will log the filtered data
+      if (initData.length === 0) {
+        alert("cannot find data");
+        setData(null);
+        return;
+      }
+
+      // Update data state with the filtered data
+      setData(initData);
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("cannot find data");
+    }
+  }
   return (
     <div className="managementscreen">
       <div className="headermanage">
@@ -20,23 +64,32 @@ function Management() {
           <input
             type="text"
             className="manageinput"
-            placeholder="___________________"
+            value={machineName}
+            onChange={(e) => setMachineName(e.target.value)}
+            placeholder="_________________"
           />{" "}
           Machine Code:{" "}
           <input
             type="text"
             className="manageinput"
-            placeholder="___________________"
+            value={machineCode}
+            onChange={(e) => setMachineCode(e.target.value)}
+            placeholder="_________________"
           />{" "}
           Type of maintenance:{" "}
-          <select className="managedropdown">
-            <option value="">All</option>
+          <select
+            className="managedropdown"
+            value={maintenanceType}
+            onChange={(e) => setMaintenanceType(e.target.value)}
+          >
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="halfyearly">Half-yearly</option>
             <option value="yearly">Yearly</option>
           </select>{" "}
-          <button className="filter">Apply</button>
+          <button className="filter" onClick={handleFind}>
+            Apply
+          </button>
         </p>
       </div>
       <div className="managebody">
@@ -47,44 +100,25 @@ function Management() {
           <span className="managetitle">Type of maintenance</span>
           <span className="managetitle">Maintenance operator</span>
         </p>
-        <div
-          style={{
-            borderTop: "1px solid black",
-            width: "120vh",
-            height: "1px",
-            marginLeft: "12px", // Corrected here
-          }}
-        ></div>
-        <p className="managesubtext4">
-          <span>Toshiba 45HC2 </span>
-          <span className="managenumber">12312393471</span>
-          <span className="managelasttime">12/1/2024</span>
-          <span className="managetype">Monthly</span>
-          <span className="manageoperator">Adam Smith</span>
-        </p>
-        <div
-          style={{
-            borderTop: "1px solid black",
-            width: "120vh",
-            height: "1px",
-            marginLeft: "12px", // Corrected here
-          }}
-        ></div>
-        <p className="managesubtext4">
-          <span>Toshiba 45HC2 </span>
-          <span className="managenumber">12312393471</span>
-          <span className="managelasttime">12/1/2024</span>
-          <span className="managetype">Monthly</span>
-          <span className="manageoperator">Adam Smith</span>
-        </p>
-        <div
-          style={{
-            borderTop: "1px solid black",
-            width: "120vh",
-            height: "1px",
-            marginLeft: "12px", // Corrected here
-          }}
-        ></div>
+        <div>
+          {data &&
+            data.map((item, index) => (
+              <div key={index} className="managesubtext4">
+                <div className="drawline2"></div>
+                <div className="manageItem">
+                  <span className="managename">{item.machine_name}</span>
+                  <span className="managenumber">{item.machine_number}</span>
+                  <span className="managelasttime">
+                    {item.maintenace_time.date}{" "}
+                  </span>
+                  <span className="managetype">{item.type_of_maintenance}</span>
+                  <span className="manageoperator">
+                    {item.maintenace_operater}
+                  </span>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
