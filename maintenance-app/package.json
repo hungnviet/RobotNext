@@ -2,6 +2,7 @@
   "name": "maintaince-app",
   "version": "0.1.0",
   "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "react-start": "react-scripts start",
-    "react-build": "react-scripts build",
+    "react-build": "react-scripts build && copy public\\electron.js build\\electron.js",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
@@ -49,5 +50,30 @@
     "electron": "^29.1.6",
     "electron-builder": "^24.13.3",
     "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "your.app.id",
+    "files": [
+      "public/electron.js",
+      "build/**/*",
+      "node_modules/**/*",
+      "public/images/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../Data/",
+        "to": "Data",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../images/",
+        "to": "images",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   }
 }

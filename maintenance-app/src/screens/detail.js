@@ -2,58 +2,49 @@ import React, { useEffect, useState } from "react";
 import "./detail.css";
 
 function Detail() {
-  const [originalData, setOriginalData] = useState(null);
   const [data, setData] = useState(null);
   const [machineName, setMachineName] = useState("");
   const [machineCode, setMachineCode] = useState("");
   const [maintenanceType, setMaintenanceType] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:3001/data")
-      .then((response) => response.json())
-      .then((response) => {
-        setOriginalData(response.data);
-        setData(response.data);
-      }) // set data to response.data
-      .catch((error) => console.error(error));
-  }, []);
-
   async function handleFind() {
     try {
-      const response = await fetch(`http://localhost:3001/data`);
-      const dataFetching = await response.json();
-      alert(dataFetching[0].data.machine_name);
-      alert(dataFetching[0].type_of_maintenance);
-      alert(dataFetching[0].machine_number);
-      const initData = dataFetching.filter((item) => {
+      const response = await fetch("http://localhost:3001/data");
+      const jsonResponse = await response.json();
+      const originalData = jsonResponse.map((item) => item.data);
+
+      const initData = originalData.filter((item) => {
         const isMachineNameMatch = machineName
-          ? item.data.machine_name.toLowerCase() === machineName.toLowerCase()
-          : false;
+          ? item.machine_name.toLowerCase() === machineName.toLowerCase()
+          : true;
 
         const isMachineCodeMatch = machineCode
-          ? item.data.machine_number === machineCode
-          : false;
+          ? item.machine_number === machineCode
+          : true;
 
         const isMaintenanceTypeMatch = maintenanceType
-          ? item.data.type_of_maintenance.toLowerCase() ===
+          ? item.type_of_maintenance.toLowerCase() ===
             maintenanceType.toLowerCase()
-          : false;
+          : true;
 
         return (
           isMachineNameMatch && isMachineCodeMatch && isMaintenanceTypeMatch
         );
       });
+      console.log(initData); // This will log the filtered data
       if (initData.length === 0) {
         alert("cannot find data");
+        setData(null);
         return;
       }
-      alert(initData.data.machine_name);
-      console.log(data);
+
+      // Update data state with the filtered data
+      setData(initData);
     } catch (error) {
+      console.error("Fetch error:", error);
       alert("cannot find data");
     }
   }
-
   return (
     <div>
       <div className="detailscreen">
@@ -61,7 +52,7 @@ function Detail() {
           Detail maintenance information for your machine
         </header>
         <p className="detailsubtext">Find maintenance form of machine</p>
-        <p className="managesubtext2">
+        <p className="maagesubtext2">
           Machine Name:{" "}
           <input
             type="text"

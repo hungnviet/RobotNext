@@ -7,7 +7,7 @@ import CreateForm from "./screens/createform";
 import Detail from "./screens/detail";
 import Sidebar from "./components/Sidebar"; // Import the Sidebar component
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

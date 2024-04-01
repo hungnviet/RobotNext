@@ -2,6 +2,7 @@ const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
+const server = require("./backend");
 
 let isDev;
 import("electron-is-dev").then((module) => {

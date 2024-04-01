@@ -6,9 +6,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); // This middleware is used to parse JSON bodies
-
+app.use("/images", express.static(path.join(__dirname, "../../images")));
 app.get("/data", (req, res) => {
-  console.log("hello");
   fs.readFile(
     path.join(__dirname, "../../Data/maintenance_data.json"),
     (err, data) => {
@@ -106,6 +105,4 @@ app.get("/formTemplate/:machineName/:maintenanceType", (req, res) => {
   );
 });
 
-app.use("/images", express.static(path.join(__dirname, "public/images")));
-
-app.listen(3001, () => console.log("Server listening on port 3001"));
+app.listen(3001, () => console.log("Server listening on port12 3001"));
