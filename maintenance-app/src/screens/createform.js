@@ -57,7 +57,7 @@ function CreateForm() {
       data.maintenace_time.end = end;
       data.maintenace_time.date = date;
       data.remark = remark;
-      data.image = images.map((image) => ({ image_url: image }));
+
       setTemplate(data);
 
       const response = await fetch("http://localhost:3001/data", {
@@ -191,9 +191,22 @@ function CreateForm() {
           </div>
           {template.maintenance_details && (
             <div className="form_maintenance_detail_container">
+              <p className="detailbodytext"> Machine Picture </p>
+              <div className="image-container">
+                {template.image &&
+                  template.image.map((img, imgIndex) => (
+                    <img
+                      key={imgIndex}
+                      src={img.image_url}
+                      alt="Maintenance"
+                      className={`image-${imgIndex}`}
+                    />
+                  ))}
+              </div>
               {template.maintenance_details.map((item, indexField) => {
                 return (
                   <div className="field_container">
+
                     <div className="field_header">
                       <div className="field_name">
                         <p>{item.field}</p>
@@ -275,12 +288,6 @@ function CreateForm() {
                 onChange={(e) => setApprovedBy(e.target.value)}
               ></input>
             </div>
-          </div>
-          <div className="upload_image_container">
-            <input type="file" accept="image/*" onChange={onImageChange} />
-            {images.map((image, index) => (
-              <img key={index} src={image} alt={`uploaded ${index}`} />
-            ))}
           </div>
           <h3 className="remark_text">Remark</h3>
           <input

@@ -7,6 +7,7 @@
   width: 78vw;
   row-gap: 20px;
 }
+
 .header_create_form_template {
   position: fixed;
   top: 10px;
@@ -19,13 +20,16 @@
   flex-direction: column;
   align-items: center;
 }
+
 .header_create_form_template h3,
 h4 {
   margin: 0px;
 }
+
 .header_create_form_template h3 {
   color: red;
 }
+
 .content_create_form {
   position: fixed;
   top: 170px;
@@ -41,6 +45,7 @@ h4 {
   align-items: center;
   padding-bottom: 20px;
 }
+
 .form_in4_create_template {
   width: 80%;
   display: flex;
@@ -48,6 +53,7 @@ h4 {
   justify-content: center;
   column-gap: 40px;
 }
+
 .form_in4_create_template div {
   display: flex;
   flex-direction: row;
@@ -55,10 +61,12 @@ h4 {
   justify-content: center;
   align-items: center;
 }
+
 .form_in4_create_template input,
 select {
   height: 30px;
 }
+
 .content_container_create_template {
   width: 80%;
   display: flex;
@@ -67,19 +75,23 @@ select {
   align-items: flex-start;
   row-gap: 20px;
 }
+
 .field_header_create_template {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
+
 .field_header_create_template input {
   height: 30px;
 }
+
 .field_header_create_template p {
   font-weight: bold;
 }
+
 .field_header_create_template button {
   height: 30px;
   width: 100px;
@@ -88,26 +100,48 @@ select {
   color: #c1121f;
   transition: 0.5s ease;
 }
+
 .field_header_create_template button:hover {
   background-color: #c1121f;
   color: white;
   cursor: pointer;
   border-radius: 5px;
 }
+
 .field_header_create_template input {
   font-weight: bold;
 }
+
 .requirement_container_create_template {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin-left: 75px;
+  margin-left: 50px;
 }
+
 .requirement_container_create_template div {
   display: flex;
   flex-direction: row;
   column-gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+.requirement_container_create_template div p {
+  margin: 0px;
+}
+
+.requirement_container_create_template div input:first-child {
+  height: 30px;
+  width: 300px;
+}
+
+.requirement_container_create_template div input:last-child {
+  height: 30px;
+  width: 100px;
+
+}
+
 .requirement_container_create_template button {
   height: 30px;
   width: max-content;
@@ -116,10 +150,12 @@ select {
   color: #c1121f;
   transition: 0.5s ease;
 }
+
 .requirement_container_create_template button:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .btn_add_requirement {
   background-color: #00b4d8;
   color: white;
@@ -131,14 +167,17 @@ select {
   margin-left: 75px;
   transition: 0.2s ease;
 }
+
 .btn_add_requirement:hover {
   background-color: #0077b6;
   cursor: pointer;
 }
+
 .btn_add_field_container {
   width: 75%;
   margin-top: 20px;
 }
+
 .btn_add_field {
   background-color: #fff;
   color: black;
@@ -149,6 +188,7 @@ select {
   width: 100px;
   transition: 0.2s ease;
 }
+
 .btn_add_field:hover {
   background-color: #1a1a1d;
   cursor: pointer;

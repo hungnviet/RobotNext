@@ -9,19 +9,31 @@ function CreateTemplate() {
   const [machineName, setMachineName] = useState("");
   const [typeOfMaintenance, setTypeOfMaintenance] = useState("daily");
   const [formDetail, setFormDetail] = useState([]);
+  const [images, setImages] = useState([]);
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      if (images.length < 3) {
+        let img = event.target.files[0];
+        setImages([...images, URL.createObjectURL(img)]);
+      } else {
+        toast.error("You can only upload a maximum of 3 images");
+      }
+    }
+  };
   function addField() {
     setFormDetail([
       ...formDetail,
       {
         field: "",
-        requirement: [],
+        requirement: [{ name: "", checking_method: "" }],
       },
     ]);
   }
   function addRequirement(fieldIndex) {
     if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
       let newFormDetail = [...formDetail];
-      newFormDetail[fieldIndex].requirement.push("");
+      newFormDetail[fieldIndex].requirement.push({ name: "", checking_method: "" });
       setFormDetail(newFormDetail);
     } else {
       toast.error(`Invalid fieldIndex: ${fieldIndex}`);
@@ -68,7 +80,23 @@ function CreateTemplate() {
         requirementIndex >= 0 &&
         requirementIndex < newFormDetail[fieldIndex].requirement.length
       ) {
-        newFormDetail[fieldIndex].requirement[requirementIndex] = value;
+        newFormDetail[fieldIndex].requirement[requirementIndex].name = value;
+        setFormDetail(newFormDetail);
+      } else {
+        toast.error(`Invalid requirementIndex: ${requirementIndex}`);
+      }
+    } else {
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
+    }
+  }
+  function onChangeChecking_method(fieldIndex, requirementIndex, value) {
+    if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
+      let newFormDetail = [...formDetail];
+      if (
+        requirementIndex >= 0 &&
+        requirementIndex < newFormDetail[fieldIndex].requirement.length
+      ) {
+        newFormDetail[fieldIndex].requirement[requirementIndex].checking_method = value;
         setFormDetail(newFormDetail);
       } else {
         toast.error(`Invalid requirementIndex: ${requirementIndex}`);
@@ -95,9 +123,11 @@ function CreateTemplate() {
       maintenance_details: formDetail.map((detail) => ({
         field: detail.field,
         requirement: detail.requirement.map((req) => ({
-          name: req,
+          name: req.name,
+          checking_method: req.checking_method,
           status: "",
           corrective_action: "",
+          dailyChecks: typeOfMaintenance === "daily" ? new Array(31).fill(false) : undefined,
         })),
       })),
       image: [
@@ -106,7 +136,7 @@ function CreateTemplate() {
         },
       ],
     };
-
+    data.image = images.map((image) => ({ image_url: image }));
     const response = await fetch("http://localhost:3001/formTemplate", {
       method: "POST",
       headers: {
@@ -181,11 +211,13 @@ function CreateTemplate() {
                   <div key={index}>
                     <input
                       type="text"
-                      value={requirement}
+                      value={requirement.name}
                       onChange={(e) =>
                         onChangeRequirement(fieldIndex, index, e.target.value)
                       }
                     />
+                    <p>Checking method</p>
+                    <input type="text" placeholder="Ex: visual" value={requirement.checking_method} onChange={(e) => onChangeChecking_method(fieldIndex, index, e.target.value)}></input>
                     <button
                       onClick={() => {
                         deleteRequirement(fieldIndex, index);
@@ -211,6 +243,12 @@ function CreateTemplate() {
           <button className="btn_add_field" onClick={addField}>
             Add field
           </button>
+        </div>
+        <div className="upload_image_container">
+          <input type="file" accept="image/*" onChange={onImageChange} />
+          {images.map((image, index) => (
+            <img key={index} src={image} alt={`uploaded ${index}`} />
+          ))}
         </div>
         <button
           className="btn_create_form_template"

@@ -1,7 +1,7 @@
 {
   "name": "maintaince-app",
   "version": "0.1.0",
-  "main": "build/electron.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
