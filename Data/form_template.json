@@ -1,1 +1,331 @@
-[]
+[
+  {
+    "form_template": {
+      "machine_name": "Toshiba",
+      "type_of_maintenance": "daily",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "shhs",
+          "requirement": [
+            {
+              "name": "11",
+              "checking_method": "visual",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Tashibo",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "zzzz",
+          "requirement": [
+            {
+              "name": "ccxxc",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Tashibo",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "hey",
+          "requirement": [
+            {
+              "name": "a",
+              "checking_method": "v",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "123",
+              "checking_method": "x",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Ho",
+          "requirement": [
+            {
+              "name": "aaa",
+              "checking_method": "v",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "fff",
+              "checking_method": "x",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Tashibo",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Trung and Thao",
+          "requirement": [
+            {
+              "name": "Thao ",
+              "checking_method": "Nothing",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart broken",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Tashiboa",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "requirement": [
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure Death",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Trung and Thao",
+          "requirement": [
+            {
+              "name": "Thao ",
+              "checking_method": "Nothing",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Trao and Thung",
+              "checking_method": "Heart broken",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  }
+]

@@ -132,7 +132,7 @@ function CreateForm() {
           <button onClick={fetchData}>Find</button>
         </div>
       </div>
-      {template && maintenanceType !== 'daily' && (
+      {template && maintenanceType !== "daily" && (
         <div className="content_update_form">
           <div className="header_update_form">
             <p>Machine Name : {template.machine_name}</p>
@@ -206,7 +206,6 @@ function CreateForm() {
               {template.maintenance_details.map((item, indexField) => {
                 return (
                   <div className="field_container">
-
                     <div className="field_header">
                       <div className="field_name">
                         <p>{item.field}</p>
@@ -300,12 +299,9 @@ function CreateForm() {
           <ToastContainer />
         </div>
       )}
-      {
-        template && maintenanceType === 'daily' && (
-          <div className="form_maintenance_detail_container">
-          </div>
-        )
-      }
+      {template && maintenanceType === "daily" && (
+        <div className="form_maintenance_detail_container"></div>
+      )}
     </div>
   );
 }

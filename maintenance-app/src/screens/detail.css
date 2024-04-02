@@ -137,3 +137,12 @@
   font-size: 16px;
   width: 100px;
 }
+.detailbodydaily {
+  overflow-x: scroll;
+  height: 100%;
+  white-space: nowrap;
+}
+.tableelement {
+  padding: 20px;
+  border: 1px solid black;
+}

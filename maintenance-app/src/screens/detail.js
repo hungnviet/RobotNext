@@ -122,121 +122,226 @@ function Detail() {
             <header className="detailbodyheader">
               Machine’s maintenance data
             </header>
+
             {data &&
-              data.map((item, index) => (
-                <div key={index} className="detailbodycontain">
-                  <p className="detailbodytext">
-                    Machine Name:{" "}
-                    <span className="detaildata">{item.machine_name}</span>
-                    Type of maintenance:{" "}
-                    <span className="detaildata">
-                      {item.type_of_maintenance}
-                    </span>
-                  </p>
-                  <p className="detailbodytext">
-                    Maintenance operator name:{" "}
-                    <span className="detaildata">
-                      {item.maintenace_operater}
-                    </span>
-                    {"  "}
-                    Mainchine number:{" "}
-                    <span className="detaildata">{item.machine_number}</span>
-                  </p>
-                  <p className="detailbodytext">
-                    {" "}
-                    Maintenance time: Start:{" "}
-                    <span className="detaildata">
-                      {item.maintenace_time.start}
-                    </span>{" "}
-                    End:{" "}
-                    <span className="detaildata">
-                      {" "}
-                      {item.maintenace_time.end}
-                    </span>
-                    Date{" "}
-                    <span className="detaildata">
-                      {item.maintenace_time.date}
-                    </span>
-                  </p>
-                  <div className="drawline"></div>
-
-                  <p className="detailbodytext"> Machine Picture </p>
-
-                  <div className="image-container">
-                    {item.image &&
-                      item.image.map((img, imgIndex) => (
-                        <img
-                          key={imgIndex}
-                          src={img.image_url}
-                          alt="Maintenance"
-                          className={`image-${imgIndex}`}
-                        />
-                      ))}
-                  </div>
-                  <div className="drawline"></div>
-
-                  <header className="detailbodyheader">
-                    Preventive Maintenance Description
-                  </header>
-                  {item.maintenance_details &&
-                    item.maintenance_details.map((detail, detailIndex) => (
-                      <div key={detailIndex}>
-                        <div className="drawline"></div>
-                        <div className="detailfieldhead">
-                          <div
-                            style={{
-                              textDecoration: "underline",
-                              fontSize: "18px",
-                            }}
-                          >
-                            {" "}
-                            <span>{detail.field}</span>
-                            <span style={{ color: "green" }}>Verify</span>
-                            <span style={{ color: "red" }}>
-                              Corrective Action
-                            </span>
-                          </div>
-                          {detail.requirement.map((req, reqIndex) => (
-                            <div
-                              key={reqIndex}
-                              style={{ fontWeight: "normal" }}
-                            >
-                              <p>{req.name}</p>
-                              <p>{req.status}</p>
-                              <p>{req.corrective_action}</p>
-                            </div>
+              data.map((item, index) => {
+                let counter = 0;
+                return item.type_of_maintenance === "daily" ? (
+                  <div key={index} className="detailbodydaily">
+                    <p className="detailbodytext">
+                      Machine Name:{" "}
+                      <span className="detaildata">{item.machine_name}</span>{" "}
+                      <span style={{ marginLeft: "30%" }}>
+                        Month:{" "}
+                        <span className="detaildata">
+                          {new Date(item.maintenace_time.date).getMonth() + 1}
+                        </span>
+                        Year:{" "}
+                        <span className="detaildata">
+                          {new Date(item.maintenace_time.date).getFullYear()}
+                        </span>{" "}
+                      </span>
+                      Machine No:{" "}
+                      <span className="detaildata">{item.machine_number}</span>
+                    </p>
+                    <table
+                      style={{
+                        border: "1px solid black",
+                        borderCollapse: "collapse",
+                      }}
+                    >
+                      <thead>
+                        <tr>
+                          <th className="tableelement">SL: NO</th>
+                          <th style={{ border: "1px solid black" }}>
+                            Machine type
+                          </th>
+                          <th style={{ border: "1px solid black" }}>
+                            Checking Description
+                          </th>
+                          <th style={{ border: "1px solid black" }}>
+                            Checking method
+                          </th>
+                          <th style={{ border: "1px solid black" }}>P.I.C</th>
+                          {Array.from({ length: 31 }, (_, i) => (
+                            <th style={{ border: "1px solid black" }} key={i}>
+                              {i + 1}
+                            </th>
                           ))}
-                        </div>
-                      </div>
-                    ))}
-                  <div className="drawline"></div>
-                  <p className="remarktext">Remark</p>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.map((item, index) =>
+                          item.maintenance_details.map(
+                            (detail, detailIndex) => (
+                              <React.Fragment key={`${index}-${detailIndex}`}>
+                                {detail.requirement.map(
+                                  (requirement, requirementIndex) => {
+                                    counter++;
+                                    return (
+                                      <tr
+                                        key={`${index}-${detailIndex}-${requirementIndex}`}
+                                      >
+                                        <td className="tableelement">
+                                          {counter}
+                                        </td>
+                                        {requirementIndex === 0 && (
+                                          <td
+                                            className="tableelement"
+                                            rowSpan={detail.requirement.length}
+                                          >
+                                            {detail.field}
+                                          </td>
+                                        )}
+                                        <td className="tableelement">
+                                          {requirement.name}
+                                        </td>
+                                        <td className="tableelement">
+                                          {requirement.checking_method}
+                                        </td>
+                                        <td className="tableelement">
+                                          {requirement.pic}
+                                        </td>
+                                        {requirement.dailyChecks.map(
+                                          (check, i) => (
+                                            <td
+                                              className="tableelement"
+                                              key={i}
+                                            >
+                                              {check
+                                                ? "Yes"
+                                                : check === null
+                                                ? "NG"
+                                                : "No"}
+                                            </td>
+                                          )
+                                        )}
+                                      </tr>
+                                    );
+                                  }
+                                )}
+                              </React.Fragment>
+                            )
+                          )
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div key={index} className="detailbodycontain">
+                    <p className="detailbodytext">
+                      Machine Name:{" "}
+                      <span className="detaildata">{item.machine_name}</span>
+                      Type of maintenance:{" "}
+                      <span className="detaildata">
+                        {item.type_of_maintenance}
+                      </span>
+                    </p>
+                    <p className="detailbodytext">
+                      Maintenance operator name:{" "}
+                      <span className="detaildata">
+                        {item.maintenace_operater}
+                      </span>
+                      {"  "}
+                      Mainchine number:{" "}
+                      <span className="detaildata">{item.machine_number}</span>
+                    </p>
+                    <p className="detailbodytext">
+                      {" "}
+                      Maintenance time: Start:{" "}
+                      <span className="detaildata">
+                        {item.maintenace_time.start}
+                      </span>{" "}
+                      End:{" "}
+                      <span className="detaildata">
+                        {" "}
+                        {item.maintenace_time.end}
+                      </span>
+                      Date{" "}
+                      <span className="detaildata">
+                        {item.maintenace_time.date}
+                      </span>
+                    </p>
+                    <div className="drawline"></div>
 
-                  <div className="remark">
-                    <p>{item.remark}</p>
+                    <p className="detailbodytext"> Machine Picture </p>
+
+                    <div className="image-container">
+                      {item.image &&
+                        item.image.map((img, imgIndex) => (
+                          <img
+                            key={imgIndex}
+                            src={img.image_url}
+                            alt="Maintenance"
+                            className={`image-${imgIndex}`}
+                          />
+                        ))}
+                    </div>
+                    <div className="drawline"></div>
+
+                    <header className="detailbodyheader">
+                      Preventive Maintenance Description
+                    </header>
+                    {item.maintenance_details &&
+                      item.maintenance_details.map((detail, detailIndex) => (
+                        <div key={detailIndex}>
+                          <div className="drawline"></div>
+                          <div className="detailfieldhead">
+                            <div
+                              style={{
+                                textDecoration: "underline",
+                                fontSize: "18px",
+                              }}
+                            >
+                              {" "}
+                              <span>{detail.field}</span>
+                              <span style={{ color: "green" }}>Verify</span>
+                              <span style={{ color: "red" }}>
+                                Corrective Action
+                              </span>
+                            </div>
+                            {detail.requirement.map((req, reqIndex) => (
+                              <div
+                                key={reqIndex}
+                                style={{ fontWeight: "normal" }}
+                              >
+                                <p>{req.name}</p>
+                                <p>{req.status}</p>
+                                <p>{req.corrective_action}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    <div className="drawline"></div>
+                    <p className="remarktext">Remark</p>
+
+                    <div className="remark">
+                      <p>{item.remark}</p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      <div className="detailfoot">
+                        <p>Prepared by:</p>
+                        <p style={{ fontSize: "16px", fontWeight: "normal" }}>
+                          {item.prepared_by}
+                        </p>
+                      </div>
+                      <div className="detailfoot">
+                        <p style={{ color: "red" }}>Checked by:</p>
+                        <p style={{ fontSize: "16px", fontWeight: "normal" }}>
+                          {item.checked_by}
+                        </p>
+                      </div>
+                      <div className="detailfoot">
+                        <p style={{ color: "green" }}>Approved by:</p>
+                        <p style={{ fontSize: "16px", fontWeight: "normal" }}>
+                          {item.approved_by}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div style={{ display: "flex" }}>
-                    <div className="detailfoot">
-                      <p>Prepared by:</p>
-                      <p style={{ fontSize: "16px", fontWeight: "normal" }}>
-                        {item.prepared_by}
-                      </p>
-                    </div>
-                    <div className="detailfoot">
-                      <p style={{ color: "red" }}>Checked by:</p>
-                      <p style={{ fontSize: "16px", fontWeight: "normal" }}>
-                        {item.checked_by}
-                      </p>
-                    </div>
-                    <div className="detailfoot">
-                      <p style={{ color: "green" }}>Approved by:</p>
-                      <p style={{ fontSize: "16px", fontWeight: "normal" }}>
-                        {item.approved_by}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </div>
       </div>
