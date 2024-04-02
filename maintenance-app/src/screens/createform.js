@@ -132,7 +132,7 @@ function CreateForm() {
           <button onClick={fetchData}>Find</button>
         </div>
       </div>
-      {template && (
+      {template && maintenanceType !== 'daily' && (
         <div className="content_update_form">
           <div className="header_update_form">
             <p>Machine Name : {template.machine_name}</p>
@@ -300,6 +300,12 @@ function CreateForm() {
           <ToastContainer />
         </div>
       )}
+      {
+        template && maintenanceType === 'daily' && (
+          <div className="form_maintenance_detail_container">
+          </div>
+        )
+      }
     </div>
   );
 }

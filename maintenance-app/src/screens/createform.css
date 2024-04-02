@@ -129,6 +129,7 @@
   align-items: center;
   width: 100%;
   row-gap: 20px;
+  background-color: #fff;
 }
 
 .field_container {
