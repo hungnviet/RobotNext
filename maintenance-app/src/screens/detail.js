@@ -100,6 +100,7 @@ function Detail() {
           >
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
             <option value="halfyearly">Half-yearly</option>
             <option value="yearly">Yearly</option>
           </select>{" "}
@@ -134,11 +135,11 @@ function Detail() {
                       <span style={{ marginLeft: "30%" }}>
                         Month:{" "}
                         <span className="detaildata">
-                          {new Date(item.maintenace_time.date).getMonth() + 1}
+                          {new Date(item.daily_time).getMonth() + 1}
                         </span>
                         Year:{" "}
                         <span className="detaildata">
-                          {new Date(item.maintenace_time.date).getFullYear()}
+                          {new Date(item.daily_time).getFullYear()}
                         </span>{" "}
                       </span>
                       Machine No:{" "}
@@ -207,6 +208,13 @@ function Detail() {
                                             <td
                                               className="tableelement"
                                               key={i}
+                                              style={{
+                                                color: check
+                                                  ? "green"
+                                                  : check === null
+                                                  ? "black"
+                                                  : "red",
+                                              }}
                                             >
                                               {check
                                                 ? "Yes"
@@ -230,19 +238,21 @@ function Detail() {
                 ) : (
                   <div key={index} className="detailbodycontain">
                     <p className="detailbodytext">
-                      Machine Name:{" "}
+                      Machine Name:
                       <span className="detaildata">{item.machine_name}</span>
+                      <span style={{ marginLeft: "32%" }}></span>
                       Type of maintenance:{" "}
                       <span className="detaildata">
                         {item.type_of_maintenance}
                       </span>
                     </p>
                     <p className="detailbodytext">
-                      Maintenance operator name:{" "}
+                      Maintenance operator number:{" "}
                       <span className="detaildata">
                         {item.maintenace_operater}
                       </span>
                       {"  "}
+                      <span style={{ marginLeft: "20%" }}></span>
                       Mainchine number:{" "}
                       <span className="detaildata">{item.machine_number}</span>
                     </p>
@@ -252,6 +262,7 @@ function Detail() {
                       <span className="detaildata">
                         {item.maintenace_time.start}
                       </span>{" "}
+                      <span style={{ marginLeft: "25%" }}></span>
                       End:{" "}
                       <span className="detaildata">
                         {" "}
