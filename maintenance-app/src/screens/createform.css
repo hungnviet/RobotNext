@@ -271,3 +271,60 @@
   width: 400px;
   height: auto;
 }
+
+.content_update_form_daily {
+  position: fixed;
+  top: 170px;
+  right: 10px;
+  left: 22vw;
+  bottom: 0;
+  height: 1 flex;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.form_date_daily {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form_date_daily button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.5s ease;
+}
+
+.form_date_daily button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+.table_daily_form_contanier {
+  width: 100%;
+  height: fit-content;
+  max-height: 400px;
+  overflow: scroll;
+  margin-top: 20px;
+
+}
+
+.btn_save_daily {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

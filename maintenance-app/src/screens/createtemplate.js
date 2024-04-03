@@ -110,6 +110,7 @@ function CreateTemplate() {
       machine_name: machineName,
       type_of_maintenance: typeOfMaintenance,
       machine_number: "",
+      daily_time: "",
       maintenace_time: {
         start: "",
         end: "",
