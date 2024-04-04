@@ -1,7 +1,87 @@
 [
   {
     "data": {
-      "machine_name": "Toshiba",
+      "machine_name": "Toshiba 1650c",
+      "type_of_maintenance": "weekly",
+      "machine_number": "1234",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "15:10",
+        "end": "15:10",
+        "date": "2024-04-04"
+      },
+      "maintenace_operater": "1",
+      "prepared_by": "a",
+      "approved_by": "c",
+      "checked_by": "b",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "vietnamese": "Đúc áp lực",
+          "requirement": [
+            {
+              "name": "Ensure Hydraulic Oil Level",
+              "vietnamese": "Đảm bảo mức dầu thủy lực",
+              "checking_method": "D",
+              "status": "OK",
+              "corrective_action": "Hey"
+            },
+
+            {
+              "name": "Check the Hydraulic Oil temperature 40C - 55C",
+              "vietnamese": "Kiểm tra nhiệt độ dầu thủy lực 40C - 55C",
+              "checking_method": "Visual",
+              "status": "OK",
+              "corrective_action": "Check the Hydraulic Oil temperature 40C - 55C"
+            },
+            {
+              "name": "Check hydraulic Pump System",
+              "vietnamese": "Kiểm tra hệ thống bơm thủy lực",
+              "checking_method": "Visual",
+              "status": "OK",
+              "corrective_action": "Check hydraulic Pump System"
+            }
+          ]
+        },
+        {
+          "field": "Robot",
+          "vietnamese": "Người máy",
+          "requirement": [
+            {
+              "name": "Check apperance Robot",
+              "vietnamese": "Kiểm tra ngoại hình Robot",
+              "checking_method": "Visual",
+              "status": "OK",
+              "corrective_action": "Check apperance Robot"
+            },
+            {
+              "name": "Check the robot monitor & System everything Normal",
+              "vietnamese": "Kiểm tra màn hình robot & Hệ thống mọi thứ bình thường",
+              "checking_method": "Visual",
+              "status": "OK",
+              "corrective_action": "Check the robot monitor & System everything Normal"
+            }
+          ]
+        }
+      ],
+      "image": [
+        {
+          "image_url": "http://localhost:3001/images/img1.jpg"
+        },
+        {
+          "image_url": "http://localhost:3001/images/img2.jpg"
+        },
+        {
+          "image_url": "http://localhost:3001/images/img3.jpg"
+        }
+      ],
+      "remark": "x"
+    }
+  },
+  {
+    "data": {
+      "machine_name": "Toshiba 1650c",
       "type_of_maintenance": "daily",
       "machine_number": "1234",
       "daily_time": "2024-04",
@@ -18,20 +98,64 @@
       "maintenance_details": [
         {
           "field": "Die Casting",
+          "vietnamese": "Đúc áp lực",
           "requirement": [
             {
-              "name": "Checking for something",
+              "name": "Ensure Hydraulic Oil Level",
+              "vietnamese": "Đảm bảo mức dầu thủy lực",
               "checking_method": "Visual",
+              "methodvn": "Thị giác",
               "status": "",
               "corrective_action": "",
               "dailyChecks": [
                 true,
                 false,
                 true,
+                true,
+                true,
                 false,
                 false,
                 true,
+                true,
+                true,
                 false,
+                false,
+                false,
+                true,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "name": "Check the Hydraulic Oil temperature 40C - 55C",
+              "vietnamese": "Kiểm tra nhiệt độ dầu thủy lực 40C - 55C",
+              "checking_method": "Visual",
+              "methodvn": "Thị giác",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                true,
+                false,
+                true,
+                true,
+                false,
+                true,
                 false,
                 false,
                 false,
@@ -59,22 +183,24 @@
               ]
             },
             {
-              "name": "Checking for something",
+              "name": "Check hydraulic Pump System",
+              "vietnamese": "Kiểm tra hệ thống bơm thủy lực",
               "checking_method": "Visual",
+              "methodvn": "Thị giác",
               "status": "",
               "corrective_action": "",
               "dailyChecks": [
                 false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                true,
                 true,
                 false,
                 true,
-                false,
-                false,
                 true,
-                false,
-                false,
-                false,
-                false,
                 false,
                 false,
                 false,
@@ -98,22 +224,24 @@
               ]
             },
             {
-              "name": "Checking for something",
-              "checking_method": "Visual",
+              "name": "Ensure no Air Leakage",
+              "vietnamese": "Đảm bảo không rò rỉ khí",
+              "checking_method": "Noise free",
+              "methodvn": "Không ồn ào",
               "status": "",
               "corrective_action": "",
               "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                true,
                 true,
                 false,
-                false,
-                false,
                 true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
+                true,
                 false,
                 false,
                 false,
@@ -139,20 +267,23 @@
           ]
         },
         {
-          "field": "Die Casting 2",
+          "field": "Robot",
+          "vietnamese": "Người máy",
           "requirement": [
             {
-              "name": "Checking for something",
+              "name": "Check apperance Robot",
+              "vietnamese": "Kiểm tra ngoại hình Robot",
               "checking_method": "Visual",
+              "methodvn": "Thị giác",
               "status": "",
               "corrective_action": "",
               "dailyChecks": [
                 false,
+                false,
+                false,
+                false,
                 true,
-                false,
-                false,
                 true,
-                false,
                 false,
                 false,
                 false,
@@ -181,8 +312,10 @@
               ]
             },
             {
-              "name": "Checking for something",
+              "name": "Check the robot monitor & System everything Normal",
+              "vietnamese": "Kiểm tra màn hình robot & Hệ thống mọi thứ bình thường",
               "checking_method": "Visual",
+              "methodvn": "Thị giác",
               "status": "",
               "corrective_action": "",
               "dailyChecks": [
@@ -190,389 +323,7 @@
                 false,
                 false,
                 true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
                 true,
-                true,
-                false,
-                false,
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            }
-          ]
-        }
-      ],
-      "image": []
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Toshiba",
-      "type_of_maintenance": "weekly",
-      "machine_number": "1234",
-      "daily_time": "",
-      "maintenace_time": {
-        "start": "16:37",
-        "end": "16:37",
-        "date": "2024-04-03"
-      },
-      "maintenace_operater": "1212",
-      "prepared_by": "Huy",
-      "approved_by": "Hieu",
-      "checked_by": "Hung",
-      "check_out": "",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "NG",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        },
-        {
-          "field": "Die Casting 2",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        }
-      ],
-      "image": [
-        {
-          "image_url": "http://localhost:3001/images/img1.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img2.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img3.jpg"
-        }
-      ],
-      "remark": "Checking for something Checking for something Checking for something"
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Tashibo",
-      "type_of_maintenance": "daily",
-      "machine_number": "1235",
-      "daily_time": "2024-05",
-      "maintenace_time": {
-        "start": "",
-        "end": "",
-        "date": ""
-      },
-      "maintenace_operater": "",
-      "prepared_by": "",
-      "approved_by": "",
-      "checked_by": "",
-      "check_out": "",
-      "maintenance_details": [
-        {
-          "field": "Field 1",
-          "requirement": [
-            {
-              "name": "For field 1",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            {
-              "name": "For field 1",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            {
-              "name": "For field 1",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            }
-          ]
-        },
-        {
-          "field": "Field 2",
-          "requirement": [
-            {
-              "name": "For field 2",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                false,
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            {
-              "name": "For field 2",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                false,
-                true,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false,
-                false
-              ]
-            },
-            {
-              "name": "For field 2",
-              "checking_method": "Visual",
-              "status": "",
-              "corrective_action": "",
-              "dailyChecks": [
-                false,
-                false,
-                true,
-                false,
-                false,
                 false,
                 false,
                 false,
@@ -605,234 +356,6 @@
         }
       ],
       "image": []
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Toshiba",
-      "type_of_maintenance": "monthly",
-      "machine_number": "1234",
-      "daily_time": "",
-      "maintenace_time": {
-        "start": "16:37",
-        "end": "16:37",
-        "date": "2024-04-03"
-      },
-      "maintenace_operater": "1212",
-      "prepared_by": "Huy",
-      "approved_by": "Hieu",
-      "checked_by": "Hung",
-      "check_out": "",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "NG",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        },
-        {
-          "field": "Die Casting 2",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        }
-      ],
-      "image": [
-        {
-          "image_url": "http://localhost:3001/images/img1.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img2.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img3.jpg"
-        }
-      ],
-      "remark": "Checking for something Checking for something Checking for something"
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Toshiba",
-      "type_of_maintenance": "halfyearly",
-      "machine_number": "1234",
-      "daily_time": "",
-      "maintenace_time": {
-        "start": "16:37",
-        "end": "16:37",
-        "date": "2024-04-03"
-      },
-      "maintenace_operater": "1212",
-      "prepared_by": "Huy",
-      "approved_by": "Hieu",
-      "checked_by": "Hung",
-      "check_out": "",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "NG",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        },
-        {
-          "field": "Die Casting 2",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        }
-      ],
-      "image": [
-        {
-          "image_url": "http://localhost:3001/images/img1.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img2.jpg"
-        },
-        {
-          "image_url": "http://localhost:3001/images/img3.jpg"
-        }
-      ],
-      "remark": "Checking for something Checking for something Checking for something"
-    }
-  },
-  {
-    "data": {
-      "machine_name": "Toshiba",
-      "type_of_maintenance": "yearly",
-      "machine_number": "1234",
-      "daily_time": "",
-      "maintenace_time": {
-        "start": "16:37",
-        "end": "16:37",
-        "date": "2024-04-03"
-      },
-      "maintenace_operater": "1212",
-      "prepared_by": "Huy",
-      "approved_by": "Hieu",
-      "checked_by": "Hung",
-      "check_out": "",
-      "maintenance_details": [
-        {
-          "field": "Die Casting",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "NG",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        },
-        {
-          "field": "Die Casting 2",
-          "requirement": [
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            },
-            {
-              "name": "Checking for something",
-              "checking_method": "Visual",
-              "status": "OK",
-              "corrective_action": "Checking for something"
-            }
-          ]
-        }
-      ],
-      "image": [
-        {
-          "image_url": "http://localhost:3001/images/img1.jpg"
-        }
-      ],
-      "remark": "Checking for something Checking for something Checking for something"
     }
   }
 ]

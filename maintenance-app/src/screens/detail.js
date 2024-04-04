@@ -155,13 +155,23 @@ function Detail() {
                         <tr>
                           <th className="tableelement">SL: NO</th>
                           <th style={{ border: "1px solid black" }}>
-                            Machine type
+                            Machine type <br />
+                            <span style={{ fontWeight: "normal" }}>
+                              loại máy
+                            </span>
                           </th>
                           <th style={{ border: "1px solid black" }}>
-                            Checking Description
+                            Checking Description <br />
+                            <span style={{ fontWeight: "normal" }}>
+                              mô tả kiểm tra
+                            </span>
                           </th>
                           <th style={{ border: "1px solid black" }}>
                             Checking method
+                            <br />
+                            <span style={{ fontWeight: "normal" }}>
+                              phương pháp kiểm tra
+                            </span>
                           </th>
                           <th style={{ border: "1px solid black" }}>P.I.C</th>
                           {Array.from({ length: 31 }, (_, i) => (
@@ -190,15 +200,39 @@ function Detail() {
                                           <td
                                             className="tableelement"
                                             rowSpan={detail.requirement.length}
+                                            style={{ fontWeight: "bold" }}
                                           >
-                                            {detail.field}
+                                            {detail.field} <br />
+                                            <span
+                                              style={{ fontWeight: "normal" }}
+                                            >
+                                              {detail.vietnamese}
+                                            </span>
                                           </td>
                                         )}
-                                        <td className="tableelement">
+                                        <td
+                                          className="tableelement"
+                                          style={{ fontWeight: "bold" }}
+                                        >
                                           {requirement.name}
+                                          <br />
+                                          <span
+                                            style={{ fontWeight: "normal" }}
+                                          >
+                                            {requirement.vietnamese}
+                                          </span>
                                         </td>
-                                        <td className="tableelement">
-                                          {requirement.checking_method}
+                                        <td
+                                          className="tableelement"
+                                          style={{ fontWeight: "bold" }}
+                                        >
+                                          {requirement.checking_method} /
+                                          <span
+                                            style={{ fontWeight: "normal" }}
+                                          >
+                                            {" "}
+                                            {requirement.methodvn}
+                                          </span>
                                         </td>
                                         <td className="tableelement">
                                           {requirement.pic}
@@ -237,46 +271,91 @@ function Detail() {
                   </div>
                 ) : (
                   <div key={index} className="detailbodycontain">
-                    <p className="detailbodytext">
-                      Machine Name:
-                      <span className="detaildata">{item.machine_name}</span>
-                      <span style={{ marginLeft: "32%" }}></span>
-                      Type of maintenance:{" "}
-                      <span className="detaildata">
-                        {item.type_of_maintenance}
-                      </span>
-                    </p>
-                    <p className="detailbodytext">
-                      Maintenance operator number:{" "}
-                      <span className="detaildata">
-                        {item.maintenace_operater}
-                      </span>
-                      {"  "}
-                      <span style={{ marginLeft: "20%" }}></span>
-                      Mainchine number:{" "}
-                      <span className="detaildata">{item.machine_number}</span>
-                    </p>
+                    <div
+                      className="detailbodytext"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "3fr 2fr",
+                      }}
+                    >
+                      <div>
+                        <span>Machine Name: </span>
+
+                        <span className="detaildata">{item.machine_name}</span>
+                        <br />
+                        <span style={{ fontWeight: "normal" }}>
+                          Tên máy móc:{" "}
+                        </span>
+                      </div>
+                      <div>
+                        <span>Type of maintenance: </span>
+
+                        <span className="detaildata">
+                          {item.type_of_maintenance}
+                        </span>
+                        <br />
+                        <span style={{ fontWeight: "normal" }}>
+                          Loại bảo trì:{" "}
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      className="detailbodytext"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "3fr 2fr",
+                      }}
+                    >
+                      <div>
+                        <span>Maintenance operator number: </span>
+                        <span className="detaildata">
+                          {item.maintenace_operater}
+                        </span>
+                      </div>
+                      <div>
+                        <span>Machine number: </span>
+                        <span className="detaildata">
+                          {item.machine_number}
+                        </span>
+                        <br />
+                        <span style={{ fontWeight: "normal" }}>Số máy: </span>
+                      </div>
+                    </div>
+                    <div
+                      className="detailbodytext"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "2fr 2fr 2.7fr",
+                      }}
+                    >
+                      <div>
+                        <span>Maintenance time: Start: </span>
+                        <span className="detaildata">
+                          {item.maintenace_time.start}
+                        </span>
+                        <br />
+                        <span style={{ fontWeight: "normal" }}>
+                          Thời gian bảo trì:{" "}
+                        </span>
+                      </div>
+                      <div>
+                        <span>End: </span>
+                        <span className="detaildata">
+                          {item.maintenace_time.end}
+                        </span>
+                      </div>
+                      <div>
+                        <span>Date: </span>
+                        <span className="detaildata">
+                          {item.maintenace_time.date}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="drawline"></div>
                     <p className="detailbodytext">
                       {" "}
-                      Maintenance time: Start:{" "}
-                      <span className="detaildata">
-                        {item.maintenace_time.start}
-                      </span>{" "}
-                      <span style={{ marginLeft: "25%" }}></span>
-                      End:{" "}
-                      <span className="detaildata">
-                        {" "}
-                        {item.maintenace_time.end}
-                      </span>
-                      Date{" "}
-                      <span className="detaildata">
-                        {item.maintenace_time.date}
-                      </span>
+                      Machine Picture/ Hình ảnh máy{" "}
                     </p>
-                    <div className="drawline"></div>
-
-                    <p className="detailbodytext"> Machine Picture </p>
-
                     <div className="image-container">
                       {item.image &&
                         item.image.map((img, imgIndex) => (
@@ -288,45 +367,78 @@ function Detail() {
                           />
                         ))}
                     </div>
-                    <div className="drawline"></div>
-
                     <header className="detailbodyheader">
                       Preventive Maintenance Description
                     </header>
                     {item.maintenance_details &&
                       item.maintenance_details.map((detail, detailIndex) => (
                         <div key={detailIndex}>
-                          <div className="drawline"></div>
-                          <div className="detailfieldhead">
-                            <div
-                              style={{
-                                textDecoration: "underline",
-                                fontSize: "18px",
-                              }}
-                            >
-                              {" "}
-                              <span>{detail.field}</span>
-                              <span style={{ color: "green" }}>Verify</span>
-                              <span style={{ color: "red" }}>
-                                Corrective Action
-                              </span>
-                            </div>
-                            {detail.requirement.map((req, reqIndex) => (
-                              <div
-                                key={reqIndex}
-                                style={{ fontWeight: "normal" }}
+                          <table style={{ width: "100%" }}>
+                            <thead>
+                              <tr
+                                style={{
+                                  textDecoration: "underline",
+                                  fontSize: "18px",
+                                }}
                               >
-                                <p>{req.name}</p>
-                                <p>{req.status}</p>
-                                <p>{req.corrective_action}</p>
-                              </div>
-                            ))}
-                          </div>
+                                <th
+                                  className="tableelement2"
+                                  style={{ width: "33%" }}
+                                >
+                                  {detail.field} <span>/ </span>
+                                  {detail.vietnamese}
+                                </th>
+                                <th
+                                  className="tableelement2"
+                                  style={{ color: "green", width: "33%" }}
+                                >
+                                  Verify / Xác minh
+                                </th>
+                                <th
+                                  className="tableelement2"
+                                  style={{ color: "red", width: "33%" }}
+                                >
+                                  Corrective Action/
+                                  <br />
+                                  <span>Hành động khắc phục</span>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {detail.requirement.map((req, reqIndex) => (
+                                <tr
+                                  key={reqIndex}
+                                  style={{ fontWeight: "normal" }}
+                                >
+                                  <td
+                                    className="tableelement2"
+                                    style={{ width: "33%", fontWeight: "bold" }}
+                                  >
+                                    {reqIndex + 1} <span>.</span>
+                                    {req.name} <br />
+                                    <span style={{ fontWeight: "normal" }}>
+                                      {req.vietnamese}
+                                    </span>
+                                  </td>
+                                  <td
+                                    className="tableelement2"
+                                    style={{ width: "33%" }}
+                                  >
+                                    {req.status}
+                                  </td>
+                                  <td
+                                    className="tableelement2"
+                                    style={{ width: "33%" }}
+                                  >
+                                    {req.corrective_action}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
                         </div>
                       ))}
-                    <div className="drawline"></div>
-                    <p className="remarktext">Remark</p>
-
+                    <p className="remarktext">Remark/ Ghi chú</p>
                     <div className="remark">
                       <p>{item.remark}</p>
                     </div>
