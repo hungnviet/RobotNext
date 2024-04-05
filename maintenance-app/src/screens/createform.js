@@ -140,9 +140,14 @@ function CreateForm() {
     <div className="update_form_data_screen">
       <div className="header_update_form_template">
         <h3>Input data for maintenance form</h3>
+        <h4>(Điền Thông Tin Để Hoàn Thành Biên Bản Bảo Trì)</h4>
         <div className="filer_update_form_template">
-          <div>
-            <p>Machine Name</p>
+          <div className="container_filter">
+            <div className="filter_title_create_form">
+              <p>Machine Name</p>
+              <p>(Tên máy)</p>
+            </div>
+
             <input
               type="text"
               placeholder="Ex: Toshiba"
@@ -152,19 +157,23 @@ function CreateForm() {
               value={machineName}
             />
           </div>
-          <div>
-            <p>Maintenance type</p>
+          <div className="container_filter">
+            <div className="filter_title_create_form">
+              <p>Maintenance type </p>
+              <p>(Loại bảo trì)</p>
+            </div>
+
             <select
               value={maintenanceType}
               onChange={(e) => {
                 setMaintenanceType(e.target.value);
               }}
             >
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-              <option value="halfyearly">Half yearly</option>
-              <option value="yearly">Yearly</option>
+              <option value="daily">Daily/Hàng ngày</option>
+              <option value="weekly">Weekly/Hàng tuần</option>
+              <option value="monthly">Monthly/Hàng tháng</option>
+              <option value="halfyearly">Half yearly/Hàng nữa năm</option>
+              <option value="yearly">Yearly/Hàng năm</option>
             </select>
           </div>
           <button onClick={fetchData}>Find</button>
@@ -178,7 +187,10 @@ function CreateForm() {
           </div>
           <div className="form_date_daily">
             <div>
-              <p>Machine Number:</p>
+              <div className="title_form_date_daily">
+                <p>Machine Number</p>
+                <p>(Mã số máy)</p>
+              </div>
               <input
                 type="text"
                 value={machineCode}
@@ -188,7 +200,10 @@ function CreateForm() {
               />
             </div>
             <div>
-              <p>Month-Year</p>
+              <div className="title_form_date_daily">
+                <p>Month-Year</p>
+                <p>(Tháng-Năm)</p>
+              </div>
               <input
                 type="month"
                 value={dailyTime}
@@ -196,26 +211,33 @@ function CreateForm() {
               ></input>
               {dailyTime}
             </div>
-            <button onClick={fetchDailyForm}>Apply</button>
+            <button onClick={fetchDailyForm}>Apply (Áp dụng)</button>
           </div>
           <div className="table_daily_form_contanier">
             <table
               style={{
                 border: "1px solid black",
                 borderCollapse: "collapse",
+                width: '100%', // set a width on the table
+                tableLayout: 'fixed' // add this line
               }}
             >
               <thead>
                 <tr>
-                  <th className="tableelement">SL: NO</th>
-                  <th style={{ border: "1px solid black" }}>Machine type</th>
-                  <th style={{ border: "1px solid black" }}>
-                    Checking Description
+                  <th className="tableelement" style={{ border: "1px solid black", width: '50px' }}>SL: NO</th>
+                  <th style={{ border: "1px solid black", width: '300px' }}>
+                    Machine type
+                    <p style={{ fontSize: '16px', fontWeight: "400" }}>loại máy</p>
                   </th>
-                  <th style={{ border: "1px solid black" }}>Checking method</th>
+                  <th style={{ border: "1px solid black", width: '300px' }}>
+                    Checking Description
+                    <p style={{ fontSize: '16px', fontWeight: "400" }}>Mô tả kiểm tra</p>
+                  </th>
+                  <th style={{ border: "1px solid black", width: '300px' }}>Checking method
+                    <p style={{ fontSize: '16px', fontWeight: "400" }}>phương pháp kiểm tra</p></th>
                   <th style={{ border: "1px solid black" }}>P.I.C</th>
                   {Array.from({ length: 31 }, (_, i) => (
-                    <th style={{ border: "1px solid black" }} key={i}>
+                    <th style={{ border: "1px solid black", width: '100px' }} key={i}>
                       {i + 1}
                     </th>
                   ))}
@@ -239,14 +261,23 @@ function CreateForm() {
                                     className="tableelement"
                                     rowSpan={detail.requirement.length}
                                   >
-                                    {detail.field}
+                                    <div style={{ display: 'flex', flexDirection: "column" }}>
+                                      <p style={{ fontWeight: 'bold', margin: '0' }}>{detail.field}</p>
+                                      <p>{detail.vietnamese}</p>
+                                    </div>
                                   </td>
                                 )}
                                 <td className="tableelement">
-                                  {requirement.name}
+                                  <div style={{ display: 'flex', flexDirection: "column" }}>
+                                    <p style={{ fontWeight: 'bold', margin: '0' }}>{requirement.name}</p>
+                                    <p>{requirement.vietnamese}</p>
+                                  </div>
                                 </td>
                                 <td className="tableelement">
-                                  {requirement.checking_method}
+                                  <div style={{ display: 'flex', flexDirection: "column" }}>
+                                    <p style={{ fontWeight: 'bold', margin: '0' }}>{requirement.checking_method}</p>
+                                    <p>{requirement.methodvn}</p>
+                                  </div>
                                 </td>
                                 <td className="tableelement">
                                   {requirement.pic}
@@ -280,7 +311,7 @@ function CreateForm() {
               </tbody>
             </table>
             <div className="btn_save_daily">
-              <button onClick={SaveDailyForm}>Save</button>
+              <button onClick={SaveDailyForm}>Save/Lưu</button>
             </div>
           </div>
         </div>
@@ -292,9 +323,9 @@ function CreateForm() {
             <p>Type of maintenance: {template.type_of_maintenance}</p>
           </div>
           <div className="update_form_time_container">
-            <p>Maintenance Time:</p>
+            <p>Maintenance Time(Thời gian bảo trì):</p>
             <div className="update_form_time">
-              <p>Start: </p>
+              <p>Start (Bắt đầu): </p>
               <input
                 type="time"
                 value={start}
@@ -302,7 +333,7 @@ function CreateForm() {
                   setStart(e.target.value);
                 }}
               ></input>
-              <p>End: </p>
+              <p>End (Kết Thúc): </p>
               <input
                 type="time"
                 value={end}
@@ -310,7 +341,7 @@ function CreateForm() {
                   setEnd(e.target.value);
                 }}
               ></input>
-              <p>Date</p>
+              <p>Date(Ngày)</p>
               <input
                 type="date"
                 value={date}
@@ -322,7 +353,10 @@ function CreateForm() {
           </div>
           <div className="machine_operator_in4">
             <div>
-              <p>Machine code: </p>
+              <div className="title_form_date_daily">
+                <p>Machine Number</p>
+                <p>(Mã số máy)</p>
+              </div>
               <input
                 type="text"
                 value={machineCode}
@@ -332,7 +366,10 @@ function CreateForm() {
               ></input>
             </div>
             <div>
-              <p>Maintenance operator: </p>
+              <div className="title_form_date_daily">
+                <p>Maintenance Operator Number</p>
+                <p>(Mã Số Người Kiểm Tra)</p>
+              </div>
               <input
                 type="text"
                 value={maintenanceOperator}
@@ -361,13 +398,14 @@ function CreateForm() {
                   <div className="field_container">
                     <div className="field_header">
                       <div className="field_name">
-                        <p>{item.field}</p>
+                        <p>{item.field}/{item.vietnamese}</p>
+
                       </div>
                       <div className="verify">
-                        <p>Verify</p>
+                        <p>Verify/Xác minh</p>
                       </div>
                       <div className="corrective_action">
-                        <p>Corrective action</p>
+                        <p>Corrective action/Phương án sữa chữa</p>
                       </div>
                     </div>
                     {item.requirement.map((requirement, indexRequiremnt) => {
@@ -375,6 +413,7 @@ function CreateForm() {
                         <div className="requirement_row">
                           <div className="requirement_name">
                             <p>{requirement.name}</p>
+                            <p>({requirement.vietnamese})</p>
                           </div>
                           <div className="requirement_verify">
                             <select
@@ -441,14 +480,14 @@ function CreateForm() {
               ></input>
             </div>
           </div>
-          <h3 className="remark_text">Remark</h3>
+          <h3 className="remark_text">Remark/Ghi Chú</h3>
           <input
             type="text"
             className="remark"
             onChange={(e) => setRemark(e.target.value)}
             value={remark}
           ></input>
-          <button onClick={onSave}>SAVE</button>
+          <button onClick={onSave}>SAVE(LƯU)</button>
         </div>
       )}
       {template && maintenanceType === "daily" && (

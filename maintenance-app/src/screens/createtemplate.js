@@ -26,14 +26,14 @@ function CreateTemplate() {
       ...formDetail,
       {
         field: "",
-        requirement: [{ name: "", checking_method: "" }],
+        requirement: [{ name: "", checking_method: "", vietnamese: "" }],
       },
     ]);
   }
   function addRequirement(fieldIndex) {
     if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
       let newFormDetail = [...formDetail];
-      newFormDetail[fieldIndex].requirement.push({ name: "", checking_method: "" });
+      newFormDetail[fieldIndex].requirement.push({ name: "", checking_method: "", vietnamese: "", methodvn: "" });
       setFormDetail(newFormDetail);
     } else {
       toast.error(`Invalid fieldIndex: ${fieldIndex}`);
@@ -73,6 +73,15 @@ function CreateTemplate() {
       toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
+  function onChangeFieldVietnamese(fieldIndex, value) {
+    if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
+      let newFormDetail = [...formDetail];
+      newFormDetail[fieldIndex].vietnamese = value;
+      setFormDetail(newFormDetail);
+    } else {
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
+    }
+  }
   function onChangeRequirement(fieldIndex, requirementIndex, value) {
     if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
       let newFormDetail = [...formDetail];
@@ -89,6 +98,22 @@ function CreateTemplate() {
       toast.error(`Invalid fieldIndex: ${fieldIndex}`);
     }
   }
+  function onChangeRequirementVietnamese(fieldIndex, requirementIndex, value) {
+    if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
+      let newFormDetail = [...formDetail];
+      if (
+        requirementIndex >= 0 &&
+        requirementIndex < newFormDetail[fieldIndex].requirement.length
+      ) {
+        newFormDetail[fieldIndex].requirement[requirementIndex].vietnamese = value;
+        setFormDetail(newFormDetail);
+      } else {
+        toast.error(`Invalid requirementIndex: ${requirementIndex}`);
+      }
+    } else {
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
+    }
+  }
   function onChangeChecking_method(fieldIndex, requirementIndex, value) {
     if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
       let newFormDetail = [...formDetail];
@@ -97,6 +122,22 @@ function CreateTemplate() {
         requirementIndex < newFormDetail[fieldIndex].requirement.length
       ) {
         newFormDetail[fieldIndex].requirement[requirementIndex].checking_method = value;
+        setFormDetail(newFormDetail);
+      } else {
+        toast.error(`Invalid requirementIndex: ${requirementIndex}`);
+      }
+    } else {
+      toast.error(`Invalid fieldIndex: ${fieldIndex}`);
+    }
+  }
+  function onChangeChecking_methodvn(fieldIndex, requirementIndex, value) {
+    if (fieldIndex >= 0 && fieldIndex < formDetail.length) {
+      let newFormDetail = [...formDetail];
+      if (
+        requirementIndex >= 0 &&
+        requirementIndex < newFormDetail[fieldIndex].requirement.length
+      ) {
+        newFormDetail[fieldIndex].requirement[requirementIndex].methodvn = value;
         setFormDetail(newFormDetail);
       } else {
         toast.error(`Invalid requirementIndex: ${requirementIndex}`);
@@ -123,9 +164,12 @@ function CreateTemplate() {
       check_out: "",
       maintenance_details: formDetail.map((detail) => ({
         field: detail.field,
+        vietnamese: detail.vietnamese,
         requirement: detail.requirement.map((req) => ({
           name: req.name,
+          vietnamese: req.vietnamese,
           checking_method: req.checking_method,
+          methodvn: req.methodvn,
           status: "",
           corrective_action: "",
           dailyChecks: typeOfMaintenance === "daily" ? new Array(31).fill(false) : undefined,
@@ -156,11 +200,12 @@ function CreateTemplate() {
   return (
     <div className="Create_Form_Template_Screen">
       <div className="header_create_form_template">
-        <h3>Create form template</h3>
+        <h3>Create form template / Tạo biểu mẫu</h3>
         <h4>Please input these information for creating form template</h4>
+        <p style={{ margin: "0px" }}>(Vui lòng điền vào các thông tin dưới để tọa biểu mẫu)</p>
         <div className="form_in4_create_template">
           <div>
-            <p>Machine Name:</p>{" "}
+            <p>Machine Name/Tên Máy:</p>{" "}
             <input
               type="text"
               placeholder="Ex: Toshiba"
@@ -171,7 +216,7 @@ function CreateTemplate() {
             />
           </div>
           <div>
-            <p>Type of maintenacne: </p>
+            <p>Type of maintenacne/Loại bảo trì: </p>
             <select
               value={typeOfMaintenance}
               onChange={(e) => {
@@ -188,17 +233,24 @@ function CreateTemplate() {
         </div>
       </div>
       <div className="content_create_form">
-        <h3>Customize your requirement</h3>
+        <h3>Customize your requirement / Tùy chỉnh các yêu cầu</h3>
         <div className="content_container_create_template">
           {formDetail.map((item, fieldIndex) => (
             <div className="field_container_create_template" key={fieldIndex}>
               <div className="field_header_create_template">
-                <p>Field: </p>
+                <p>Field Name: </p>
                 <input
                   type="text"
+                  placeholder="Ex: pressure casting"
                   value={item.field}
                   onChange={(e) => onChangeField(fieldIndex, e.target.value)}
                 />
+                <p>Tên Trường</p>
+                <input
+                  type="text"
+                  placeholder="VD: đúc áp lực"
+                  value={item.vietnamese}
+                  onChange={(e) => onChangeFieldVietnamese(fieldIndex, e.target.value)}></input>
                 <button
                   onClick={() => {
                     deleteField(fieldIndex);
@@ -209,16 +261,40 @@ function CreateTemplate() {
               </div>
               <div className="requirement_container_create_template">
                 {item.requirement.map((requirement, index) => (
-                  <div key={index}>
-                    <input
-                      type="text"
-                      value={requirement.name}
-                      onChange={(e) =>
-                        onChangeRequirement(fieldIndex, index, e.target.value)
-                      }
-                    />
-                    <p>Checking method</p>
-                    <input type="text" placeholder="Ex: visual" value={requirement.checking_method} onChange={(e) => onChangeChecking_method(fieldIndex, index, e.target.value)}></input>
+                  <div key={index} style={{ display: "flex", flexDirection: 'row', width: "100%", alignItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'flex-start', rowGap: "10px" }}>
+                      <h4>Requirement Detail/ Chi tiết yêu cầu</h4>
+                      <p>Requirment Name</p>
+                      <div>
+                        <input
+                          type="text"
+                          value={requirement.name}
+                          onChange={(e) =>
+                            onChangeRequirement(fieldIndex, index, e.target.value)
+                          }
+                          placeholder="Ex: pressure casting"
+                        />
+                        <p>Checking method</p>
+                        <input type="text" placeholder="Ex: visual"
+                          value={requirement.checking_method}
+                          onChange={(e) => onChangeChecking_method(fieldIndex, index, e.target.value)}></input>
+                      </div>
+                      <p>Tên Yêu Cầu</p>
+                      <div>
+                        <input
+                          type="text"
+                          value={requirement.vietnamese}
+                          onChange={(e) =>
+                            onChangeRequirementVietnamese(fieldIndex, index, e.target.value)
+                          }
+                          placeholder="Vd: Đúc Áp Lực"
+                        />
+                        <p>Phương pháp kiểm tra</p>
+                        <input type="text" placeholder="Vd: thị giác"
+                          value={requirement.methodvn}
+                          onChange={(e) => onChangeChecking_methodvn(fieldIndex, index, e.target.value)}></input>
+                      </div>
+                    </div>
                     <button
                       onClick={() => {
                         deleteRequirement(fieldIndex, index);
@@ -246,6 +322,7 @@ function CreateTemplate() {
           </button>
         </div>
         <div className="upload_image_container">
+          <h3>Image/Hình Ảnh</h3>
           <input type="file" accept="image/*" onChange={onImageChange} />
           {images.map((image, index) => (
             <img key={index} src={image} alt={`uploaded ${index}`} />
@@ -255,7 +332,7 @@ function CreateTemplate() {
           className="btn_create_form_template"
           onClick={CreateFormTemplate}
         >
-          Create form template
+          Create form template/ Tạo biểu mẫu
         </button>
         <ToastContainer />
       </div>
