@@ -30,21 +30,21 @@ function Sidebar() {
             location.pathname === "/management" ? "click2" : "unclick2"
           }
         >
-          Management
+          Management <br /> (Quản lí)
         </button>
       </Link>
       <Link to="/createform">
         <button
           className={location.pathname === "/createform" ? "click" : "unclick"}
         >
-          Create maintenance form
+          Create maintenance form <br /> (Tạo đơn bảo trì)
         </button>
       </Link>
       <Link to="/detail">
         <button
           className={location.pathname === "/detail" ? "click" : "unclick"}
         >
-          Detailed maintenance information
+          Detailed maintenance information <br /> (Thông tin bảo trì)
         </button>
       </Link>
       <Link to="/createtemplate">
@@ -53,7 +53,14 @@ function Sidebar() {
             location.pathname === "/createtemplate" ? "click" : "unclick"
           }
         >
-          Create form template
+          Create form template <br /> (Tạo mẫu đơn)
+        </button>
+      </Link>
+      <Link to="/templates">
+        <button
+          className={location.pathname === "/templates" ? "click" : "unclick"}
+        >
+          Manage form template <br /> (Quản lí mẫu đơn)
         </button>
       </Link>
     </div>

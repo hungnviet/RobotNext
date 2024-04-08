@@ -218,26 +218,42 @@ function CreateForm() {
               style={{
                 border: "1px solid black",
                 borderCollapse: "collapse",
-                width: '100%', // set a width on the table
-                tableLayout: 'fixed' // add this line
+                width: "100%", // set a width on the table
+                tableLayout: "fixed", // add this line
               }}
             >
               <thead>
                 <tr>
-                  <th className="tableelement" style={{ border: "1px solid black", width: '50px' }}>SL: NO</th>
-                  <th style={{ border: "1px solid black", width: '300px' }}>
+                  <th
+                    className="tableelement"
+                    style={{ border: "1px solid black", width: "50px" }}
+                  >
+                    SL: NO
+                  </th>
+                  <th style={{ border: "1px solid black", width: "300px" }}>
                     Machine type
-                    <p style={{ fontSize: '16px', fontWeight: "400" }}>loại máy</p>
+                    <p style={{ fontSize: "16px", fontWeight: "400" }}>
+                      loại máy
+                    </p>
                   </th>
-                  <th style={{ border: "1px solid black", width: '300px' }}>
+                  <th style={{ border: "1px solid black", width: "300px" }}>
                     Checking Description
-                    <p style={{ fontSize: '16px', fontWeight: "400" }}>Mô tả kiểm tra</p>
+                    <p style={{ fontSize: "16px", fontWeight: "400" }}>
+                      Mô tả kiểm tra
+                    </p>
                   </th>
-                  <th style={{ border: "1px solid black", width: '300px' }}>Checking method
-                    <p style={{ fontSize: '16px', fontWeight: "400" }}>phương pháp kiểm tra</p></th>
+                  <th style={{ border: "1px solid black", width: "300px" }}>
+                    Checking method
+                    <p style={{ fontSize: "16px", fontWeight: "400" }}>
+                      phương pháp kiểm tra
+                    </p>
+                  </th>
                   <th style={{ border: "1px solid black" }}>P.I.C</th>
                   {Array.from({ length: 31 }, (_, i) => (
-                    <th style={{ border: "1px solid black", width: '100px' }} key={i}>
+                    <th
+                      style={{ border: "1px solid black", width: "100px" }}
+                      key={i}
+                    >
                       {i + 1}
                     </th>
                   ))}
@@ -261,21 +277,57 @@ function CreateForm() {
                                     className="tableelement"
                                     rowSpan={detail.requirement.length}
                                   >
-                                    <div style={{ display: 'flex', flexDirection: "column" }}>
-                                      <p style={{ fontWeight: 'bold', margin: '0' }}>{detail.field}</p>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                      }}
+                                    >
+                                      <p
+                                        style={{
+                                          fontWeight: "bold",
+                                          margin: "0",
+                                        }}
+                                      >
+                                        {detail.field}
+                                      </p>
                                       <p>{detail.vietnamese}</p>
                                     </div>
                                   </td>
                                 )}
                                 <td className="tableelement">
-                                  <div style={{ display: 'flex', flexDirection: "column" }}>
-                                    <p style={{ fontWeight: 'bold', margin: '0' }}>{requirement.name}</p>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <p
+                                      style={{
+                                        fontWeight: "bold",
+                                        margin: "0",
+                                      }}
+                                    >
+                                      {requirement.name}
+                                    </p>
                                     <p>{requirement.vietnamese}</p>
                                   </div>
                                 </td>
                                 <td className="tableelement">
-                                  <div style={{ display: 'flex', flexDirection: "column" }}>
-                                    <p style={{ fontWeight: 'bold', margin: '0' }}>{requirement.checking_method}</p>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <p
+                                      style={{
+                                        fontWeight: "bold",
+                                        margin: "0",
+                                      }}
+                                    >
+                                      {requirement.checking_method}
+                                    </p>
                                     <p>{requirement.methodvn}</p>
                                   </div>
                                 </td>
@@ -398,8 +450,9 @@ function CreateForm() {
                   <div className="field_container">
                     <div className="field_header">
                       <div className="field_name">
-                        <p>{item.field}/{item.vietnamese}</p>
-
+                        <p>
+                          {item.field}/{item.vietnamese}
+                        </p>
                       </div>
                       <div className="verify">
                         <p>Verify/Xác minh</p>

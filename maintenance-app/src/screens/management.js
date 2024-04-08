@@ -56,13 +56,16 @@ function Management() {
     }
   }
   return (
-    <div className="managementscreen">
+    <div className="detailscreen">
       <div className="headermanage">
         <header className="managehead">
           List of machines that need maintenance
+          <br />
+          Danh sách máy cần bảo trì
         </header>
         <p className="managesubtext">
-          The machines have to make maintenance from{" "}
+          The machines have to make maintenance from <br />
+          <span>(Khoảng thời gian máy được bảo trì) </span>
           <span className="managecalendartext">
             <input
               type="date"
@@ -111,32 +114,47 @@ function Management() {
           </button>
         </p>
       </div>
-      <div className="managebody">
-        <p className="managesubtext3">
-          <span>Machine Name </span>{" "}
-          <span className="managetitle">Machine Number</span>
-          <span className="managetitle">Last maintenance time</span>
-          <span className="managetitle">Type of maintenance</span>
-          <span className="managetitle">Maintenance operator</span>
-        </p>
-        <div>
-          {data &&
-            data.map((item, index) => (
-              <div key={index} className="managesubtext4">
-                <div className="drawline2"></div>
-                <div className="manageItem">
-                  <span className="managename">{item.machine_name}</span>
-                  <span className="managenumber">{item.machine_number}</span>
-                  <span className="managelasttime">
-                    {item.maintenace_time.date}{" "}
-                  </span>
-                  <span className="managetype">{item.type_of_maintenance}</span>
-                  <span className="manageoperator">
-                    {item.maintenace_operater}
-                  </span>
-                </div>
-              </div>
-            ))}
+      <div className="detailbody">
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th className="tableelement">
+                  Machine Name <br /> (Tên máy)
+                </th>
+                <th className="tableelement">
+                  Machine Number <br />
+                  (Mã máy)
+                </th>
+                <th className="tableelement">
+                  Last Maintenance Time <br />
+                  (Bảo trì lần cuối)
+                </th>
+                <th className="tableelement">
+                  Type of Maintenance <br />
+                  (Loại bảo trì)
+                </th>
+                <th className="tableelement">
+                  Maintenance Operator number <br />
+                  (Số nhà điều hành bảo trì)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map((item, index) => (
+                  <tr key={index}>
+                    <td className="tableelement">{item.machine_name}</td>
+                    <td className="tableelement">{item.machine_number}</td>
+                    <td className="tableelement">
+                      {item.maintenace_time.date}
+                    </td>
+                    <td className="tableelement">{item.type_of_maintenance}</td>
+                    <td className="tableelement">{item.maintenace_operater}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react"; // add useRef
 import "./detail.css";
-import ReactToPrint from "react-to-print";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,7 +7,7 @@ function Detail() {
   const [data, setData] = useState(null);
   const [machineName, setMachineName] = useState("");
   const [machineCode, setMachineCode] = useState("");
-  const [maintenanceType, setMaintenanceType] = useState("");
+  const [maintenanceType, setMaintenanceType] = useState("daily");
 
   const [selectedDate, setSelectedDate] = useState("");
   const componentRef = useRef(); // create a reference here
@@ -73,10 +72,16 @@ function Detail() {
       <div className="detailscreen">
         <header className="managehead">
           Detail maintenance information for your machine
+          <br />{" "}
+          <span style={{ fontWeight: "normal" }}>
+            (Chi tiết thông tin bảo trì máy móc)
+          </span>
         </header>
-        <p className="detailsubtext">Find maintenance form of machine</p>
-        <p className="managesubtext2">
-          Machine Name:{" "}
+        <p className="detailsubtext">
+          Find maintenance form of machine - Tìm kiếm đơn bảo trì
+        </p>
+        <div className="managesubtext2">
+          Machine Name:
           <input
             type="text"
             className="manageinput"
@@ -109,19 +114,24 @@ function Detail() {
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
           />
+          <br />
+          <span>(Tên máy)</span>
+          <span style={{ marginLeft: "16%" }}>(Mã máy)</span>
+          <span style={{ marginLeft: "16.6%" }}>(Loại bảo trì)</span>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button className="filterdetail" onClick={handleFind}>
               Find
             </button>
           </div>
           <ToastContainer />
-        </p>
-      </div>
-      <div>
-        <div ref={componentRef}>
+        </div>
+        <div>
           <div className="detailbody">
             <header className="detailbodyheader">
-              Machine’s maintenance data
+              Machine’s maintenance data <br />
+              <span style={{ fontWeight: "normal" }}>
+                Thông tin bảo trì máy
+              </span>
             </header>
 
             {data &&
@@ -142,7 +152,7 @@ function Detail() {
                           {new Date(item.daily_time).getFullYear()}
                         </span>{" "}
                       </span>
-                      Machine No:{" "}
+                      0 Machine No:{" "}
                       <span className="detaildata">{item.machine_number}</span>
                     </p>
                     <table

@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "form_template": {
+      "machine_name": "Toshiba 1234",
+      "type_of_maintenance": "weekly",
+      "machine_number": "",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Field test",
+          "vietnamese": "Test",
+          "requirement": [
+            {
+              "name": "Test",
+              "vietnamese": "Thử nghiệm",
+              "checking_method": "test",
+              "methodvn": "Thử nghiệm",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  }
+]

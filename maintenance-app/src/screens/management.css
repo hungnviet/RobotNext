@@ -1,6 +1,6 @@
 .managementscreen {
   width: 79vw;
-  height: 20vh;
+  height: 26vh;
   background: white;
 }
 .headermanage {
@@ -50,7 +50,8 @@
 }
 .managebody {
   margin-top: 30px;
-  width: 78vw;
+  width: 100%;
+  max-width: 1200px; /* adjust as needed */
   height: 77vh;
   background: white;
 }
@@ -78,20 +79,30 @@
   justify-content: space-between;
 }
 
+.manageItem {
+  display: flex;
+  justify-content: space-between;
+}
+
 .managename {
   flex-basis: 20%;
+  max-width: 100px; /* adjust as needed */
 }
 .managenumber {
   flex-basis: 20%;
+  max-width: 100px; /* adjust as needed */
 }
 .managelasttime {
   flex-basis: 20%;
+  max-width: 150px; /* adjust as needed */
 }
 .managetype {
   flex-basis: 20%;
+  max-width: 240px; /* adjust as needed */
 }
 .manageoperator {
   flex-basis: 20%;
+  max-width: 400px; /* adjust as needed */
 }
 .drawline2 {
   border-top: 1.5px solid black;

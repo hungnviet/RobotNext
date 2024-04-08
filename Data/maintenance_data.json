@@ -27,7 +27,6 @@
               "status": "OK",
               "corrective_action": "Hey"
             },
-
             {
               "name": "Check the Hydraulic Oil temperature 40C - 55C",
               "vietnamese": "Kiểm tra nhiệt độ dầu thủy lực 40C - 55C",
@@ -356,6 +355,42 @@
         }
       ],
       "image": []
+    }
+  },
+  {
+    "data": {
+      "machine_name": "Toshiba 1234",
+      "type_of_maintenance": "weekly",
+      "machine_number": "1234",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "02:38",
+        "end": "02:38",
+        "date": "2024-04-05"
+      },
+      "maintenace_operater": "1234",
+      "prepared_by": "Huy",
+      "approved_by": "Hieu",
+      "checked_by": "Hung",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Field test",
+          "vietnamese": "Test",
+          "requirement": [
+            {
+              "name": "Test",
+              "vietnamese": "Thử nghiệm",
+              "checking_method": "test",
+              "methodvn": "Thử nghiệm",
+              "status": "OK",
+              "corrective_action": "Ok"
+            }
+          ]
+        }
+      ],
+      "image": [],
+      "remark": ""
     }
   }
 ]

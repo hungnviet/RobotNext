@@ -127,9 +127,9 @@ app.get("/formTemplate/:machineName/:maintenanceType", (req, res) => {
       const checkExist = existingData.find(
         (item) =>
           item.form_template.machine_name.toLowerCase() ===
-          machine_name.toLowerCase() &&
+            machine_name.toLowerCase() &&
           item.form_template.type_of_maintenance.toLowerCase() ===
-          type_of_maintenance.toLowerCase()
+            type_of_maintenance.toLowerCase()
       );
 
       if (checkExist) {
@@ -141,7 +141,25 @@ app.get("/formTemplate/:machineName/:maintenanceType", (req, res) => {
   );
 });
 
-app.get('/dailyForm/:machineName/:dailyTime/:machineCode', (req, res) => {
+app.get("/allFormTemplate", (req, res) => {
+  fs.readFile(
+    path.join(__dirname, "../../Data/form_template.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+        return;
+      }
+      let existingData = JSON.parse(data);
+      if (!Array.isArray(existingData)) {
+        existingData = [existingData];
+      }
+      res.json(existingData);
+    }
+  );
+});
+
+app.get("/dailyForm/:machineName/:dailyTime/:machineCode", (req, res) => {
   const machine_name = req.params.machineName;
   const daily_time = req.params.dailyTime;
   const machine_code = req.params.machineCode;
@@ -158,14 +176,20 @@ app.get('/dailyForm/:machineName/:dailyTime/:machineCode', (req, res) => {
       if (!Array.isArray(existingData)) {
         existingData = [existingData];
       }
-      const finding_data = existingData.filter((item) => item.data.machine_name.toLowerCase() === machine_name.toLowerCase() && item.data.daily_time == daily_time && item.data.machine_number === machine_code);
+      const finding_data = existingData.filter(
+        (item) =>
+          item.data.machine_name.toLowerCase() === machine_name.toLowerCase() &&
+          item.data.daily_time == daily_time &&
+          item.data.machine_number === machine_code
+      );
 
       if (finding_data.length > 0) {
-        console.log('dayne')
+        console.log("dayne");
         res.json(finding_data[0]);
       } else {
         fs.readFile(
-          path.join(__dirname, "../../Data/form_template.json"), (err, dataTemplate) => {
+          path.join(__dirname, "../../Data/form_template.json"),
+          (err, dataTemplate) => {
             if (err) {
               console.error(err);
               res.status(500).send("Error reading file");
@@ -175,26 +199,31 @@ app.get('/dailyForm/:machineName/:dailyTime/:machineCode', (req, res) => {
             if (!Array.isArray(existingTemplate)) {
               existingTemplate = [existingTemplate];
             }
-            const finding_data_template = existingTemplate.filter((item) => item.form_template.machine_name.toLowerCase() === machine_name.toLowerCase() && item.form_template.type_of_maintenance.toLowerCase() === "daily");
+            const finding_data_template = existingTemplate.filter(
+              (item) =>
+                item.form_template.machine_name.toLowerCase() ===
+                  machine_name.toLowerCase() &&
+                item.form_template.type_of_maintenance.toLowerCase() === "daily"
+            );
             if (finding_data_template.length > 0) {
               const newData = finding_data_template[0];
               newData.form_template.daily_time = daily_time;
               newData.form_template.machine_number = machine_code;
               const finalData = {
                 data: newData.form_template,
-              }
+              };
               res.json(finalData);
             } else {
               res.status(404).send("Data not found");
             }
-          });
-
+          }
+        );
       }
     }
-  )
+  );
 });
 function deleteMatchingElement(existingData, updatedData) {
-  return existingData.filter(item => {
+  return existingData.filter((item) => {
     return !(
       item.data.machine_name === updatedData.data.machine_name &&
       item.data.type_of_maintenance === updatedData.data.type_of_maintenance &&
@@ -205,7 +234,7 @@ function deleteMatchingElement(existingData, updatedData) {
 }
 app.post("/dailyForm", (req, res) => {
   const newData = req.body;
-  console.log("save daily form")
+  console.log("save daily form");
   console.log(newData);
   fs.readFile(
     path.join(__dirname, "../../Data/maintenance_data.json"),
@@ -226,7 +255,7 @@ app.post("/dailyForm", (req, res) => {
       }
       const updatedData = {
         data: newData.dailyForm.data,
-      }
+      };
       existingData = deleteMatchingElement(existingData, updatedData);
       existingData.push(updatedData);
       console.log(existingData);

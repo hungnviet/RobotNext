@@ -5,6 +5,7 @@ import Management from "./screens/management";
 import CreateTemplate from "./screens/createtemplate";
 import CreateForm from "./screens/createform";
 import Detail from "./screens/detail";
+import Templates from "./screens/templates";
 import Sidebar from "./components/Sidebar"; // Import the Sidebar component
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
@@ -27,6 +28,7 @@ root.render(
           <Route path="/createtemplate" element={<CreateTemplate />} />
           <Route path="/createform" element={<CreateForm />} />
           <Route path="/detail" element={<Detail />} />
+          <Route path="/templates" element={<Templates />} />
         </Routes>
       </div>
     </Router>

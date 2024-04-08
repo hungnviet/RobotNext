@@ -1,0 +1,45 @@
+.templateallscreen {
+  background-color: white;
+  width: 78%;
+  height: 100vh; /* Set the height to fill the viewport */
+  overflow-y: auto; /* Enable vertical scrolling when the content overflows */
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.table-container table {
+  width: 80%; /* or any other percentage that suits your needs */
+  max-width: 1000px; /* or any other pixel value that suits your needs */
+}
+
+.selected-row {
+  background-color: #747476;
+  color: white;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.centered-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttontemplate {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+}
+.tableelementtemplate {
+  padding: 10px;
+  border: 1px solid black;
+}
