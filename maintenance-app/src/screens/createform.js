@@ -465,7 +465,9 @@ function CreateForm() {
                       return (
                         <div className="requirement_row">
                           <div className="requirement_name">
-                            <p>{requirement.name}</p>
+                            <p>
+                              {indexRequiremnt + 1}. {requirement.name}
+                            </p>
                             <p>({requirement.vietnamese})</p>
                           </div>
                           <div className="requirement_verify">

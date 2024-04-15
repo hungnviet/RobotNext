@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react"; // add useRef
 import "./detail.css";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 function Detail() {
   const [data, setData] = useState(null);

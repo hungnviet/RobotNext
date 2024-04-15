@@ -33,5 +33,509 @@
       ],
       "image": []
     }
+  },
+  {
+    "form_template": {
+      "machine_name": "Toshiba 1650A",
+      "type_of_maintenance": "daily",
+      "machine_number": "",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Test",
+          "vietnamese": "Thử nghiệm",
+          "requirement": [
+            {
+              "name": "Test Req",
+              "vietnamese": "Thử nghiệm yêu cầu",
+              "checking_method": "Visual",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "name": "Test Req 2",
+              "vietnamese": "Thử nghiệm yêu cầu 2",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "field": "Test field",
+          "vietnamese": "Thử nghiệm",
+          "requirement": [
+            {
+              "name": "Test Req 3",
+              "vietnamese": "Thử nghiệm yêu cầu 3",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "name": "Test Req 4",
+              "vietnamese": "Thử nghiệm yêu cầu 4",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            {
+              "name": "Test Req 5",
+              "vietnamese": "Thử nghiệm yêu cầu 5",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": "",
+              "dailyChecks": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Test A",
+      "type_of_maintenance": "yearly",
+      "machine_number": "",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Test Field 1",
+          "vietnamese": "Thử nghiệm trường 1",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 1",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Test Field 2",
+          "vietnamese": "Thử nghiệm trường 2",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 3",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Test Field 3",
+          "vietnamese": "Thử nghiệm trường 3",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 3",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Test Toshiba",
+      "type_of_maintenance": "monthly",
+      "machine_number": "",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Test Field 1",
+          "vietnamese": "Thử nghiệm trường 1",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 1",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Test Field 2",
+          "vietnamese": "Thử nghiệm trường 2",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 3",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Test Field 3",
+          "vietnamese": "Thử nghiệm trường 3",
+          "requirement": [
+            {
+              "name": "Req 1",
+              "vietnamese": "Thử nghiệm 3",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
+  },
+  {
+    "form_template": {
+      "machine_name": "Test Machine",
+      "type_of_maintenance": "monthly",
+      "machine_number": "",
+      "daily_time": "",
+      "maintenace_time": {
+        "start": "",
+        "end": "",
+        "date": ""
+      },
+      "maintenace_operater": "",
+      "prepared_by": "",
+      "approved_by": "",
+      "checked_by": "",
+      "check_out": "",
+      "maintenance_details": [
+        {
+          "field": "Die Casting",
+          "vietnamese": "Đúc áp lực",
+          "requirement": [
+            {
+              "name": "Check the hydraulic oil & lubrication oil Quality Check",
+              "vietnamese": "Kiểm tra đầu thủy lực & dầu bôi trơn Kiểm tra chất lượng",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the oil Lubrication Condition Film over each silding face",
+              "vietnamese": "Kiểm tra mảng tình trạng bôi trơn đầu trên mỗi mặt trượt",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the Suction filter element for dirtiness & cleaning filter element",
+              "vietnamese": "Kiểm tra lõi lọc hút xem có bẩn không & vệ sinh lõi lọc",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Line wear check the wear & crack of liner permissible value 0.5mm",
+              "vietnamese": "Độ mòn của lớp lót kiểm tra độ mòn và vết nứt của lớp lót cho phép giá trị 0.5mm",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the electrin bõ cable evẻything & Clean",
+              "vietnamese": "Kiểm tra cáp hộp điện mọi thứ & làm sạch",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the linear tensioning force check of tension Nut torque",
+              "vietnamese": "Kiểm tra lớp lót Lực căng kiểm tra lực căng đai ốc",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the Guide Rod support of distortion",
+              "vietnamese": "Kiểm tra sự hỗ trợ của thanh dẫn hướng về sự biến dạng",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Ensure the grease each lubrication part",
+              "vietnamese": "Đảm bảo bôi trơn từng bộ phận bôi trơn",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Robot",
+          "vietnamese": "Người máy",
+          "requirement": [
+            {
+              "name": "Clean the robot body",
+              "vietnamese": "Vệ sinh thân robot",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Clean the electric box",
+              "vietnamese": "Vệ sinh hộp điện",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        },
+        {
+          "field": "Furnace",
+          "vietnamese": "Lò lửa",
+          "requirement": [
+            {
+              "name": "Check alloy conveyor and control monitor",
+              "vietnamese": "Kiểm tra hộp băng tái hợp kim và màn hình điều khiển",
+              "checking_method": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Check the furnace aluminum oxide stuck to it",
+              "vietnamese": "kiểm tra oxit nhôm lò dính vào nó",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Clean flame sensor plug",
+              "vietnamese": "Làm sạch phích cấm cảm biến ngọn lửa",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            },
+            {
+              "name": "Clean the electric box",
+              "vietnamese": "Vệ sinh hộp điện",
+              "checking_method": "",
+              "methodvn": "",
+              "status": "",
+              "corrective_action": ""
+            }
+          ]
+        }
+      ],
+      "image": []
+    }
   }
 ]

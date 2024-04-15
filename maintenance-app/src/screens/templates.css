@@ -43,3 +43,29 @@
   padding: 10px;
   border: 1px solid black;
 }
+
+.content_update_form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space evenly between items */
+  font-size: 0.2em; /* Adjust the font size to make the content smaller */
+}
+.footer_updated_form2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer_updated_form2 p {
+  font-weight: bold;
+}
+
+.header_update_form2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  border-bottom: 1px solid #ccc;
+}

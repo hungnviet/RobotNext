@@ -98,7 +98,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 90%;
+  width: 70%;
   border-bottom: 1px solid #ccc;
 }
 
@@ -310,7 +310,7 @@
 }
 
 .form_date_daily p {
-  margin: 0px
+  margin: 0px;
 }
 
 .form_date_daily button {
@@ -333,15 +333,12 @@
   cursor: pointer;
 }
 
-
-
 .table_daily_form_contanier {
   width: 100%;
   height: fit-content;
   max-height: 400px;
   overflow: scroll;
   margin-top: 20px;
-
 }
 
 .btn_save_daily {

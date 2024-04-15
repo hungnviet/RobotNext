@@ -1,14 +1,39 @@
 import "./templates.css";
 import React, { useState, useRef, useEffect } from "react"; // add useRef
 import { ToastContainer, toast } from "react-toastify";
+import ReactToPrint from "react-to-print";
+import Modal from "react-modal"; // Import the Modal component
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+Modal.setAppElement("#root"); // This line is needed for accessibility reasons
 
 function Templates() {
   const [data, setData] = useState(null);
   const [machineName, setMachineName] = useState("");
+  const [template, setTemplate] = useState({});
   const [maintenanceType, setMaintenanceType] = useState("daily");
-  const [Start, setStart] = useState("");
-  const [End, setEnd] = useState("");
   const [selectedMachine, setSelectedMachine] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false); // State to control the modal
+  // Transform the data
+  let transformedData = {};
+  if (data) {
+    transformedData = data.reduce((acc, machine) => {
+      if (!acc[machine.form_template.machine_name]) {
+        acc[machine.form_template.machine_name] = {
+          machine,
+          types: {
+            [machine.form_template.type_of_maintenance]: true,
+          },
+        };
+      } else {
+        acc[machine.form_template.machine_name].types[
+          machine.form_template.type_of_maintenance
+        ] = true;
+      }
+
+      return acc;
+    }, {});
+  }
   useEffect(() => {
     async function handleFind() {
       try {
@@ -26,6 +51,40 @@ function Templates() {
 
     handleFind();
   }, []);
+  async function fetchData(machine, type) {
+    setMachineName(machine);
+    setMaintenanceType(type);
+    try {
+      const response = await fetch(
+        `http://localhost:3001/formTemplate/${machine}/${type}`
+      );
+      const data = await response.json();
+      setTemplate(data.form_template);
+    } catch (error) {
+      console.error(error);
+      toast.error("Can not find the data");
+    }
+  }
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+  const handlePrint = () => {
+    html2canvas(document.querySelector("#capture"), { scale: 2 }).then(
+      (canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4"); // A4 size page of PDF
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save("download.pdf");
+      }
+    );
+  };
   return (
     <div className="templateallscreen">
       <div>
@@ -41,139 +100,193 @@ function Templates() {
             <thead>
               <tr>
                 <th className="tableelementtemplate">Machine Name/Tên máy</th>
-                <th className="tableelementtemplate">
-                  Type of Maintenance/Loại bảo trì
-                </th>
-                <th className="tableelementtemplate">
-                  Number of Fields/Số lượng trường
-                </th>
-                <th className="tableelementtemplate">
-                  Total Requirement/Tổng số yêu cầu
-                </th>
-                <th className="tableelementtemplate">Preview/Xem trước</th>
+                <th className="tableelementtemplate">Daily</th>
+                <th className="tableelementtemplate">Weekly</th>
+                <th className="tableelementtemplate">Monthly</th>
+                <th className="tableelementtemplate">Half-Yearly</th>
+                <th className="tableelementtemplate">Yearly</th>
               </tr>
             </thead>
             <tbody>
-              {data &&
-                data.map((machine, index) => (
-                  <tr
-                    key={index}
-                    className={
-                      selectedMachine === machine ? "selected-row" : ""
-                    }
-                  >
-                    <td className="tableelementtemplate">
-                      {machine.form_template.machine_name}
-                    </td>
-                    <td className="tableelementtemplate">
-                      {machine.form_template.type_of_maintenance}
-                    </td>
-                    <td className="tableelementtemplate">
-                      {machine.form_template.maintenance_details.length}
-                    </td>
-                    <td className="tableelementtemplate">
-                      {machine.form_template.maintenance_details.reduce(
-                        (acc, detail) => acc + detail.requirement.length,
-                        0
-                      )}
-                    </td>
-                    <td className="tableelementtemplate">
-                      <button
-                        className="buttontemplate"
-                        onClick={() => setSelectedMachine(machine)}
-                      >
-                        View detail
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+              {Object.values(transformedData).map((machineData, index) => (
+                <tr
+                  key={index}
+                  className={
+                    selectedMachine === machineData.machine
+                      ? "selected-row"
+                      : ""
+                  }
+                >
+                  <td className="tableelementtemplate">
+                    {machineData.machine.form_template.machine_name}
+                  </td>
+                  {["daily", "weekly", "monthly", "half-yearly", "yearly"].map(
+                    (type) => (
+                      <td className="tableelementtemplate">
+                        {machineData.types[type] ? (
+                          <button
+                            className="buttontemplate"
+                            onClick={() => {
+                              fetchData(
+                                machineData.machine.form_template.machine_name,
+                                type
+                              );
+                              openModal();
+                            }}
+                          >
+                            View detail
+                          </button>
+                        ) : (
+                          "Not exist"
+                        )}
+                      </td>
+                    )
+                  )}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-        {selectedMachine && (
-          <div className="table-container">
-            <div>
-              <h2 className="centered-content">
-                Preview of selected template <br />
-                Chi tiết mẫu
-              </h2>
-              <table className="centered-table">
-                <thead>
-                  <tr>
-                    <th className="tableelementtemplate">Machine Name</th>
-                    <th className="tableelementtemplate">
-                      Type of Maintenance
-                    </th>
-                    <th className="tableelementtemplate">Field</th>
-                    <th className="tableelementtemplate">Requirements</th>
-                    {/* Add more columns as needed */}
-                  </tr>
-                </thead>
-                <tbody>
-                  {selectedMachine.form_template.maintenance_details.map(
-                    (detail, index) => (
-                      <React.Fragment key={index}>
-                        {index === 0 && (
-                          <tr>
-                            <td
-                              className="tableelementtemplate"
-                              rowSpan={
-                                selectedMachine.form_template
-                                  .maintenance_details.length
-                              }
-                            >
-                              {selectedMachine.form_template.machine_name}
-                            </td>
-                            <td
-                              className="tableelementtemplate"
-                              rowSpan={
-                                selectedMachine.form_template
-                                  .maintenance_details.length
-                              }
-                            >
-                              {
-                                selectedMachine.form_template
-                                  .type_of_maintenance
-                              }
-                            </td>
-                            <td className="tableelementtemplate">
-                              {detail.field}
-                            </td>
-                            <td>
-                              {detail.requirement.map((req, reqIndex) => (
-                                <div className="tableelement" key={reqIndex}>
-                                  {req.name}
-                                </div>
-                              ))}
-                            </td>
-                          </tr>
-                        )}
-                        {index !== 0 && (
-                          <tr>
-                            <td className="tableelementtemplate">
-                              {detail.field}
-                            </td>
-                            <td>
-                              {detail.requirement.map((req, reqIndex) => (
-                                <div
-                                  className="tableelementtemplate"
-                                  key={reqIndex}
-                                >
-                                  {req.name}
-                                </div>
-                              ))}
-                            </td>
-                          </tr>
-                        )}
-                      </React.Fragment>
-                    )
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Machine Details"
+        style={{
+          overlay: {
+            display: "flex",
+            alignItems: "center", // Vertically center the modal
+            justifyContent: "center", // Horizontally center the modal
+          },
+          content: {
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            width: "794px",
+            height: "1080px",
+            overflow: "hidden", // Prevent scrolling
+            marginTop: "180px",
+          },
+        }}
+      >
+        <div id="capture">
+          {template && maintenanceType !== "daily" && (
+            <div className="content_update_form2">
+              <div className="header_update_form2">
+                <p>Machine Name : {template.machine_name}</p>
+                <p>Type of maintenance: {template.type_of_maintenance}</p>
+              </div>
+              <div className="update_form_time_container">
+                <p>Maintenance Time(Thời gian bảo trì):</p>
+                <div className="update_form_time">
+                  <p>Start (Bắt đầu): </p>
+                  <input
+                    type="time"
+                    style={{ fontSize: "0.2em", height: "auto" }}
+                  ></input>
+                  <p>End (Kết Thúc): </p>
+                  <input
+                    type="time"
+                    style={{ fontSize: "0.2em", height: "auto" }}
+                  ></input>
+                  <p>Date(Ngày)</p>
+                  <input
+                    type="date"
+                    style={{ fontSize: "0.2em", height: "auto" }}
+                  ></input>
+                </div>
+              </div>
+              <div className="machine_operator_in4">
+                <div>
+                  <div className="title_form_date_daily">
+                    <p>Machine Number</p>
+                    <p>(Mã số máy)</p>
+                  </div>
+                  <input
+                    type="text"
+                    style={{ fontSize: "0.2em", height: "auto" }}
+                  ></input>
+                </div>
+                <div>
+                  <div className="title_form_date_daily">
+                    <p>Maintenance Operator Number</p>
+                    <p>(Mã Số Người Kiểm Tra)</p>
+                  </div>
+                  <input
+                    type="text"
+                    style={{ fontSize: "0.2em", height: "auto" }}
+                  ></input>
+                </div>
+              </div>
+              {template.maintenance_details && (
+                <div className="">
+                  {template.maintenance_details.map((item, indexField) => {
+                    return (
+                      <div className="field_container">
+                        <div className="field_header">
+                          <div className="field_name">
+                            <p>
+                              {item.field}/{item.vietnamese}
+                            </p>
+                          </div>
+                          <div className="verify">
+                            <p>Verify/Xác minh</p>
+                          </div>
+                          <div className="corrective_action">
+                            <p>Corrective action/Phương án sữa chữa</p>
+                          </div>
+                        </div>
+                        {item.requirement.map(
+                          (requirement, indexRequiremnt) => {
+                            return (
+                              <div className="requirement_row">
+                                <div className="requirement_name">
+                                  <p>{requirement.name}</p>
+                                  <p>({requirement.vietnamese})</p>
+                                </div>
+                                <div className="requirement_verify">
+                                  <select
+                                    value={requirement.status}
+                                    style={{
+                                      fontSize: "0.2em",
+                                      height: "auto",
+                                    }}
+                                  ></select>
+                                </div>
+                                <div className="requiremet_correctvie_action">
+                                  <input
+                                    type="text"
+                                    style={{
+                                      fontSize: "0.2em",
+                                      height: "auto",
+                                    }}
+                                  ></input>
+                                </div>
+                              </div>
+                            );
+                          }
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              <div className="footer_updated_form2">
+                <div>
+                  <p>Prepared by:</p>
+                </div>
+                <div>
+                  <p>Checked by:</p>
+                </div>
+                <div>
+                  <p>Approved by: </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <button onClick={handlePrint}>Print this out!</button>
+      </Modal>
     </div>
   );
 }
