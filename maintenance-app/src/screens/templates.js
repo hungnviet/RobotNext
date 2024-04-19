@@ -15,6 +15,7 @@ function Templates() {
   const [selectedMachine, setSelectedMachine] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false); // State to control the modal
   // Transform the data
+  const imageLink = ["https://cpimg.tistatic.com/06555612/b/4/Used-Toshiba-Die-Casting-Machine.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykyWRfStol0MM3uhDWMqSClqf9fbQo73aKSOcuxNY8Q&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeCCDxZy64bX70AcImFihilv5gKLL4afa4JX-SdRd8w&s"]
   let transformedData = {};
   if (data) {
     transformedData = data.reduce((acc, machine) => {
@@ -72,18 +73,31 @@ function Templates() {
   const closeModal = () => {
     setModalIsOpen(false);
   };
-  const handlePrint = () => {
-    html2canvas(document.querySelector("#capture"), { scale: 2 }).then(
-      (canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "a4"); // A4 size page of PDF
-        const imgProps = pdf.getImageProperties(imgData);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-        pdf.save("download.pdf");
-      }
-    );
+  async function handlePrint() {
+    const images = Array.from(document.querySelectorAll("#capture img"));
+    let loadedImagesCount = 0;
+
+    images.forEach((img) => {
+      const image = new Image();
+      image.crossOrigin = "anonymous"; // This enables CORS for the image
+      image.src = img.src;
+      image.onload = () => {
+        loadedImagesCount++;
+        if (loadedImagesCount === images.length) {
+          html2canvas(document.querySelector("#capture"), { scale: 5, useCORS: true }).then(
+            (canvas) => {
+              const imgData = canvas.toDataURL("image/png");
+              const pdf = new jsPDF("p", "mm", "a4"); // A4 size page of PDF
+              const imgProps = pdf.getImageProperties(imgData);
+              const pdfWidth = pdf.internal.pageSize.getWidth();
+              const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+              pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+              pdf.save("download.pdf");
+            }
+          );
+        }
+      };
+    });
   };
   return (
     <div className="templateallscreen">
@@ -164,8 +178,8 @@ function Templates() {
             flexDirection: "column",
             width: "794px",
             height: "1080px",
-            overflow: "hidden", // Prevent scrolling
-            marginTop: "180px",
+            overflow: "scroll", // Prevent scrolling
+            marginTop: "280px",
           },
         }}
       >
@@ -218,6 +232,26 @@ function Templates() {
                   ></input>
                 </div>
               </div>
+              <div className="img_container_print">
+                <div className="img_left_print">
+                  <img src="https://cpimg.tistatic.com/06555612/b/4/Used-Toshiba-Die-Casting-Machine.jpg"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="img_right_print">
+                  <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykyWRfStol0MM3uhDWMqSClqf9fbQo73aKSOcuxNY8Q&s"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+
+                  <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeCCDxZy64bX70AcImFihilv5gKLL4afa4JX-SdRd8w&s"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                </div>
+              </div>
               {template.maintenance_details && (
                 <div className="">
                   {template.maintenance_details.map((item, indexField) => {
@@ -241,26 +275,14 @@ function Templates() {
                             return (
                               <div className="requirement_row">
                                 <div className="requirement_name">
-                                  <p>{requirement.name}</p>
+                                  <p style={{ fontWeight: 'bold' }}>{indexRequiremnt + 1}.{requirement.name}</p>
                                   <p>({requirement.vietnamese})</p>
                                 </div>
                                 <div className="requirement_verify">
-                                  <select
-                                    value={requirement.status}
-                                    style={{
-                                      fontSize: "0.2em",
-                                      height: "auto",
-                                    }}
-                                  ></select>
+
                                 </div>
                                 <div className="requiremet_correctvie_action">
-                                  <input
-                                    type="text"
-                                    style={{
-                                      fontSize: "0.2em",
-                                      height: "auto",
-                                    }}
-                                  ></input>
+
                                 </div>
                               </div>
                             );
@@ -285,7 +307,7 @@ function Templates() {
             </div>
           )}
         </div>
-        <button onClick={handlePrint}>Print this out!</button>
+        <button onClick={handlePrint} className="btn_print">Print</button>
       </Modal>
     </div>
   );
