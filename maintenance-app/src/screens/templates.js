@@ -431,6 +431,86 @@ function Templates() {
               >
                 Remark/Ghi chú:
               </p>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <table
+                  style={{
+                    width: "40%",
+                    border: "1px solid black",
+                    borderCollapse: "collapse",
+                  }}
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        style={{
+                          width: "33.33%",
+                          borderRight: "1px solid black",
+                        }}
+                        rowspan="2"
+                      >
+                        <div style={{ fontSize: "18px" }}>
+                          Verification Symbol
+                        </div>
+                        <div style={{ fontSize: "12px" }}>
+                          Biểu tượng xác minh
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          width: "16.66%",
+                          borderBottom: "1px solid black",
+                          borderRight: "1px solid black",
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        OK
+                      </th>
+                      <th
+                        style={{
+                          width: "16.66%",
+                          borderBottom: "1px solid black",
+                          fontSize: "12px",
+                        }}
+                      >
+                        &#10004;
+                      </th>
+                    </tr>
+                    <tr>
+                      <th
+                        style={{
+                          width: "16.66%",
+                          borderRight: "1px solid black",
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        NG
+                      </th>
+                      <th style={{ width: "16.66%", fontSize: "12px" }}>
+                        &#10060;{" "}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <p
+                  style={{
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    marginLeft: "6px",
+                    marginTop: "14px",
+                  }}
+                >
+                  Note: If When verify found abnormal immediately taken
+                  corrective Action Required
+                  <br />
+                  <span style={{ fontWeight: "normal" }}>
+                    Lưu ý: Nếu khi kiểm tra thấy bất thường lập tức thực hiện
+                    hành động khắc phục Yêu cầu
+                  </span>
+                </p>
+              </div>
               <div
                 className="footer_updated_form2"
                 style={{
