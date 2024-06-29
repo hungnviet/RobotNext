@@ -1,0 +1,45 @@
+.spare_part_management_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.spare_part_table {
+  width: 98vw;
+  table-layout: fixed;
+  display: block;
+  height: 75vh;
+  overflow: auto;
+}
+
+.spare_part_table th,
+.spare_part_table td {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.spare_part_table .col-1 {
+  width: 6%;
+}
+
+.spare_part_table .col-2 {
+  flex: 14%;
+}
+
+.spare_part_table .col-3 {
+  flex: 18%;
+}
+
+.spare_part_table .col-4 {
+  flex: 24%;
+}
+
+.spare_part_table input {
+  width: 80%;
+}
+
+.spare_part_table td {
+  height: 40px;
+}

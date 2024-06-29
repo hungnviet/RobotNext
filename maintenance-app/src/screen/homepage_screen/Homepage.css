@@ -1,0 +1,38 @@
+.homepage_container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.each_message_container button {
+  height: 30px;
+  cursor: pointer;
+}
+.homepage_container h2,
+p,
+h3 {
+  margin: 0px;
+}
+.header_homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.message_on_homepage_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.each_message_container {
+  width: 90%;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

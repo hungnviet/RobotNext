@@ -1,0 +1,31 @@
+.navbar_spare_part_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.navbar_spare_part_container div {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 30px;
+  margin-top: 10px;
+}
+
+.spare_part_link {
+  text-decoration: none;
+  color: black;
+}
+
+.spare_part_link:hover {
+  text-decoration: underline;
+}
+
+.active_spare_part_link {
+  color: #007bff;
+  text-decoration: none;
+}

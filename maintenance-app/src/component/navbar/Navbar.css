@@ -1,0 +1,21 @@
+.navbar_container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+.link_navbar {
+  text-decoration: none;
+  color: black;
+}
+.link_navbar:hover {
+  text-decoration: underline;
+}
+.active_link_navbar {
+  color: #fb8500;
+  text-decoration: none;
+}
