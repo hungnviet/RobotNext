@@ -1,0 +1,618 @@
+[
+  {
+    "spare_part_code": "SP005",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 3,
+    "inventory_quantity": 226,
+    "unit_price": 637
+  },
+  {
+    "spare_part_code": "SP006",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 4,
+    "inventory_quantity": 160,
+    "unit_price": 2164
+  },
+  {
+    "spare_part_code": "SP007",
+    "spare_part_name": "Motors",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 15,
+    "inventory_quantity": 289,
+    "unit_price": 1997
+  },
+  {
+    "spare_part_code": "SP008",
+    "spare_part_name": "Filters",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 8,
+    "inventory_quantity": 364,
+    "unit_price": 2557
+  },
+  {
+    "spare_part_code": "SP009",
+    "spare_part_name": "Lubricants",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 11,
+    "inventory_quantity": 247,
+    "unit_price": 290
+  },
+  {
+    "spare_part_code": "SP010",
+    "spare_part_name": "Cables",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 5,
+    "inventory_quantity": 24,
+    "unit_price": 2801
+  },
+  {
+    "spare_part_code": "SP011",
+    "spare_part_name": "Switches",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 8,
+    "inventory_quantity": 102,
+    "unit_price": 1335
+  },
+  {
+    "spare_part_code": "SP012",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 18,
+    "inventory_quantity": 147,
+    "unit_price": 935
+  },
+  {
+    "spare_part_code": "SP013",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "PartsPro Inc.",
+    "delivery_time": 7,
+    "inventory_quantity": 228,
+    "unit_price": 2615
+  },
+  {
+    "spare_part_code": "SP014",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 20,
+    "inventory_quantity": 69,
+    "unit_price": 478
+  },
+  {
+    "spare_part_code": "SP015",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 18,
+    "inventory_quantity": 438,
+    "unit_price": 1114
+  },
+  {
+    "spare_part_code": "SP016",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 6,
+    "inventory_quantity": 320,
+    "unit_price": 2050
+  },
+  {
+    "spare_part_code": "SP017",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 17,
+    "inventory_quantity": 312,
+    "unit_price": 1469
+  },
+  {
+    "spare_part_code": "SP018",
+    "spare_part_name": "Capacitors",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 11,
+    "inventory_quantity": 136,
+    "unit_price": 2731
+  },
+  {
+    "spare_part_code": "SP019",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "PartsPro Inc.",
+    "delivery_time": 15,
+    "inventory_quantity": 133,
+    "unit_price": 2505
+  },
+  {
+    "spare_part_code": "SP020",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 19,
+    "inventory_quantity": 232,
+    "unit_price": 2153
+  },
+  {
+    "spare_part_code": "SP021",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "MachinerySupply Co.",
+    "delivery_time": 3,
+    "inventory_quantity": 256,
+    "unit_price": 647
+  },
+  {
+    "spare_part_code": "SP022",
+    "spare_part_name": "Belts",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 6,
+    "inventory_quantity": 378,
+    "unit_price": 2355
+  },
+  {
+    "spare_part_code": "SP023",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 14,
+    "inventory_quantity": 285,
+    "unit_price": 1633
+  },
+  {
+    "spare_part_code": "SP024",
+    "spare_part_name": "Springs",
+    "spare_part_suplier": "PartsPro Inc.",
+    "delivery_time": 10,
+    "inventory_quantity": 352,
+    "unit_price": 1052
+  },
+  {
+    "spare_part_code": "SP025",
+    "spare_part_name": "Screws, Nuts, and Bolts",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 8,
+    "inventory_quantity": 85,
+    "unit_price": 154
+  },
+  {
+    "spare_part_code": "SP026",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "MachinerySupply Co.",
+    "delivery_time": 10,
+    "inventory_quantity": 356,
+    "unit_price": 2754
+  },
+  {
+    "spare_part_code": "SP027",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 14,
+    "inventory_quantity": 139,
+    "unit_price": 2488
+  },
+  {
+    "spare_part_code": "SP028",
+    "spare_part_name": "Gears",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 12,
+    "inventory_quantity": 121,
+    "unit_price": 2796
+  },
+  {
+    "spare_part_code": "SP029",
+    "spare_part_name": "Pneumatic Components",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 5,
+    "inventory_quantity": 285,
+    "unit_price": 1598
+  },
+  {
+    "spare_part_code": "SP030",
+    "spare_part_name": "Capacitors",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 7,
+    "inventory_quantity": 85,
+    "unit_price": 1910
+  },
+  {
+    "spare_part_code": "SP031",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 8,
+    "inventory_quantity": 107,
+    "unit_price": 914
+  },
+  {
+    "spare_part_code": "SP032",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 16,
+    "inventory_quantity": 453,
+    "unit_price": 2724
+  },
+  {
+    "spare_part_code": "SP033",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 21,
+    "inventory_quantity": 381,
+    "unit_price": 1282
+  },
+  {
+    "spare_part_code": "SP034",
+    "spare_part_name": "Capacitors",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 12,
+    "inventory_quantity": 397,
+    "unit_price": 832
+  },
+  {
+    "spare_part_code": "SP035",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 18,
+    "inventory_quantity": 401,
+    "unit_price": 2782
+  },
+  {
+    "spare_part_code": "SP036",
+    "spare_part_name": "Filters",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 8,
+    "inventory_quantity": 349,
+    "unit_price": 774
+  },
+  {
+    "spare_part_code": "SP037",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 10,
+    "inventory_quantity": 168,
+    "unit_price": 1279
+  },
+  {
+    "spare_part_code": "SP038",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 7,
+    "inventory_quantity": 244,
+    "unit_price": 2171
+  },
+  {
+    "spare_part_code": "SP039",
+    "spare_part_name": "Pneumatic Components",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 13,
+    "inventory_quantity": 350,
+    "unit_price": 1264
+  },
+  {
+    "spare_part_code": "SP040",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 16,
+    "inventory_quantity": 262,
+    "unit_price": 1436
+  },
+  {
+    "spare_part_code": "SP041",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 5,
+    "inventory_quantity": 124,
+    "unit_price": 2690
+  },
+  {
+    "spare_part_code": "SP042",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 14,
+    "inventory_quantity": 215,
+    "unit_price": 2441
+  },
+  {
+    "spare_part_code": "SP043",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 8,
+    "inventory_quantity": 106,
+    "unit_price": 2190
+  },
+  {
+    "spare_part_code": "SP044",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 18,
+    "inventory_quantity": 106,
+    "unit_price": 278
+  },
+  {
+    "spare_part_code": "SP045",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "MachinerySupply Co.",
+    "delivery_time": 10,
+    "inventory_quantity": 91,
+    "unit_price": 274
+  },
+  {
+    "spare_part_code": "SP046",
+    "spare_part_name": "Filters",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 5,
+    "inventory_quantity": 241,
+    "unit_price": 927
+  },
+  {
+    "spare_part_code": "SP047",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 15,
+    "inventory_quantity": 164,
+    "unit_price": 1139
+  },
+  {
+    "spare_part_code": "SP048",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 15,
+    "inventory_quantity": 218,
+    "unit_price": 2206
+  },
+  {
+    "spare_part_code": "SP049",
+    "spare_part_name": "Pneumatic Components",
+    "spare_part_suplier": "PartsPro Inc.",
+    "delivery_time": 5,
+    "inventory_quantity": 170,
+    "unit_price": 486
+  },
+  {
+    "spare_part_code": "SP050",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "PartsPro Inc.",
+    "delivery_time": 14,
+    "inventory_quantity": 115,
+    "unit_price": 2313
+  },
+  {
+    "spare_part_code": "SP051",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 17,
+    "inventory_quantity": 225,
+    "unit_price": 2003
+  },
+  {
+    "spare_part_code": "SP052",
+    "spare_part_name": "Springs",
+    "spare_part_suplier": "MachinerySupply Co.",
+    "delivery_time": 12,
+    "inventory_quantity": 91,
+    "unit_price": 1822
+  },
+  {
+    "spare_part_code": "SP053",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 14,
+    "inventory_quantity": 289,
+    "unit_price": 1947
+  },
+  {
+    "spare_part_code": "SP054",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 15,
+    "inventory_quantity": 107,
+    "unit_price": 2222
+  },
+  {
+    "spare_part_code": "SP055",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 13,
+    "inventory_quantity": 400,
+    "unit_price": 2213
+  },
+  {
+    "spare_part_code": "SP056",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 17,
+    "inventory_quantity": 341,
+    "unit_price": 1382
+  },
+  {
+    "spare_part_code": "SP057",
+    "spare_part_name": "Belts",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 5,
+    "inventory_quantity": 462,
+    "unit_price": 721
+  },
+  {
+    "spare_part_code": "SP058",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 12,
+    "inventory_quantity": 72,
+    "unit_price": 658
+  },
+  {
+    "spare_part_code": "SP059",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 6,
+    "inventory_quantity": 173,
+    "unit_price": 950
+  },
+  {
+    "spare_part_code": "SP060",
+    "spare_part_name": "Springs",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 17,
+    "inventory_quantity": 315,
+    "unit_price": 826
+  },
+  {
+    "spare_part_code": "SP061",
+    "spare_part_name": "Screws, Nuts, and Bolts",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 19,
+    "inventory_quantity": 71,
+    "unit_price": 146
+  },
+  {
+    "spare_part_code": "SP062",
+    "spare_part_name": "Valves",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 19,
+    "inventory_quantity": 134,
+    "unit_price": 2697
+  },
+  {
+    "spare_part_code": "SP063",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 20,
+    "inventory_quantity": 343,
+    "unit_price": 2866
+  },
+  {
+    "spare_part_code": "SP064",
+    "spare_part_name": "Gears",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 22,
+    "inventory_quantity": 198,
+    "unit_price": 839
+  },
+  {
+    "spare_part_code": "SP065",
+    "spare_part_name": "Springs",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 7,
+    "inventory_quantity": 207,
+    "unit_price": 1010
+  },
+  {
+    "spare_part_code": "SP066",
+    "spare_part_name": "Seals",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 8,
+    "inventory_quantity": 177,
+    "unit_price": 1182
+  },
+  {
+    "spare_part_code": "SP067",
+    "spare_part_name": "Gears",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 8,
+    "inventory_quantity": 181,
+    "unit_price": 1942
+  },
+  {
+    "spare_part_code": "SP068",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 18,
+    "inventory_quantity": 474,
+    "unit_price": 231
+  },
+  {
+    "spare_part_code": "SP069",
+    "spare_part_name": "Relays",
+    "spare_part_suplier": "AssembleBot LLC",
+    "delivery_time": 21,
+    "inventory_quantity": 222,
+    "unit_price": 2918
+  },
+  {
+    "spare_part_code": "SP070",
+    "spare_part_name": "Gears",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 15,
+    "inventory_quantity": 47,
+    "unit_price": 1574
+  },
+  {
+    "spare_part_code": "SP071",
+    "spare_part_name": "Chains",
+    "spare_part_suplier": "IndusGoods Inc.",
+    "delivery_time": 7,
+    "inventory_quantity": 165,
+    "unit_price": 1657
+  },
+  {
+    "spare_part_code": "SP072",
+    "spare_part_name": "Filters",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 8,
+    "inventory_quantity": 155,
+    "unit_price": 284
+  },
+  {
+    "spare_part_code": "SP073",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 21,
+    "inventory_quantity": 314,
+    "unit_price": 1530
+  },
+  {
+    "spare_part_code": "SP074",
+    "spare_part_name": "Belts",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 13,
+    "inventory_quantity": 325,
+    "unit_price": 2539
+  },
+  {
+    "spare_part_code": "SP075",
+    "spare_part_name": "Screws, Nuts, and Bolts",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 5,
+    "inventory_quantity": 143,
+    "unit_price": 177
+  },
+  {
+    "spare_part_code": "SP076",
+    "spare_part_name": "Pneumatic Components",
+    "spare_part_suplier": "TechParts Ltd.",
+    "delivery_time": 13,
+    "inventory_quantity": 474,
+    "unit_price": 2798
+  },
+  {
+    "spare_part_code": "SP077",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "SupremeParts LLC",
+    "delivery_time": 19,
+    "inventory_quantity": 386,
+    "unit_price": 1480
+  },
+  {
+    "spare_part_code": "SP078",
+    "spare_part_name": "Bearings",
+    "spare_part_suplier": "RoboSupply Co.",
+    "delivery_time": 11,
+    "inventory_quantity": 243,
+    "unit_price": 1517
+  },
+  {
+    "spare_part_code": "SP079",
+    "spare_part_name": "Capacitors",
+    "spare_part_suplier": "BuildBetter Ltd.",
+    "delivery_time": 11,
+    "inventory_quantity": 243,
+    "unit_price": 1517
+  },
+  {
+    "spare_part_code": "TESP004",
+    "spare_part_name": "Capacitors",
+    "spare_part_suplier": "QualityComponents Co.",
+    "delivery_time": 21,
+    "inventory_quantity": 474,
+    "unit_price": 1934
+  },
+  {
+    "spare_part_code": "SPT004",
+    "spare_part_name": "Test ad functon",
+    "spare_part_suplier": "HCMUT",
+    "delivery_time": "7",
+    "inventory_quantity": 0,
+    "unit_price": "100000"
+  }
+]
