@@ -1,0 +1,125 @@
+.machine-add-data {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.machine-add-data h2 {
+  margin-bottom: 20px;
+}
+
+.machine-add-data form {
+  display: flex;
+  flex-direction: column;
+}
+
+.machine-add-data label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.machine-add-data input {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.specification-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specification-table,
+.specification-table th,
+.specification-table td {
+  border: 1px solid #ddd;
+}
+
+.specification-header {
+  background-color: #f4f4f4;
+}
+
+.specification-row:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.specification-row:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+.specification-table th,
+.specification-table td {
+  padding: 8px;
+  text-align: left;
+}
+.maintenance-form {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.maintenance-form h3 {
+  margin-top: 0;
+}
+
+.maintenance-form table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.maintenance-form th,
+.maintenance-form td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.maintenance-form th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.maintenance-form td {
+  text-align: left;
+}
+
+.additional-data {
+  margin-top: 20px;
+}
+
+.additional-data h3 {
+  margin-bottom: 10px;
+}
+
+.additional-data ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.additional-data ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.additional-data ul li:last-child {
+  border-bottom: none;
+}
+.addbutton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 6px;
+  cursor: pointer;
+  width: 20%;
+  align-self: center;
+}

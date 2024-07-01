@@ -5,21 +5,47 @@
     "date_of_purchase": "15-01-2024",
     "plant": "A",
     "specification": [
-      { "name": "Pressure", "value": "150 Tonnes" },
-      { "name": "Motor Type", "value": "AC" },
-      { "name": "Power", "value": "10kW" }
+      {
+        "name": "Pressure",
+        "value": "150 Tonnes"
+      },
+      {
+        "name": "Motor Type",
+        "value": "AC"
+      },
+      {
+        "name": "Power",
+        "value": "10kW"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP005", "quantity": 2 },
-      { "spare_part_code": "SP018", "quantity": 4 }
+      {
+        "spare_part_code": "SP005",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP018",
+        "quantity": 4
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP004", "quantity": 3 },
-      { "spare_part_code": "SP007", "quantity": 2 },
-      { "spare_part_code": "SP010", "quantity": 1 }
+      {
+        "spare_part_code": "SP004",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP007",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP010",
+        "quantity": 1
+      }
     ],
     "additional_data": [
-      { "content": "Used for pressing and forming metal components." }
+      {
+        "content": "Used for pressing and forming metal components."
+      }
     ]
   },
   {
@@ -28,21 +54,47 @@
     "date_of_purchase": "22-03-2024",
     "plant": "A",
     "specification": [
-      { "name": "Spindle Speed", "value": "5000 rpm" },
-      { "name": "Table Size", "value": "1400x650 mm" },
-      { "name": "Power", "value": "20kW" }
+      {
+        "name": "Spindle Speed",
+        "value": "5000 rpm"
+      },
+      {
+        "name": "Table Size",
+        "value": "1400x650 mm"
+      },
+      {
+        "name": "Power",
+        "value": "20kW"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP008", "quantity": 5 },
-      { "spare_part_code": "SP012", "quantity": 3 }
+      {
+        "spare_part_code": "SP008",
+        "quantity": 5
+      },
+      {
+        "spare_part_code": "SP012",
+        "quantity": 3
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP011", "quantity": 6 },
-      { "spare_part_code": "SP022", "quantity": 4 },
-      { "spare_part_code": "SP024", "quantity": 2 }
+      {
+        "spare_part_code": "SP011",
+        "quantity": 6
+      },
+      {
+        "spare_part_code": "SP022",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP024",
+        "quantity": 2
+      }
     ],
     "additional_data": [
-      { "content": "Precision machining of metal parts with high accuracy." }
+      {
+        "content": "Precision machining of metal parts with high accuracy."
+      }
     ]
   },
   {
@@ -51,21 +103,47 @@
     "date_of_purchase": "30-05-2024",
     "plant": "A",
     "specification": [
-      { "name": "Laser Power", "value": "3500 watts" },
-      { "name": "Cutting Area", "value": "1500x3000 mm" },
-      { "name": "Max Thickness", "value": "20 mm" }
+      {
+        "name": "Laser Power",
+        "value": "3500 watts"
+      },
+      {
+        "name": "Cutting Area",
+        "value": "1500x3000 mm"
+      },
+      {
+        "name": "Max Thickness",
+        "value": "20 mm"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP019", "quantity": 3 },
-      { "spare_part_code": "SP021", "quantity": 5 }
+      {
+        "spare_part_code": "SP019",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP021",
+        "quantity": 5
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP017", "quantity": 4 },
-      { "spare_part_code": "SP026", "quantity": 2 },
-      { "spare_part_code": "SP034", "quantity": 1 }
+      {
+        "spare_part_code": "SP017",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP026",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP034",
+        "quantity": 1
+      }
     ],
     "additional_data": [
-      { "content": "Used for precise cutting of metals and composites." }
+      {
+        "content": "Used for precise cutting of metals and composites."
+      }
     ]
   },
   {
@@ -74,18 +152,42 @@
     "date_of_purchase": "12-08-2024",
     "plant": "A",
     "specification": [
-      { "name": "Reach", "value": "2.5 meters" },
-      { "name": "Payload", "value": "10 kg" },
-      { "name": "Axes", "value": "6" }
+      {
+        "name": "Reach",
+        "value": "2.5 meters"
+      },
+      {
+        "name": "Payload",
+        "value": "10 kg"
+      },
+      {
+        "name": "Axes",
+        "value": "6"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP036", "quantity": 3 },
-      { "spare_part_code": "SP040", "quantity": 2 }
+      {
+        "spare_part_code": "SP036",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP040",
+        "quantity": 2
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP035", "quantity": 3 },
-      { "spare_part_code": "SP037", "quantity": 2 },
-      { "spare_part_code": "SP038", "quantity": 1 }
+      {
+        "spare_part_code": "SP035",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP037",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP038",
+        "quantity": 1
+      }
     ],
     "additional_data": [
       {
@@ -99,18 +201,42 @@
     "date_of_purchase": "20-10-2023",
     "plant": "A",
     "specification": [
-      { "name": "Conveyor Speed", "value": "15 m/min" },
-      { "name": "Line Length", "value": "50 meters" },
-      { "name": "Stations", "value": "10" }
+      {
+        "name": "Conveyor Speed",
+        "value": "15 m/min"
+      },
+      {
+        "name": "Line Length",
+        "value": "50 meters"
+      },
+      {
+        "name": "Stations",
+        "value": "10"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP025", "quantity": 8 },
-      { "spare_part_code": "SP031", "quantity": 6 }
+      {
+        "spare_part_code": "SP025",
+        "quantity": 8
+      },
+      {
+        "spare_part_code": "SP031",
+        "quantity": 6
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP028", "quantity": 5 },
-      { "spare_part_code": "SP032", "quantity": 3 },
-      { "spare_part_code": "SP039", "quantity": 2 }
+      {
+        "spare_part_code": "SP028",
+        "quantity": 5
+      },
+      {
+        "spare_part_code": "SP032",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP039",
+        "quantity": 2
+      }
     ],
     "additional_data": [
       {
@@ -124,21 +250,47 @@
     "date_of_purchase": "17-02-2024",
     "plant": "A",
     "specification": [
-      { "name": "Table Size", "value": "2000x500 mm" },
-      { "name": "Max Load", "value": "1400 kg" },
-      { "name": "Spindle Speed", "value": "6000 rpm" }
+      {
+        "name": "Table Size",
+        "value": "2000x500 mm"
+      },
+      {
+        "name": "Max Load",
+        "value": "1400 kg"
+      },
+      {
+        "name": "Spindle Speed",
+        "value": "6000 rpm"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP016", "quantity": 3 },
-      { "spare_part_code": "SP041", "quantity": 2 }
+      {
+        "spare_part_code": "SP016",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP041",
+        "quantity": 2
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP014", "quantity": 4 },
-      { "spare_part_code": "SP020", "quantity": 2 },
-      { "spare_part_code": "SP023", "quantity": 2 }
+      {
+        "spare_part_code": "SP014",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP020",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP023",
+        "quantity": 2
+      }
     ],
     "additional_data": [
-      { "content": "Used for complex milling operations on large parts." }
+      {
+        "content": "Used for complex milling operations on large parts."
+      }
     ]
   },
   {
@@ -146,18 +298,42 @@
     "machine_code": "PLC007",
     "date_of_purchase": "09-04-2024",
     "specification": [
-      { "name": "Cutting Area", "value": "2500x1200 mm" },
-      { "name": "Max Cutting Thickness", "value": "25 mm" },
-      { "name": "Power", "value": "45 kW" }
+      {
+        "name": "Cutting Area",
+        "value": "2500x1200 mm"
+      },
+      {
+        "name": "Max Cutting Thickness",
+        "value": "25 mm"
+      },
+      {
+        "name": "Power",
+        "value": "45 kW"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP024", "quantity": 4 },
-      { "spare_part_code": "SP037", "quantity": 2 }
+      {
+        "spare_part_code": "SP024",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP037",
+        "quantity": 2
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP035", "quantity": 3 },
-      { "spare_part_code": "SP038", "quantity": 1 },
-      { "spare_part_code": "SP039", "quantity": 2 }
+      {
+        "spare_part_code": "SP035",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP038",
+        "quantity": 1
+      },
+      {
+        "spare_part_code": "SP039",
+        "quantity": 2
+      }
     ],
     "additional_data": [
       {
@@ -171,7 +347,10 @@
     "date_of_purchase": "29-07-2024",
     "plant": "A",
     "specification": [
-      { "name": "Pressure", "value": "6000 bar" },
+      {
+        "name": "Pressure",
+        "value": "6000 bar"
+      },
       {
         "name": "Cutting Area",
         "pearceEndlessDownLiftBlindly_": "2000x1000 mm"
@@ -182,13 +361,28 @@
       }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP005", "quantity": 5 },
-      { "spare_part_code": "SP021", "quantity": 3 }
+      {
+        "spare_part_code": "SP005",
+        "quantity": 5
+      },
+      {
+        "spare_part_code": "SP021",
+        "quantity": 3
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP006", "quantity": 4 },
-      { "spare_part_code": "SP018", "quantity": 2 },
-      { "spare_part_code": "SP027", "quantity": 2 }
+      {
+        "spare_part_code": "SP006",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP018",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP027",
+        "quantity": 2
+      }
     ],
     "additional_data": [
       {
@@ -202,18 +396,42 @@
     "date_of_purchase": "05-12-2023",
     "plant": "A",
     "specification": [
-      { "name": "Max Gear Diameter", "value": "1000 mm" },
-      { "name": "Max Module", "value": "10 mm" },
-      { "name": "Hob Speed", "value": "100 rpm" }
+      {
+        "name": "Max Gear Diameter",
+        "value": "1000 mm"
+      },
+      {
+        "name": "Max Module",
+        "value": "10 mm"
+      },
+      {
+        "name": "Hob Speed",
+        "value": "100 rpm"
+      }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP010", "quantity": 2 },
-      { "spare_part_code": "SP022", "quantity": 4 }
+      {
+        "spare_part_code": "SP010",
+        "quantity": 2
+      },
+      {
+        "spare_part_code": "SP022",
+        "quantity": 4
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP012", "quantity": 5 },
-      { "spare_part_code": "SP019", "quantity": 3 },
-      { "spare_part_code": "SP028", "quantity": 1 }
+      {
+        "spare_part_code": "SP012",
+        "quantity": 5
+      },
+      {
+        "spare_part_code": "SP019",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP028",
+        "quantity": 1
+      }
     ],
     "additional_data": [
       {
@@ -227,26 +445,80 @@
     "date_of_purchase": "11-11-2023",
     "plant": "A",
     "specification": [
-      { "name": "Roller Stations", "value": "18" },
-      { "name": "Material Width", "venueIssueConfirmPickup_": "1300 mm" },
+      {
+        "name": "Roller Stations",
+        "value": "18"
+      },
+      {
+        "name": "Material Width",
+        "venueIssueConfirmPickup_": "1300 mm"
+      },
       {
         "name": "Material Thickness",
         "cartPileFeaturedEnvironment_": "0.1-0.8 mm"
       }
     ],
     "spare_part_for_half_yearly_maintenance": [
-      { "spare_part_code": "SP015", "quantity": 3 },
-      { "spare_part_code": "SP030", "quantity": 2 }
+      {
+        "spare_part_code": "SP015",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP030",
+        "quantity": 2
+      }
     ],
     "spare_part_for_yearly_maintenance": [
-      { "spare_part_code": "SP017", "quantity": 4 },
-      { "spare_part_code": "SP025", "quantity": 3 },
-      { "spare_part_code": "SP034", "quantity": 1 }
+      {
+        "spare_part_code": "SP017",
+        "quantity": 4
+      },
+      {
+        "spare_part_code": "SP025",
+        "quantity": 3
+      },
+      {
+        "spare_part_code": "SP034",
+        "quantity": 1
+      }
     ],
     "additional_data": [
       {
         "content": "Designed for continuous bending operation along a long strip of sheet metal."
       }
     ]
+  },
+  {
+    "machine_name": "Hihi",
+    "machine_code": "1234",
+    "date_of_purchase": "05-07-2024",
+    "plant": "aaaa",
+    "specification": [
+      {
+        "name": "hehe",
+        "value": "1234"
+      }
+    ],
+    "spare_part_for_half_yearly_maintenance": [
+      {
+        "spare_part_code": "SP011",
+        "quantity": 102
+      },
+      {
+        "spare_part_code": "SP061",
+        "quantity": 71
+      }
+    ],
+    "spare_part_for_yearly_maintenance": [
+      {
+        "spare_part_code": "SP017",
+        "quantity": 312
+      },
+      {
+        "spare_part_code": "SP018",
+        "quantity": 136
+      }
+    ],
+    "additional_data": []
   }
 ]

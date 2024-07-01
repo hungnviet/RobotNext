@@ -6,7 +6,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); // This middleware is used to parse JSON bodies
-
+const machineRoutes = require("./machine.js");
+app.use(machineRoutes);
 app.listen(3001, () => console.log("Server listening on port12 3001"));
 
 ///message BE
@@ -208,16 +209,3 @@ app.delete("/list_spare_parts", async (req, res) => {
 
 ///----------------------------------------------------------------------------------------------------------------
 ///machine BE
-app.get("/list_machines", (req, res) => {
-  fs.readFile(
-    path.join(__dirname, "../../Data/machineData.json"),
-    (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Error reading file");
-      } else {
-        res.json(JSON.parse(data));
-      }
-    }
-  );
-});
