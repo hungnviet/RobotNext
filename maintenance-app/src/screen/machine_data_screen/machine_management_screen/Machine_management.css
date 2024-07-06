@@ -1,0 +1,7 @@
+.search_spare_part_container_used {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+}

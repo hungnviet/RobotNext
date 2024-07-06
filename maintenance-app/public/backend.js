@@ -221,3 +221,73 @@ app.get("/list_machines", (req, res) => {
     }
   );
 });
+
+///----------------------------------------------------------------------------------------------------------------
+///search Spare Part BE
+app.post("/search_spare_parts", (req, res) => {
+  const { code, name } = req.body;
+
+  fs.readFile(
+    path.join(__dirname, "../../Data/sparePartData.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+      } else {
+        let spareParts = JSON.parse(data);
+
+        // If both code and name are provided, check for exact match on both
+        if (code && name) {
+          let exactMatchBoth = spareParts.filter((sparePart) => {
+            return (
+              sparePart.spare_part_code.toLowerCase() === code.toLowerCase() &&
+              sparePart.spare_part_name.toLowerCase() === name.toLowerCase()
+            );
+          });
+
+          if (exactMatchBoth.length > 0) {
+            // If there is an exact match on both code and name, return it
+            return res.json(exactMatchBoth);
+          }
+        }
+
+        // If only code is provided, filter by code
+        if (code && !name) {
+          let resultByCode = spareParts.filter((sparePart) => {
+            return sparePart.spare_part_code
+              .toLowerCase()
+              .includes(code.toLowerCase());
+          });
+          return res.json(resultByCode);
+        }
+
+        // If only name is provided, filter by name
+        if (name && !code) {
+          let resultByName = spareParts.filter((sparePart) => {
+            return sparePart.spare_part_name
+              .toLowerCase()
+              .includes(name.toLowerCase());
+          });
+          return res.json(resultByName);
+        }
+
+        // If both code and name are provided but no exact match, filter by both
+        let result = spareParts.filter((sparePart) => {
+          const sparePartCodeMatch = code
+            ? sparePart.spare_part_code
+                .toLowerCase()
+                .includes(code.toLowerCase())
+            : true;
+          const sparePartNameMatch = name
+            ? sparePart.spare_part_name
+                .toLowerCase()
+                .includes(name.toLowerCase())
+            : true;
+          return sparePartCodeMatch || sparePartNameMatch;
+        });
+
+        res.json(result);
+      }
+    }
+  );
+});

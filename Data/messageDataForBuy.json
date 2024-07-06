@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "message_type": "request_maintenance",
+    "request_code": 1,
+    "request_date": "2024-10-09",
+    "machine_name": "Machine 1",
+    "machine_code": "M1",
+    "problem": "Machine is not working",
+    "requested_by": "John Doe",
+    "priority": "High",
+    "message_id": 1
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M1",
+    "machine_name": "Machine 1",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-10-09",
+    "message_id": 2
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP005",
+    "spare_part_name": "Bearings",
+    "quantity": 100,
+    "message_id": 3
+  }
+]

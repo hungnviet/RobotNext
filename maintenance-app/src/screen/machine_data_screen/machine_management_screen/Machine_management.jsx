@@ -3,7 +3,7 @@ import "./Machine_management.css";
 import NavbarMachine from "../../../component/navbarMachine/NavbarMachine";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import SearchSparePart from "../../../component/searchSparePart/SearchSparePart";
 export default function Machine_management() {
   const [listMachines, setListMachines] = useState([]);
   const [listMachinesDisplay, setListMachinesDisplay] = useState([]);
@@ -44,6 +44,9 @@ export default function Machine_management() {
             </tr>
           </thead>
         </table>
+      </div>
+      <div className="search_spare_part_container_used">
+        <SearchSparePart />
       </div>
     </div>
   );
