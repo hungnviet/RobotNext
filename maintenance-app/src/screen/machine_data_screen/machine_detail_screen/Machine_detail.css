@@ -1,0 +1,128 @@
+.machine_detail_input_code {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.machine_detail_input_code p {
+  color: red;
+}
+
+.general_information_detail_machine {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.general_information_detail_machine div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border-bottom: 1px solid #000000;
+}
+
+.general_information_detail_machine div p,
+h4 {
+  margin: 0px;
+}
+.machine_data_big_container {
+  width: 100%;
+}
+
+.spefication_container_machine_detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.header_spefication_machine_detail {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header_spefication_machine_detail div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.each_spefication_machine_detail {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  border-bottom: 1px solid #6c757d;
+}
+
+.each_spefication_machine_detail div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.list_spare_part_for_maintenacne_machine_detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.header_spare_part_machine_detail {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header_spare_part_machine_detail div {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+}
+.each_spare_part_machine_detail {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  border-bottom: 1px solid #6c757d;
+}
+.each_spare_part_machine_detail div {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.additional_data_machine_detail {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.additional_data_machine_detail textarea {
+  width: 100%;
+  height: 50px;
+}

@@ -31,7 +31,7 @@ export default function NavbarMachine() {
         <Link
           to="/machine_detail"
           className={
-            location.pathname === "/machine_detail"
+            location.pathname.includes("/machine_detail")
               ? "active_machine_link"
               : "machine_link"
           }

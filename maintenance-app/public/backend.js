@@ -222,6 +222,82 @@ app.get("/list_machines", (req, res) => {
   );
 });
 
+app.post("/list_machines", async (req, res) => {
+  const newMachine = req.body.newMachine;
+  console.log("Received new machine:", newMachine);
+
+  fs.readFile(
+    path.join(__dirname, "../../Data/machineData.json"),
+    (err, data) => {
+      if (err) {
+        console.error("Error reading file:", err);
+        console.log("Sending 500 response for read error");
+        return res.status(500).send("Error reading file");
+      }
+      let curMachine = JSON.parse(data);
+      const listForCheckExists = curMachine.filter(
+        (item) => item.machine_code === newMachine.machine_code
+      );
+      if (listForCheckExists.length > 0) {
+        console.log("Machine exists, sending 400 response");
+        return res
+          .status(400)
+          .json({ status: "error", message: "Machine already exists" });
+      } else {
+        curMachine.push(newMachine);
+        fs.writeFile(
+          path.join(__dirname, "../../Data/machineData.json"),
+          JSON.stringify(curMachine, null, 2),
+          (err) => {
+            if (err) {
+              console.error("Error writing file:", err);
+              console.log("Sending 500 response for write error");
+              return res.status(500).send("Error writing file");
+            }
+            console.log("Machine added, sending success response");
+            res.json({ status: "success", message: "Machine added" });
+          }
+        );
+      }
+    }
+  );
+});
+
+///----------------------------------------------------------------------------------------------------------------
+///Each Machine BE
+
+app.get("/machine_detail/:machine_code", (req, res) => {
+  const machineCode = req.params.machine_code;
+  const filePath = path.join(__dirname, "../../Data/machineData.json");
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Error reading file"); // Exit the function after sending the response
+    }
+
+    let machines;
+    try {
+      machines = JSON.parse(data);
+    } catch (parseErr) {
+      console.error(parseErr);
+      return res.status(500).send("Error parsing JSON data");
+    }
+
+    const machine = machines.find(
+      (machine) => machine.machine_code === machineCode
+    );
+
+    if (machine) {
+      return res.json(machine); // Exit the function after sending the response
+    } else {
+      return res
+        .status(404)
+        .json({ status: "error", message: "Machine not found" }); // Exit the function after sending the response
+    }
+  });
+});
+
 ///----------------------------------------------------------------------------------------------------------------
 ///search Spare Part BE
 app.post("/search_spare_parts", (req, res) => {

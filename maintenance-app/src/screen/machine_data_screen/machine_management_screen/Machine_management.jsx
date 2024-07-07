@@ -43,10 +43,27 @@ export default function Machine_management() {
               <th>Action</th>
             </tr>
           </thead>
+          <tbody>
+            {listMachines.map((machine, index) => {
+              return (
+                <tr key={index}>
+                  <td>{machine.machine_code}</td>
+                  <td>{machine.machine_name}</td>
+                  <td>{machine.date_of_purchase}</td>
+                  <td>{machine.plant}</td>
+                  <td>
+                    <Link
+                      to={`/machine_detail/${machine.machine_code}`}
+                      className="machine_management_table_link"
+                    >
+                      Detail
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
-      </div>
-      <div className="search_spare_part_container_used">
-        <SearchSparePart />
       </div>
     </div>
   );

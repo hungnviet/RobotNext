@@ -1,0 +1,189 @@
+.div1_add_machine_data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.div1_add_machine_data div {
+  width: 30%;
+}
+.div1_add_machine_data div input {
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+}
+.div1_add_machine_data div p {
+  font-weight: bold;
+}
+
+.spefication_added_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+.header_spefication {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.header_spefication div:nth-child(1),
+.header_spefication div:nth-child(2) {
+  width: 40%;
+}
+
+.header_spefication div:nth-child(3) {
+  width: 20%;
+}
+
+.header_spefication div {
+  text-align: center;
+  font-weight: bold;
+}
+
+.spefication_added_item {
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  column-gap: 20px;
+}
+
+.spefication_added_item div:nth-child(1),
+.spefication_added_item div:nth-child(2) {
+  width: 40%;
+}
+
+.spefication_added_item div:nth-child(3) {
+  width: 20%;
+}
+
+.spefication_added_item div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spefication_added_item div input {
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+}
+.spefication_added_item div button {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.footer_add_spefication {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.footer_add_spefication button {
+  width: 100px;
+  height: 30px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.header_add_spare_part_for_machine {
+  width: 90%;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.header_add_spare_part_for_machine p:nth-child(1) {
+  font-weight: bold;
+}
+.search_spare_part_container_used {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  margin-top: 20px;
+}
+
+.header_list_spare_part_for_machine_maintenance {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.header_list_spare_part_for_machine_maintenance div {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+.item_spare_part_for_machine_management {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.item_spare_part_for_machine_management div {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+}
+
+.input_code {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.item_spare_part_for_machine_management button {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.additional_data {
+  width: 100%;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.additional_data p {
+  font-weight: bold;
+}
+
+.additional_data textarea {
+  width: 80%;
+  height: 100px;
+  border-radius: 6px;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
