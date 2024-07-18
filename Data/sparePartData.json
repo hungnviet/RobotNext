@@ -1,21 +1,5 @@
 [
   {
-    "spare_part_code": "SP005",
-    "spare_part_name": "Bearings",
-    "spare_part_suplier": "RoboSupply Co.",
-    "delivery_time": 3,
-    "inventory_quantity": 226,
-    "unit_price": 637
-  },
-  {
-    "spare_part_code": "SP006",
-    "spare_part_name": "Seals",
-    "spare_part_suplier": "SupremeParts LLC",
-    "delivery_time": 4,
-    "inventory_quantity": 160,
-    "unit_price": 2164
-  },
-  {
     "spare_part_code": "SP007",
     "spare_part_name": "Motors",
     "spare_part_suplier": "TechParts Ltd.",
@@ -474,10 +458,10 @@
   {
     "spare_part_code": "SP064",
     "spare_part_name": "Gears",
-    "spare_part_suplier": "TechParts Ltd.",
-    "delivery_time": 22,
-    "inventory_quantity": 198,
-    "unit_price": 839
+    "spare_part_suplier": "Robot Next",
+    "delivery_time": "30",
+    "inventory_quantity": "200",
+    "unit_price": "900"
   },
   {
     "spare_part_code": "SP065",
@@ -614,5 +598,21 @@
     "delivery_time": "7",
     "inventory_quantity": 0,
     "unit_price": "100000"
+  },
+  {
+    "spare_part_code": "EXP001",
+    "spare_part_name": "Test Spare Part",
+    "spare_part_suplier": "Robot Next company",
+    "delivery_time": "10",
+    "inventory_quantity": 0,
+    "unit_price": "100000"
+  },
+  {
+    "spare_part_code": "EXAMPLECODE",
+    "spare_part_name": "spare part example ",
+    "spare_part_suplier": "Robot Next company",
+    "delivery_time": "10",
+    "inventory_quantity": 0,
+    "unit_price": "2000"
   }
 ]
