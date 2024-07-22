@@ -1,0 +1,153 @@
+[
+  {
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Monthly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": false
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "filter",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "Full moon again",
+    "remark": "Wiping all out",
+    "Checked by": "Makoto Yuki",
+    "Approved by": "Persona"
+  },
+  {
+    "machine_name": "CNC Milling Machine",
+    "machine_code": "CNC002",
+    "type_of_maintenance": "Weekly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "Full moon again",
+    "remark": "Wiping all out",
+    "Checked by": "Makoto Yuki",
+    "Approved by": "Persona"
+  },
+  {
+    "machine_name": "Laser Cutting Machine",
+    "machine_code": "LAS003",
+    "type_of_maintenance": "Yearly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": false
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": false
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "Full moon again",
+    "remark": "Wiping all out",
+    "Checked by": "Makoto Yuki",
+    "Approved by": "Persona"
+  },
+  {
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Weekly",
+    "fields": [
+      {
+        "field_name": "This is a field 1",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": false
+          },
+          {
+            "name": "Req 2",
+            "requirement": "",
+            "status": false
+          },
+          {
+            "name": "Req 3",
+            "requirement": "",
+            "status": false
+          }
+        ]
+      },
+      {
+        "field_name": "This is a field 2",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "requirement": "",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "",
+    "remark": "",
+    "Checked by": "",
+    "Approved by": ""
+  }
+]

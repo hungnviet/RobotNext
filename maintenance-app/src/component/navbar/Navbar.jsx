@@ -35,10 +35,21 @@ export default function Navbar() {
             : "link_navbar"
         }
       >
-        {" "}
         Machine data
       </Link>
-      <Link>Maintenance form</Link>
+      <Link
+        to="/maintenance"
+        className={
+          location.pathname === "/maintenance" ||
+          location.pathname === "/maintenance_create" ||
+          location.pathname === "/maintenance_history" ||
+          location.pathname.includes("/maintenance_detail")
+            ? "active_link_navbar"
+            : "link_navbar"
+        }
+      >
+        Maintenance form
+      </Link>
       <Link>Schedule</Link>
       <Link>Request Maintenance</Link>
       <Link>Print form</Link>

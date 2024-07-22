@@ -1,0 +1,40 @@
+[
+  {
+    "maintenance_date": "2021-09-01",
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Monthly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": false
+          },
+          {
+            "name": "This is a requirement",
+            "status": false
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "filter",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "Full moon again",
+    "remark": "Wiping all out",
+    "Checked by": "Makoto Yuki",
+    "Approved by": "Persona"
+  }
+]

@@ -10,6 +10,10 @@ import Spare_part_add_data from "./screen/spare_part_screen/Spare_part_add_data/
 import Machine_management from "./screen/machine_data_screen/machine_management_screen/Machine_management";
 import Machine_add_data from "./screen/machine_data_screen/machine_add_data_screen/Machine_add_data";
 import Machine_detail from "./screen/machine_data_screen/machine_detail_screen/Machine_detail";
+import MaintenanceHistory from "./screen/maintenance_form_screen/maintenance_history_screen/maintenance_history";
+import Maintenance from "./screen/maintenance_form_screen/maintenance_list_screen/maintenance_list";
+import MaintenanceCreate from "./screen/maintenance_form_screen/maintenance_create_screen/maintenance_create";
+import MaintenanceDetail from "./screen/maintenance_form_screen/maintenance_detail_screen/maintenance_detail";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -33,6 +37,19 @@ root.render(
             path="/machine_detail/:machineCode?"
             element={<Machine_detail />}
           />
+          <Route path="/maintenance" element={<Maintenance />} />
+          <Route
+            path="/maintenance_create"
+            element={<MaintenanceCreate />}
+          ></Route>
+          <Route
+            path="/maintenance_history"
+            element={<MaintenanceHistory />}
+          ></Route>
+          <Route
+            path="/maintenance_detail/:machine_code?/:maintenanceType?"
+            element={<MaintenanceDetail />}
+          ></Route>
         </Routes>
       </div>
     </Router>

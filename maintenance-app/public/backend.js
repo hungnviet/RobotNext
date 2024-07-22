@@ -6,7 +6,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); // This middleware is used to parse JSON bodies
-
+const maintenanceRoutes = require("./maintenance.js");
+app.use(maintenanceRoutes);
 app.listen(3001, () => console.log("Server listening on port12 3001"));
 
 ///message BE
