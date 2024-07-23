@@ -39,7 +39,7 @@ root.render(
           />
           <Route path="/maintenance" element={<Maintenance />} />
           <Route
-            path="/maintenance_create"
+            path="/maintenance_create/:machine_code?/:maintenanceType?"
             element={<MaintenanceCreate />}
           ></Route>
           <Route
@@ -47,7 +47,7 @@ root.render(
             element={<MaintenanceHistory />}
           ></Route>
           <Route
-            path="/maintenance_detail/:machine_code?/:maintenanceType?"
+            path="/maintenance_detail/:machine_code?/:maintenanceType?/:maintenance_code?"
             element={<MaintenanceDetail />}
           ></Route>
         </Routes>

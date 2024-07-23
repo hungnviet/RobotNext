@@ -93,7 +93,16 @@ export default function Machine_management() {
                       >
                         Fill in
                       </button>
-                      <button>Edit</button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_create/${machine.machine_code}/Weekly`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Edit
+                      </button>
                     </>
                   ) : (
                     "No"
@@ -112,7 +121,16 @@ export default function Machine_management() {
                       >
                         Fill in
                       </button>
-                      <button>Edit</button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_create/${machine.machine_code}/Monthly`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Edit
+                      </button>
                     </>
                   ) : (
                     "No"
@@ -131,7 +149,16 @@ export default function Machine_management() {
                       >
                         Fill in
                       </button>
-                      <button>Edit</button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_create/${machine.machine_code}/Halfyearly`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Edit
+                      </button>
                     </>
                   ) : (
                     "No"
@@ -150,7 +177,16 @@ export default function Machine_management() {
                       >
                         Fill in
                       </button>
-                      <button>Edit</button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_create/${machine.machine_code}/Yearly`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Edit
+                      </button>
                     </>
                   ) : (
                     "No"

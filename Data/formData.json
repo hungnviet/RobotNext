@@ -5,36 +5,40 @@
     "type_of_maintenance": "Monthly",
     "fields": [
       {
-        "field_name": "oil",
+        "field_name": "Oil 2",
         "requirement": [
           {
             "name": "This is a requirement",
-            "status": false
+            "status": false,
+            "requirement": ""
           },
           {
             "name": "This is a requirement",
-            "status": false
+            "status": false,
+            "requirement": ""
           }
         ]
       },
       {
-        "field_name": "filter",
+        "field_name": "Filter 2",
         "requirement": [
           {
             "name": "This is a requirement",
-            "status": true
+            "status": true,
+            "requirement": ""
           },
           {
             "name": "filter",
-            "status": false
+            "status": false,
+            "requirement": ""
           }
         ]
       }
     ],
-    "note": "Full moon again",
-    "remark": "Wiping all out",
-    "Checked by": "Makoto Yuki",
-    "Approved by": "Persona"
+    "note": "",
+    "remark": "",
+    "Checked by": "",
+    "Approved by": ""
   },
   {
     "machine_name": "CNC Milling Machine",
@@ -68,10 +72,10 @@
         ]
       }
     ],
-    "note": "Full moon again",
-    "remark": "Wiping all out",
-    "Checked by": "Makoto Yuki",
-    "Approved by": "Persona"
+    "note": "",
+    "remark": "",
+    "Checked by": "",
+    "Approved by": ""
   },
   {
     "machine_name": "Laser Cutting Machine",
@@ -105,10 +109,10 @@
         ]
       }
     ],
-    "note": "Full moon again",
-    "remark": "Wiping all out",
-    "Checked by": "Makoto Yuki",
-    "Approved by": "Persona"
+    "note": "",
+    "remark": "",
+    "Checked by": "",
+    "Approved by": ""
   },
   {
     "machine_name": "Hydraulic Press",

@@ -51,7 +51,14 @@ export default function Machine_history() {
                   <td>{maintain.machine_code}</td>
                   <td>{maintain.machine_name}</td>
                   <td>{maintain.type_of_maintenance}</td>
-                  <td>Detail</td>
+                  <td>
+                    <Link
+                      to={`/maintenance_detail/${maintain.machine_code}/${maintain.type_of_maintenance}/${maintain.maintenance_code}`}
+                      className="machine_management_table_link"
+                    >
+                      Detail
+                    </Link>
+                  </td>
                 </tr>
               );
             })}

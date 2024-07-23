@@ -21,7 +21,7 @@ export default function NavbarMaintenance() {
         <Link
           to="/maintenance_create"
           className={
-            location.pathname === "/maintenance_create"
+            location.pathname.includes("/maintenance_create")
               ? "active_maintenance_link"
               : "maintenance_link"
           }

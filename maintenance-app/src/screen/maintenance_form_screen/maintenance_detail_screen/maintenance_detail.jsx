@@ -5,38 +5,26 @@ import NavbarMaintenance from "../../../component/navbarMaintenance/NavbarMainte
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function Maintenance_detail() {
-  const [machineDetails, setMachineDetails] = useState(null);
   const [formMaintain, setformMaintain] = useState("");
   const [searchMachineCode, setSearchMachineCode] = useState("");
   const [searchMaintenanceType, setSearchMaintenanceType] = useState("");
-  const { machine_code, maintenanceType } = useParams();
+  const { machine_code, maintenanceType, maintenance_code } = useParams();
   const [checkboxState, setCheckboxState] = useState({});
   const [note, setNote] = useState("");
   const [remark, setRemark] = useState("");
   const [checkedBy, setCheckedBy] = useState("");
+  const [isExist, setIsExist] = useState(false);
   const [approvedBy, setApprovedBy] = useState("");
 
   useEffect(() => {
     setSearchMachineCode(machine_code);
     setSearchMaintenanceType(maintenanceType);
     fetchData(machine_code, maintenanceType);
-  }, [machine_code, maintenanceType]);
+    fetchexistMaintin(maintenance_code);
+  }, [machine_code, maintenanceType, maintenance_code]);
 
   async function fetchData(code, type) {
-    await fetchMachineDetails(code);
     await fetchformMaintain(code, type);
-  }
-
-  async function fetchMachineDetails(code) {
-    const response = await fetch(
-      `http://localhost:3001/machine_detail/${code}`
-    );
-    if (response.ok) {
-      const data = await response.json();
-      setMachineDetails(data);
-    } else {
-      setMachineDetails(null);
-    }
   }
 
   async function fetchformMaintain(code, type) {
@@ -47,6 +35,34 @@ export default function Maintenance_detail() {
       const data = await response.json();
       console.log(data);
       setformMaintain(data);
+    } else {
+      setformMaintain("");
+    }
+  }
+  function updateCheckboxState(fields) {
+    const newState = {};
+    fields.forEach((field, fieldIndex) => {
+      field.requirement.forEach((req, reqIndex) => {
+        const key = `field_${fieldIndex}_req_${reqIndex}`;
+        newState[key] = req.status ? "yes" : "no";
+      });
+    });
+    setCheckboxState(newState);
+  }
+  async function fetchexistMaintin(code) {
+    const response = await fetch(
+      `http://localhost:3001/maintenance_detail/${code}`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      setformMaintain(data);
+      setIsExist(true);
+      updateCheckboxState(data.fields);
+      setNote(data.note);
+      setRemark(data.remark);
+      setCheckedBy(data["Checked by"]);
+      setApprovedBy(data["Approved by"]);
     } else {
       setformMaintain("");
     }
@@ -94,8 +110,8 @@ export default function Maintenance_detail() {
 
     const formData = {
       maintenance_date: new Date().toISOString().split("T")[0],
-      machine_name: machineDetails.machine_name,
-      machine_code: machineDetails.machine_code,
+      machine_name: formMaintain.machine_name,
+      machine_code: formMaintain.machine_code,
       type_of_maintenance: formMaintain.type_of_maintenance,
       fields: formMaintain.fields.map((field) => ({
         field_name: field.field_name,
@@ -157,16 +173,16 @@ export default function Maintenance_detail() {
           </select>
           <button type="submit">Search</button>
         </form>
-        {machineDetails && formMaintain ? (
+        {formMaintain ? (
           <div className="fillformcontainer">
             <div className="machineinfor">
               <div>
                 <h3>Machine Name:</h3>
-                <p>{machineDetails.machine_name}</p>
+                <p>{formMaintain.machine_name}</p>
               </div>
               <div>
                 <h3>Machine Code:</h3>
-                <p>{machineDetails.machine_code}</p>
+                <p>{formMaintain.machine_code}</p>
               </div>
               <div>
                 <h3>Type of Maintenance:</h3>
@@ -266,11 +282,13 @@ export default function Maintenance_detail() {
                 />
               </div>
             </div>
+            {!isExist ? (
+              <button className="submitfill" onClick={handleSubmit}>
+                Save
+              </button>
+            ) : null}
           </div>
         ) : null}
-        <button className="submitfill" onClick={handleSubmit}>
-          Save
-        </button>
       </div>
     </div>
   );

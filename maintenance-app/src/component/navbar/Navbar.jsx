@@ -41,7 +41,7 @@ export default function Navbar() {
         to="/maintenance"
         className={
           location.pathname === "/maintenance" ||
-          location.pathname === "/maintenance_create" ||
+          location.pathname.includes("/maintenance_create") ||
           location.pathname === "/maintenance_history" ||
           location.pathname.includes("/maintenance_detail")
             ? "active_link_navbar"
