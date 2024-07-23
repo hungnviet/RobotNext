@@ -212,7 +212,7 @@ export default function Form_Create() {
       const result = await response.json();
 
       if (response.ok) {
-        toast.success(result.message);
+        toast.success("Updated form successfully");
       } else {
         toast.error(result.message || "Error saving template data");
       }
