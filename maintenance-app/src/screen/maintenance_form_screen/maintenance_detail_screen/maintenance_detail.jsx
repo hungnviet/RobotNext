@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./maintenance_detail.css";
-import { useParams } from "react-router-dom";
+import { Router, useParams } from "react-router-dom";
 import NavbarMaintenance from "../../../component/navbarMaintenance/NavbarMaintenance";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,6 +15,7 @@ export default function Maintenance_detail() {
   const [checkedBy, setCheckedBy] = useState("");
   const [isExist, setIsExist] = useState(false);
   const [approvedBy, setApprovedBy] = useState("");
+  const [maintenace_date, setMaintenace_date] = useState("");
 
   useEffect(() => {
     setSearchMachineCode(machine_code);
@@ -63,6 +64,7 @@ export default function Maintenance_detail() {
       setRemark(data.remark);
       setCheckedBy(data["Checked by"]);
       setApprovedBy(data["Approved by"]);
+      setMaintenace_date(data.maintenance_date);
     } else {
       setformMaintain("");
     }
@@ -154,25 +156,31 @@ export default function Maintenance_detail() {
       <ToastContainer />
 
       <div className="maintaindetail">
-        <form onSubmit={handleSearch} className="search-maintain">
-          <input
-            type="text"
-            placeholder="Machine Code"
-            value={searchMachineCode}
-            onChange={(e) => setSearchMachineCode(e.target.value)}
-          />
-          <select
-            value={searchMaintenanceType}
-            onChange={(e) => setSearchMaintenanceType(e.target.value)}
-          >
-            <option value="">Select Maintenance Type</option>
-            <option value="Weekly">Weekly</option>
-            <option value="Monthly">Monthly</option>
-            <option value="HalfYearly">HalfYearly</option>
-            <option value="Yearly">Yearly</option>
-          </select>
-          <button type="submit">Search</button>
-        </form>
+        {isExist ? (
+          <div>
+            <p>You are viewing the maintenance result</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSearch} className="search-maintain">
+            <input
+              type="text"
+              placeholder="Machine Code"
+              value={searchMachineCode}
+              onChange={(e) => setSearchMachineCode(e.target.value)}
+            />
+            <select
+              value={searchMaintenanceType}
+              onChange={(e) => setSearchMaintenanceType(e.target.value)}
+            >
+              <option value="">Select Maintenance Type</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="HalfYearly">HalfYearly</option>
+              <option value="Yearly">Yearly</option>
+            </select>
+            <button type="submit">Search</button>
+          </form>
+        )}
         {formMaintain ? (
           <div className="fillformcontainer">
             <div className="machineinfor">
@@ -188,10 +196,17 @@ export default function Maintenance_detail() {
                 <h3>Type of Maintenance:</h3>
                 <p>{formMaintain.type_of_maintenance}</p>
               </div>
-              <div>
-                <h3>Current Date:</h3>
-                <p>{new Date().toLocaleDateString()}</p>
-              </div>
+              {isExist ? (
+                <div>
+                  <h3>Maintenance Date:</h3>
+                  <p>{maintenace_date}</p>
+                </div>
+              ) : (
+                <div>
+                  <h3>Current Date:</h3>
+                  <p>{new Date().toLocaleDateString()}</p>
+                </div>
+              )}
             </div>
             <div>
               {formMaintain.fields.map((field, index) => (
@@ -221,6 +236,7 @@ export default function Maintenance_detail() {
                                 onChange={() =>
                                   handleCheckboxChange(index, reqIndex, "yes")
                                 }
+                                disabled={isExist}
                               />
                             </td>
                             <td>
@@ -238,6 +254,7 @@ export default function Maintenance_detail() {
                                       ? "red"
                                       : "transparent",
                                 }}
+                                disabled={isExist}
                               />
                             </td>
                           </tr>
@@ -254,6 +271,7 @@ export default function Maintenance_detail() {
                 type="text"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
+                disabled={isExist}
               />
             </div>
             <div className="confirmfill">
@@ -263,6 +281,7 @@ export default function Maintenance_detail() {
                   type="text"
                   value={remark}
                   onChange={(e) => setRemark(e.target.value)}
+                  disabled={isExist}
                 />
               </div>
               <div>
@@ -271,6 +290,7 @@ export default function Maintenance_detail() {
                   type="text"
                   value={checkedBy}
                   onChange={(e) => setCheckedBy(e.target.value)}
+                  disabled={isExist}
                 />
               </div>
               <div>
@@ -279,6 +299,7 @@ export default function Maintenance_detail() {
                   type="text"
                   value={approvedBy}
                   onChange={(e) => setApprovedBy(e.target.value)}
+                  disabled={isExist}
                 />
               </div>
             </div>

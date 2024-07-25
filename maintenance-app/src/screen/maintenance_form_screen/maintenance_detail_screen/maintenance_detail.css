@@ -36,11 +36,10 @@
 }
 
 .machineinfor {
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20%;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .machineinfor > div {

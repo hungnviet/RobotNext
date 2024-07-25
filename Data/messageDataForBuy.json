@@ -1,1 +1,522 @@
-[]
+[
+  {
+    "message_type": "request_maintenance",
+    "request_code": 2,
+    "request_date": "2024-05-01",
+    "machine_name": "Machine 2",
+    "machine_code": "M2",
+    "problem": "Vibration problem",
+    "requested_by": "John Doe",
+    "priority": "Low",
+    "message_id": 4
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M2",
+    "machine_name": "Machine 2",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-07-05",
+    "message_id": 24
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP001",
+    "spare_part_name": "Gaskets",
+    "quantity": 48,
+    "message_id": 44
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 3,
+    "request_date": "2024-04-22",
+    "machine_name": "Machine 3",
+    "machine_code": "M3",
+    "problem": "Not starting",
+    "requested_by": "Jane Smith",
+    "priority": "Medium",
+    "message_id": 5
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M3",
+    "machine_name": "Machine 3",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-03-02",
+    "message_id": 25
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP002",
+    "spare_part_name": "Filters",
+    "quantity": 71,
+    "message_id": 45
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 4,
+    "request_date": "2024-07-09",
+    "machine_name": "Machine 4",
+    "machine_code": "M4",
+    "problem": "Vibration problem",
+    "requested_by": "Bob Brown",
+    "priority": "High",
+    "message_id": 6
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M4",
+    "machine_name": "Machine 4",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-09-05",
+    "message_id": 26
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP003",
+    "spare_part_name": "Filters",
+    "quantity": 127,
+    "message_id": 46
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 5,
+    "request_date": "2024-02-24",
+    "machine_name": "Machine 5",
+    "machine_code": "M5",
+    "problem": "Vibration problem",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 7
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M5",
+    "machine_name": "Machine 5",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-09-25",
+    "message_id": 27
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP004",
+    "spare_part_name": "Filters",
+    "quantity": 31,
+    "message_id": 47
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 6,
+    "request_date": "2024-11-03",
+    "machine_name": "Machine 1",
+    "machine_code": "M1",
+    "problem": "Vibration problem",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 8
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M1",
+    "machine_name": "Machine 1",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-06-19",
+    "message_id": 28
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP005",
+    "spare_part_name": "Gaskets",
+    "quantity": 22,
+    "message_id": 48
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 7,
+    "request_date": "2024-09-24",
+    "machine_name": "Machine 2",
+    "machine_code": "M2",
+    "problem": "Overheating issue",
+    "requested_by": "Bob Brown",
+    "priority": "High",
+    "message_id": 9
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M2",
+    "machine_name": "Machine 2",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-03-27",
+    "message_id": 29
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP006",
+    "spare_part_name": "Gaskets",
+    "quantity": 44,
+    "message_id": 49
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 8,
+    "request_date": "2024-02-14",
+    "machine_name": "Machine 3",
+    "machine_code": "M3",
+    "problem": "Overheating issue",
+    "requested_by": "Alice Johnson",
+    "priority": "Medium",
+    "message_id": 10
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M3",
+    "machine_name": "Machine 3",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-11-04",
+    "message_id": 30
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP007",
+    "spare_part_name": "Seals",
+    "quantity": 95,
+    "message_id": 50
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 9,
+    "request_date": "2024-02-23",
+    "machine_name": "Machine 4",
+    "machine_code": "M4",
+    "problem": "Overheating issue",
+    "requested_by": "Bob Brown",
+    "priority": "Low",
+    "message_id": 11
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M4",
+    "machine_name": "Machine 4",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-11-12",
+    "message_id": 31
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP008",
+    "spare_part_name": "Seals",
+    "quantity": 18,
+    "message_id": 51
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 10,
+    "request_date": "2024-08-01",
+    "machine_name": "Machine 5",
+    "machine_code": "M5",
+    "problem": "Not starting",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 12
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M5",
+    "machine_name": "Machine 5",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-09-13",
+    "message_id": 32
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP009",
+    "spare_part_name": "Seals",
+    "quantity": 123,
+    "message_id": 52
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 11,
+    "request_date": "2024-09-25",
+    "machine_name": "Machine 1",
+    "machine_code": "M1",
+    "problem": "Not starting",
+    "requested_by": "John Doe",
+    "priority": "High",
+    "message_id": 13
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M1",
+    "machine_name": "Machine 1",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-12-04",
+    "message_id": 33
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP010",
+    "spare_part_name": "Seals",
+    "quantity": 75,
+    "message_id": 53
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 12,
+    "request_date": "2024-05-20",
+    "machine_name": "Machine 2",
+    "machine_code": "M2",
+    "problem": "Overheating issue",
+    "requested_by": "Bob Brown",
+    "priority": "Medium",
+    "message_id": 14
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M2",
+    "machine_name": "Machine 2",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-04-13",
+    "message_id": 34
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP011",
+    "spare_part_name": "Belts",
+    "quantity": 33,
+    "message_id": 54
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 13,
+    "request_date": "2024-05-30",
+    "machine_name": "Machine 3",
+    "machine_code": "M3",
+    "problem": "Strange noise",
+    "requested_by": "Alice Johnson",
+    "priority": "Medium",
+    "message_id": 15
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M3",
+    "machine_name": "Machine 3",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-12-30",
+    "message_id": 35
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP012",
+    "spare_part_name": "Gaskets",
+    "quantity": 141,
+    "message_id": 55
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 14,
+    "request_date": "2024-01-31",
+    "machine_name": "Machine 4",
+    "machine_code": "M4",
+    "problem": "Not starting",
+    "requested_by": "Alice Johnson",
+    "priority": "High",
+    "message_id": 16
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M4",
+    "machine_name": "Machine 4",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-03-14",
+    "message_id": 36
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP013",
+    "spare_part_name": "Belts",
+    "quantity": 165,
+    "message_id": 56
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 15,
+    "request_date": "2024-11-16",
+    "machine_name": "Machine 5",
+    "machine_code": "M5",
+    "problem": "Vibration problem",
+    "requested_by": "Jane Smith",
+    "priority": "Medium",
+    "message_id": 17
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M5",
+    "machine_name": "Machine 5",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-05-13",
+    "message_id": 37
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP014",
+    "spare_part_name": "Seals",
+    "quantity": 148,
+    "message_id": 57
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 16,
+    "request_date": "2024-04-04",
+    "machine_name": "Machine 1",
+    "machine_code": "M1",
+    "problem": "Not starting",
+    "requested_by": "Jane Smith",
+    "priority": "Medium",
+    "message_id": 18
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M1",
+    "machine_name": "Machine 1",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-07-03",
+    "message_id": 38
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP015",
+    "spare_part_name": "Filters",
+    "quantity": 66,
+    "message_id": 58
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 17,
+    "request_date": "2024-03-05",
+    "machine_name": "Machine 2",
+    "machine_code": "M2",
+    "problem": "Strange noise",
+    "requested_by": "Alice Johnson",
+    "priority": "Low",
+    "message_id": 19
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M2",
+    "machine_name": "Machine 2",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-07-19",
+    "message_id": 39
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP016",
+    "spare_part_name": "Filters",
+    "quantity": 137,
+    "message_id": 59
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 18,
+    "request_date": "2024-09-18",
+    "machine_name": "Machine 3",
+    "machine_code": "M3",
+    "problem": "Vibration problem",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 20
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M3",
+    "machine_name": "Machine 3",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-03-10",
+    "message_id": 40
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP017",
+    "spare_part_name": "Gaskets",
+    "quantity": 180,
+    "message_id": 60
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 19,
+    "request_date": "2024-08-23",
+    "machine_name": "Machine 4",
+    "machine_code": "M4",
+    "problem": "Vibration problem",
+    "requested_by": "Bob Brown",
+    "priority": "Low",
+    "message_id": 21
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M4",
+    "machine_name": "Machine 4",
+    "type_of_maintenance": "Half Yearly",
+    "date_for_maintenance": "2024-11-12",
+    "message_id": 41
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP018",
+    "spare_part_name": "Seals",
+    "quantity": 50,
+    "message_id": 61
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 20,
+    "request_date": "2024-06-15",
+    "machine_name": "Machine 5",
+    "machine_code": "M5",
+    "problem": "Strange noise",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 22
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M5",
+    "machine_name": "Machine 5",
+    "type_of_maintenance": "Yearly",
+    "date_for_maintenance": "2024-06-09",
+    "message_id": 42
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP019",
+    "spare_part_name": "Bearings",
+    "quantity": 197,
+    "message_id": 62
+  },
+  {
+    "message_type": "request_maintenance",
+    "request_code": 21,
+    "request_date": "2024-05-09",
+    "machine_name": "Machine 1",
+    "machine_code": "M1",
+    "problem": "Vibration problem",
+    "requested_by": "Jane Smith",
+    "priority": "High",
+    "message_id": 23
+  },
+  {
+    "message_type": "reminder_maintenance",
+    "machine_code": "M1",
+    "machine_name": "Machine 1",
+    "type_of_maintenance": "Quarterly",
+    "date_for_maintenance": "2024-05-27",
+    "message_id": 43
+  },
+  {
+    "message_type": "buy_spare_parts",
+    "spare_part_code": "SP020",
+    "spare_part_name": "Belts",
+    "quantity": 184,
+    "message_id": 63
+  }
+]

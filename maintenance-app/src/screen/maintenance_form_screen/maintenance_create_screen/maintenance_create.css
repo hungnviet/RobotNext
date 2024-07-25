@@ -190,3 +190,12 @@ table {
   border-color: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
+
+.notice_existed_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: bold;
+}

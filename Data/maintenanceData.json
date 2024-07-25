@@ -76,5 +76,161 @@
     "Checked by": "b",
     "Approved by": "c",
     "maintenance_code": "2"
+  },
+  {
+    "maintenance_date": "2024-07-25",
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Weekly",
+    "fields": [
+      {
+        "field_name": "This is a field 1",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": true
+          },
+          {
+            "name": "Req 2",
+            "status": true
+          },
+          {
+            "name": "Req 3",
+            "status": true
+          }
+        ]
+      },
+      {
+        "field_name": "This is a field 2",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": true
+          }
+        ]
+      }
+    ],
+    "note": "Not thing",
+    "remark": "Mr abcd",
+    "Checked by": "Ms xyz",
+    "Approved by": "Mr uik",
+    "maintenance_code": "3"
+  },
+  {
+    "maintenance_date": "2024-07-25",
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Weekly",
+    "fields": [
+      {
+        "field_name": "This is a field 1",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": true
+          },
+          {
+            "name": "Req 2",
+            "status": false
+          },
+          {
+            "name": "Req 3",
+            "status": true
+          }
+        ]
+      },
+      {
+        "field_name": "This is a field 2",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": false
+          }
+        ]
+      }
+    ],
+    "note": "No note",
+    "remark": "123",
+    "Checked by": "456",
+    "Approved by": "789",
+    "maintenance_code": "4"
+  },
+  {
+    "maintenance_date": "2024-07-25",
+    "machine_name": "CNC Milling Machine",
+    "machine_code": "CNC002",
+    "type_of_maintenance": "Weekly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": true
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": true
+          }
+        ]
+      }
+    ],
+    "note": "no",
+    "remark": "1",
+    "Checked by": "2",
+    "Approved by": "3",
+    "maintenance_code": "5"
+  },
+  {
+    "maintenance_date": "2024-07-25",
+    "machine_name": "Laser Cutting Machine",
+    "machine_code": "LAS003",
+    "type_of_maintenance": "Yearly",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": true
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": true
+          },
+          {
+            "name": "This is a requirement",
+            "status": true
+          }
+        ]
+      }
+    ],
+    "note": "a",
+    "remark": "a",
+    "Checked by": "a",
+    "Approved by": "a",
+    "maintenance_code": "6"
   }
 ]

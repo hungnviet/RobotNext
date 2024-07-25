@@ -111,6 +111,13 @@ export default function Form_Create() {
         "No existing form found for this machine with the specified type of maintenance. You can create a new one."
       );
       setIsValid(true);
+      setExist(false);
+      setFormData([
+        {
+          field_name: "",
+          requirement: [{ name: "", status: false }],
+        },
+      ]);
     }
   };
   const handleAddField = () => {
@@ -324,6 +331,11 @@ export default function Form_Create() {
               flexDirection: "column",
             }}
           >
+            {isExist && (
+              <div className="notice_existed_form">
+                The form has existed, you can edit it now!
+              </div>
+            )}
             <div>
               {fields.map((field, fieldIndex) => (
                 <div key={fieldIndex}>

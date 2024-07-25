@@ -8,19 +8,19 @@
         "field_name": "Oil 2",
         "requirement": [
           {
-            "name": "This is a requirement",
+            "name": "This is a requirement fix",
             "status": false,
             "requirement": ""
           },
           {
-            "name": "This is a requirement",
+            "name": "This is a requirement fix",
             "status": false,
             "requirement": ""
           }
         ]
       },
       {
-        "field_name": "Filter 2",
+        "field_name": "Filter 3",
         "requirement": [
           {
             "name": "This is a requirement",
@@ -28,7 +28,7 @@
             "requirement": ""
           },
           {
-            "name": "filter",
+            "name": "filter fix",
             "status": false,
             "requirement": ""
           }
