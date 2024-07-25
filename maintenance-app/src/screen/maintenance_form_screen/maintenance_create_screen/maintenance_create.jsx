@@ -97,6 +97,16 @@ export default function Form_Create() {
       toast.error("Please fill in all fields.");
       return;
     }
+    if (
+      listMachines.find((machine) => machine.machine_code === machineCode) ===
+      undefined
+    ) {
+      toast.error("Machine code not found in the system");
+      setExist(false);
+      setIsValid(false);
+      return;
+    }
+
     const exists = formData.find(
       (form) =>
         form.machine_code === machineCode &&
@@ -104,6 +114,9 @@ export default function Form_Create() {
     );
 
     if (exists) {
+      toast.info(
+        "A form is already created for this machine with the specified type of maintenance. You can edit it now."
+      );
       fetchformMaintain(machineCode, typemaintain);
       setExist(true);
     } else {
@@ -112,7 +125,7 @@ export default function Form_Create() {
       );
       setIsValid(true);
       setExist(false);
-      setFormData([
+      setFields([
         {
           field_name: "",
           requirement: [{ name: "", status: false }],
@@ -232,7 +245,7 @@ export default function Form_Create() {
     getMachineData();
     getFormData();
     setMachineCode(machine_code);
-    setTypeMaintain(maintenanceType);
+    if (maintenanceType) setTypeMaintain(maintenanceType);
     if (machine_code && maintenanceType) {
       fetchformMaintain(machine_code, maintenanceType);
       setExist(true);
