@@ -27,12 +27,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "clean": "rm -rf build dist",
     "react-start": "react-scripts start",
-    "react-build": "react-scripts build && copy public\\electron.js build\\electron.js",
+    "react-build": "react-scripts build && (cp public/electron.js build/electron.js || copy public\\electron.js build\\electron.js)",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
-    "build": "npm run react-build && npm run electron-build",
+    "build": "npm run clean && npm run react-build && npm run electron-build --win",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
@@ -60,7 +61,7 @@
     "babel-loader": "^9.1.3",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
-    "electron": "^29.1.6",
+    "electron": "^31.3.0",
     "electron-builder": "^24.13.3",
     "wait-on": "^7.2.0",
     "webpack": "^5.91.0",
@@ -89,6 +90,12 @@
           "**/*"
         ]
       }
-    ]
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
   }
 }
