@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
+
 import { IoCheckmark, IoCloseOutline } from "react-icons/io5";
 
 const DailyMaintenance = ({
@@ -10,9 +12,11 @@ const DailyMaintenance = ({
   setYear,
   selectedValues,
   handleCheckingMethod,
+  datechecked,
   handleCellChange,
   handlePIC,
-
+  checkingMethod,
+  pic,
   isExist,
   preparedBy,
   setPreparedBy,
@@ -39,22 +43,21 @@ const DailyMaintenance = ({
     const rows = fields.flatMap((field, fieldIndex) =>
       field.requirement.map((req, reqIndex) => (
         <tr key={`${fieldIndex}-${reqIndex}`}>
-          <td style={{ width: "5%" }}>{counter++}</td>{" "}
-          {/* Increment the counter */}
+          <td style={{ width: "5%" }}>{counter++}</td>
           {reqIndex === 0 ? (
             <td
               rowSpan={field.requirement.length}
               className="table_title_left"
-              style={{ width: "10%" }}
+              style={{ width: "5%" }}
             >
               <div>{field.field_name}</div>
             </td>
           ) : null}
           <td style={{ width: "20%", fontWeight: "bold" }}>{req.name}</td>
-          <td style={{ width: "15%" }}>
+          <td style={{ width: "12%" }}>
             <input
               type="text"
-              placeholder="Corrective Action..."
+              placeholder="Checking method..."
               style={{
                 width: "98%",
                 height: "50px",
@@ -62,31 +65,38 @@ const DailyMaintenance = ({
                 border: "none",
                 boxSizing: "border-box",
               }}
+              value={
+                checkingMethod[`field_${fieldIndex}_req_${reqIndex}`] || ""
+              }
               onChange={(e) =>
                 handleCheckingMethod(fieldIndex, reqIndex, e.target.value)
               }
             />
           </td>
-          <td style={{ width: "5%" }}>
+          <td style={{ width: "7%" }}>
             <CustomSelect
               fieldIndex={fieldIndex}
               reqIndex={reqIndex}
               handlePIC={handlePIC}
-              selectedValue={
-                selectedValues[`field_${fieldIndex}_req_${reqIndex}`]
-              }
+              selectedValue={pic[`field_${fieldIndex}_req_${reqIndex}`]}
             />
           </td>
-          {generateDayHeaders(dailyType).map((header, dayIndex) => (
-            <td key={dayIndex}>
-              <CustomCell
-                fieldIndex={fieldIndex}
-                reqIndex={reqIndex}
-                dayIndex={dayIndex}
-                handleCellChange={handleCellChange}
-              />
-            </td>
-          ))}
+          {generateDayHeaders(dailyType).map((header, dayIndex) => {
+            const key = `field_${fieldIndex}_req_${reqIndex}_day_${
+              dayIndex + 1
+            }`;
+            return (
+              <td key={dayIndex}>
+                <CustomSelect2
+                  fieldIndex={fieldIndex}
+                  reqIndex={reqIndex}
+                  handleCellChange={handleCellChange}
+                  dayIndex={dayIndex}
+                  selectedValue={datechecked[key]}
+                />
+              </td>
+            );
+          })}
         </tr>
       ))
     );
@@ -107,9 +117,9 @@ const DailyMaintenance = ({
               fontWeight: "bold",
             }}
           >
-            <p>Operator: &#9632;</p> {/* Square: &#9632; */}
-            <p>Leader: &#9675;</p> {/* Circle: &#9675; */}
-            <p>Maintenance: &#9651;</p> {/* Triangle: &#9651; */}
+            <p>Operator: &#9632;</p>
+            <p>Leader: &#9675;</p>
+            <p>Maintenance: &#9651;</p>
           </div>
         </td>
         <td
@@ -146,34 +156,42 @@ const DailyMaintenance = ({
           >
             <tbody>
               <tr style={{ height: "50%" }}>
-                {generateDayHeaders(dailyType).map((header, dayIndex) => (
-                  <td
-                    key={`upper-${dayIndex}`}
-                    style={{ border: "1px solid black", padding: 0 }}
-                  >
-                    <CustomCell
-                      fieldIndex={"operator"}
-                      reqIndex={null}
-                      dayIndex={dayIndex}
-                      handleCellChange={handleCellChange}
-                    />
-                  </td>
-                ))}
+                {generateDayHeaders(dailyType).map((header, dayIndex) => {
+                  const key = `field_operator_req_operator_day_${dayIndex + 1}`;
+                  return (
+                    <td
+                      key={`upper-${dayIndex}`}
+                      style={{ border: "1px solid black", padding: 0 }}
+                    >
+                      <CustomSelect2
+                        fieldIndex={"operator"}
+                        reqIndex={"operator"}
+                        handleCellChange={handleCellChange}
+                        dayIndex={dayIndex}
+                        selectedValue={datechecked[key]}
+                      />
+                    </td>
+                  );
+                })}
               </tr>
               <tr style={{ height: "50%" }}>
-                {generateDayHeaders(dailyType).map((header, dayIndex) => (
-                  <td
-                    key={`lower-${dayIndex}`}
-                    style={{ border: "1px solid black", padding: 0 }}
-                  >
-                    <CustomCell
-                      fieldIndex={"Leader"}
-                      reqIndex={null}
-                      dayIndex={dayIndex}
-                      handleCellChange={handleCellChange}
-                    />
-                  </td>
-                ))}
+                {generateDayHeaders(dailyType).map((header, dayIndex) => {
+                  const key = `field_leader_req_leader_day_${dayIndex + 1}`;
+                  return (
+                    <td
+                      key={`lower-${dayIndex}`}
+                      style={{ border: "1px solid black", padding: 0 }}
+                    >
+                      <CustomSelect2
+                        fieldIndex={"leader"}
+                        reqIndex={"leader"}
+                        handleCellChange={handleCellChange}
+                        dayIndex={dayIndex}
+                        selectedValue={datechecked[key]}
+                      />
+                    </td>
+                  );
+                })}
               </tr>
             </tbody>
           </table>
@@ -183,6 +201,7 @@ const DailyMaintenance = ({
 
     return rows;
   };
+
   const options = [
     {
       value: "Operator",
@@ -192,7 +211,7 @@ const DailyMaintenance = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "30px",
+            fontSize: "20px",
             fontWeight: "bold",
           }}
         >
@@ -208,7 +227,7 @@ const DailyMaintenance = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "30px",
+            fontSize: "20px",
             fontWeight: "bold",
           }}
         >
@@ -224,7 +243,7 @@ const DailyMaintenance = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "30px",
+            fontSize: "20px",
             fontWeight: "bold",
           }}
         >
@@ -233,51 +252,40 @@ const DailyMaintenance = ({
       ),
     },
   ];
-  const CustomCell = ({ fieldIndex, reqIndex, dayIndex, handleCellChange }) => {
-    const [value, setValue] = useState("");
-    const [showInput, setShowInput] = useState(false);
-
-    const handleChange = (e) => {
-      const newValue = e.target.value;
-      setValue(newValue);
-      handleCellChange(fieldIndex, reqIndex, dayIndex, newValue);
-    };
-
-    const handleSelectChange = (e) => {
-      const newValue = e.target.value;
-      setValue(newValue);
-      if (newValue === "number") {
-        setShowInput(true);
-      } else {
-        setShowInput(false);
-        handleCellChange(fieldIndex, reqIndex, dayIndex, newValue);
-      }
-    };
-
-    return (
-      <div style={{ width: "100%", height: "100%" }}>
-        {!showInput ? (
-          <select
-            value={value}
-            onChange={handleSelectChange}
-            style={{ width: "100%", height: "100%" }}
-          >
-            <option value=""></option>
-            <option value="OK">&#10003; </option>
-            <option value="NG">&#10060; </option>
-            <option value="number">Number</option>
-          </select>
-        ) : (
-          <input
-            type="number"
-            value={value}
-            onChange={handleChange}
-            style={{ width: "100%", height: "100%", boxSizing: "border-box" }}
-          />
-        )}
-      </div>
-    );
-  };
+  const option2 = [
+    {
+      value: "OK",
+      label: (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "40px",
+            fontWeight: "bold",
+          }}
+        >
+          <IoCheckmark />
+        </div>
+      ),
+    },
+    {
+      value: "NG",
+      label: (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "40px",
+            fontWeight: "bold",
+          }}
+        >
+          <IoCloseOutline />
+        </div>
+      ),
+    },
+  ];
 
   const CustomSelect = ({ fieldIndex, reqIndex, handlePIC, selectedValue }) => (
     <Select
@@ -288,14 +296,34 @@ const DailyMaintenance = ({
       }
     />
   );
+  const CustomSelect2 = ({
+    fieldIndex,
+    reqIndex,
+    handleCellChange,
+    dayIndex,
+    selectedValue,
+  }) => (
+    <CreatableSelect
+      options={option2}
+      value={
+        option2.find((option) => option.value === selectedValue) || {
+          value: selectedValue,
+          label: selectedValue,
+        }
+      }
+      onChange={(selectedOption) =>
+        handleCellChange(fieldIndex, reqIndex, dayIndex, selectedOption.value)
+      }
+    />
+  );
 
   return (
     <div className="formcontainer">
       <div className="titleformcontain">
         <img src="/cqs.png" alt="" width={160} height={64} />
-        <div className="text-container">
+        <div className="text-container" style={{ paddingLeft: "20%" }}>
           <p className="texttemplate">
-            {formMaintain.machine_name} PrDITMEeventive Maintenance
+            {formMaintain.machine_name} Preventive Maintenance
             {formMaintain.type_of_maintenance} Checklist
           </p>
           <p style={{ padding: "8px 12px" }}>

@@ -59,6 +59,21 @@ export default function Maintenance_detail() {
       const data = await response.json();
       console.log(data);
       setformMaintain(data);
+
+      const newCheckboxState = {};
+      const newCorrectiveAction = {};
+      data.fields.forEach((field, fieldIndex) => {
+        field.requirement.forEach((req, reqIndex) => {
+          const key = `field_${fieldIndex}_req_${reqIndex}`;
+          newCheckboxState[key] = req.status;
+          newCorrectiveAction[key] = req.corrective_action;
+        });
+      });
+      setCheckboxState(newCheckboxState);
+      console.log(checkboxState);
+      console.log(correctiveAction);
+
+      setCorrectiveAction(newCorrectiveAction);
     } else {
       setformMaintain("");
     }
@@ -76,27 +91,60 @@ export default function Maintenance_detail() {
       updateCheckboxState(data.fields);
       setRemark(data.remark);
       setPreparedBy(data["Prepared by"]);
+      if (data.type_of_maintenance === "Daily") {
+        setMonth(data.month);
+        setYear(data.year);
+        setPreparedBy(data["Leaded by"]);
+      }
       setCheckedBy(data["Checked by"]);
       setApprovedBy(data["Approved by"]);
       setMaintenace_date(data.maintenance_date);
+      setMaintenanceStartDate(data.maintenance_start_date);
+      setMaintenanceEndDate(data.maintenance_end_date);
+      setOperatorNumber(data.operator_number);
+      const newDateChecked = {};
+      const newCheckingMethod = {};
+      const newPIC = {};
+      const newCheckboxState = {};
+      const newCorrectiveAction = {};
+      data.fields.forEach((field, fieldIndex) => {
+        field.requirement.forEach((req, reqIndex) => {
+          const key = `field_${fieldIndex}_req_${reqIndex}`;
+          newCheckboxState[key] = req.status;
+          newCorrectiveAction[key] = req.corrective_action;
+          newCheckingMethod[key] = req.checking_method;
+          newPIC[key] = req.PIC;
+          req.date.forEach((dayData) => {
+            const dayKey = `field_${fieldIndex}_req_${reqIndex}_day_${dayData.day}`;
+            newDateChecked[dayKey] = dayData.status || "";
+          });
+        });
+
+        console.log(checkingMethod);
+        console.log(pic);
+        console.log(datechecked);
+      });
+      data.operator.forEach((dayData) => {
+        const dayKey = `field_operator_req_operator_day_${dayData.day}`;
+        newDateChecked[dayKey] = dayData.status || "";
+      });
+      data.leader.forEach((dayData) => {
+        const dayKey = `field_leader_req_leader_day_${dayData.day}`;
+        newDateChecked[dayKey] = dayData.status || "";
+      });
+      setCheckingMethod(newCheckingMethod);
+      setPIC(newPIC);
+
+      setDateChecked(newDateChecked);
+      setCheckboxState(newCheckboxState);
+      setCorrectiveAction(newCorrectiveAction);
     } else {
       setformMaintain("");
     }
   }
+
   //handle_function
   function handleSearch(e) {
-    e.preventDefault();
-    setformMaintain("");
-    setIsExist(false);
-    setPIC({});
-    setCheckingMethod({});
-    setDateChecked({});
-    setCheckboxState({});
-    setCorrectiveAction({});
-    setRemark("");
-    setPreparedBy("");
-    setCheckedBy("");
-
     fetchData(searchMachineCode, searchMaintenanceType);
   }
   function updateCheckboxState(fields) {
@@ -104,7 +152,7 @@ export default function Maintenance_detail() {
     fields.forEach((field, fieldIndex) => {
       field.requirement.forEach((req, reqIndex) => {
         const key = `field_${fieldIndex}_req_${reqIndex}`;
-        newState[key] = req.status ? "yes" : "no";
+        newState[key] = req.status ? "OK" : "NG";
       });
     });
     setCheckboxState(newState);
@@ -115,26 +163,30 @@ export default function Maintenance_detail() {
     setCheckboxState({ ...checkboxState, [key]: value });
     setSelectedValues({ ...selectedValues, [key]: value });
   };
+  const handlePIC = (fieldIndex, reqIndex, value) => {
+    const key = `field_${fieldIndex}_req_${reqIndex}`;
+    console.log(`Setting ${key} to ${value}`); // Log the key and value
+    setPIC({ ...pic, [key]: value });
+    setSelectedValues({ ...selectedValues, [key]: value });
+  };
   const handleCorrectiveActionChange = (fieldIndex, reqIndex, value) => {
     const key = `field_${fieldIndex}_req_${reqIndex}`;
     console.log(`Setting ${key} to ${value}`); // Log the key and value
     setCorrectiveAction({ ...correctiveAction, [key]: value });
   };
   const handleCellChange = (fieldIndex, reqIndex, dayIndex, value) => {
+    console.log(
+      `Field: ${fieldIndex}, Req: ${reqIndex}, Day: ${dayIndex}, Value: ${value}`
+    );
     const key = `field_${fieldIndex}_req_${reqIndex}_day_${dayIndex + 1}`;
-    setDateChecked((prev) => ({ ...prev, [key]: value }));
+    console.log(`Setting ${key} to ${value}`); // Log the key and value
+    setDateChecked({ ...datechecked, [key]: value });
   };
 
   const handleCheckingMethod = (fieldIndex, reqIndex, value) => {
     const key = `field_${fieldIndex}_req_${reqIndex}`;
-    console.log(`Setting ${key} to ${value}`); // Log the key and value
-    setCheckingMethod((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const handlePIC = (fieldIndex, reqIndex, value) => {
-    const key = `field_${fieldIndex}_req_${reqIndex}`;
-    console.log(`Setting ${key} to ${value}`); // Log the key and value
-    setPIC((prev) => ({ ...prev, [key]: value }));
+    console.log(`Setting ${key}  to ${value}`); // Log the key and value
+    setCheckingMethod({ ...checkingMethod, [key]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -228,7 +280,13 @@ export default function Maintenance_detail() {
   };
   const handleSubmit2 = async (e) => {
     e.preventDefault();
-
+    formMaintain.fields.forEach((field, index) => {
+      field.fieldIndex = index;
+    });
+    if (!Month || !Year || !preparedBy || !checkedBy || !approvedBy) {
+      toast.info("Please fill in all fields before submitting.");
+      return;
+    }
     const formData = {
       machine_name: formMaintain.machine_name,
       machine_code: formMaintain.machine_code,
@@ -242,13 +300,29 @@ export default function Maintenance_detail() {
           checking_method:
             checkingMethod[`field_${field.fieldIndex}_req_${index}`],
           PIC: pic[`field_${field.fieldIndex}_req_${index}`],
+          date: Array.from({ length: 31 }, (_, i) => ({
+            day: i + 1,
+            status:
+              datechecked[
+                `field_${field.fieldIndex}_req_${index}_day_${i + 1}`
+              ],
+          })),
         })),
+      })),
+      operator: Array.from({ length: 31 }, (_, i) => ({
+        day: i + 1,
+        status: datechecked[`field_operator_req_operator_day_${i + 1}`],
+      })),
+      leader: Array.from({ length: 31 }, (_, i) => ({
+        day: i + 1,
+        status: datechecked[`field_leader_req_leader_day_${i + 1}`],
       })),
 
       "Leaded by": preparedBy,
       "Checked by": checkedBy,
       "Approved by": approvedBy,
     };
+    console.log(formData);
 
     // Send the data to the server
     try {
@@ -307,6 +381,8 @@ export default function Maintenance_detail() {
           searchMaintenanceType !== "Daily" ? (
             <WeeklyMaintenance
               formMaintain={formMaintain}
+              checkboxState={checkboxState}
+              correctiveAction={correctiveAction}
               maintenanceStartDate={maintenanceStartDate}
               setMaintenanceStartDate={setMaintenanceStartDate}
               maintenanceEndDate={maintenanceEndDate}
@@ -334,6 +410,8 @@ export default function Maintenance_detail() {
               formMaintain={formMaintain}
               Month={Month}
               setMonth={setMonth}
+              checkingMethod={checkingMethod}
+              pic={pic}
               Year={Year}
               setYear={setYear}
               maintenanceStartDate={maintenanceStartDate}
@@ -342,6 +420,7 @@ export default function Maintenance_detail() {
               maintenanceEndDate={maintenanceEndDate}
               setDateChecked={setDateChecked}
               setMaintenanceEndDate={setMaintenanceEndDate}
+              datechecked={datechecked}
               maintenace_date={maintenace_date}
               setMaintenace_date={setMaintenace_date}
               operatorNumber={operatorNumber}
@@ -349,6 +428,8 @@ export default function Maintenance_detail() {
               selectedValues={selectedValues}
               handleCheckingMethod={handleCheckingMethod}
               handlePIC={handlePIC}
+              remark={remark}
+              setRemark={setRemark}
               datecheck={datechecked}
               isExist={isExist}
               preparedBy={preparedBy}

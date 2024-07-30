@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { IoCheckmark, IoCloseOutline } from "react-icons/io5";
 
@@ -15,6 +15,8 @@ const WeeklyMaintenance = ({
   selectedValues,
   handleCheckboxChange,
   handleCorrectiveActionChange,
+  correctiveAction,
+  checkboxState,
   remark,
   setRemark,
   isExist,
@@ -73,6 +75,7 @@ const WeeklyMaintenance = ({
       onChange={(selectedOption) =>
         handleCheckboxChange(fieldIndex, reqIndex, selectedOption.value)
       }
+      isDisabled={isExist}
     />
   );
 
@@ -122,6 +125,7 @@ const WeeklyMaintenance = ({
               onChange={(e) => setMaintenanceStartDate(e.target.value)}
               placeholder="Start..."
               style={{ width: "30%", border: "none" }}
+              disabled={isExist}
             />
             <p
               style={{
@@ -139,6 +143,7 @@ const WeeklyMaintenance = ({
               onChange={(e) => setMaintenanceEndDate(e.target.value)}
               placeholder="End..."
               style={{ width: "30%", border: "none" }}
+              disabled={isExist}
             />
           </div>
           <div style={{ marginTop: "12px" }}>
@@ -153,6 +158,7 @@ const WeeklyMaintenance = ({
                   margin: "0px 10px",
                   border: "none",
                 }}
+                disabled={isExist}
               />
             </p>
           </div>
@@ -172,6 +178,7 @@ const WeeklyMaintenance = ({
                   border: "none",
                   fontSize: "20px",
                 }}
+                disabled={isExist}
               />
             </p>
           </div>
@@ -279,7 +286,7 @@ const WeeklyMaintenance = ({
                         reqIndex={reqIndex}
                         handleCheckboxChange={handleCheckboxChange}
                         selectedValue={
-                          selectedValues[`field_${index}_req_${reqIndex}`]
+                          checkboxState[`field_${index}_req_${reqIndex}`]
                         }
                       />
                     </td>
@@ -294,12 +301,17 @@ const WeeklyMaintenance = ({
                           border: "none",
                           boxSizing: "border-box",
                         }}
+                        disabled={isExist}
                         onChange={(e) =>
                           handleCorrectiveActionChange(
                             index,
                             reqIndex,
                             e.target.value
                           )
+                        }
+                        value={
+                          correctiveAction[`field_${index}_req_${reqIndex}`] ||
+                          ""
                         }
                       />
                     </td>

@@ -277,5 +277,1023 @@
     "Checked by": "sfsf",
     "Approved by": "sfsfsf",
     "maintenance_code": "7"
+  },
+  {
+    "machine_name": "CNC Milling Machine",
+    "machine_code": "CNC002",
+    "type_of_maintenance": "Daily",
+    "month": "12",
+    "year": "2024",
+    "fields": [
+      {
+        "field_name": "This is peak field omg",
+        "requirement": [
+          {
+            "name": "This is a requirement 1",
+            "checking_method": "Mat",
+            "PIC": "Leader",
+            "date": [
+              {
+                "day": 1,
+                "status": "NG"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          },
+          {
+            "name": "This is a requirement 2",
+            "checking_method": "Mat",
+            "PIC": "Operator",
+            "date": [
+              {
+                "day": 1,
+                "status": "OK"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          },
+          {
+            "name": "This is a requirement 3",
+            "checking_method": "Mat",
+            "PIC": "Maintenance",
+            "date": [
+              {
+                "day": 1,
+                "status": "OK"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          },
+          {
+            "name": "This is a requirement 4",
+            "checking_method": "Mui",
+            "PIC": "Leader",
+            "date": [
+              {
+                "day": 1,
+                "status": "2424"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "field_name": "Peak is here so that means we are at the top",
+        "requirement": [
+          {
+            "name": "This is a requirement 5",
+            "checking_method": "Mui",
+            "PIC": "Maintenance",
+            "date": [
+              {
+                "day": 1,
+                "status": "123"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          },
+          {
+            "name": "This is a requirement 6",
+            "checking_method": "Mui",
+            "PIC": "Operator",
+            "date": [
+              {
+                "day": 1,
+                "status": "44"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9,
+                "status": "OK"
+              },
+              {
+                "day": 10,
+                "status": "NG"
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          },
+          {
+            "name": "This is a requirement 7",
+            "checking_method": "Mui",
+            "PIC": "Leader",
+            "date": [
+              {
+                "day": 1,
+                "status": "55"
+              },
+              {
+                "day": 2
+              },
+              {
+                "day": 3
+              },
+              {
+                "day": 4
+              },
+              {
+                "day": 5
+              },
+              {
+                "day": 6
+              },
+              {
+                "day": 7
+              },
+              {
+                "day": 8
+              },
+              {
+                "day": 9
+              },
+              {
+                "day": 10
+              },
+              {
+                "day": 11
+              },
+              {
+                "day": 12
+              },
+              {
+                "day": 13
+              },
+              {
+                "day": 14
+              },
+              {
+                "day": 15
+              },
+              {
+                "day": 16
+              },
+              {
+                "day": 17
+              },
+              {
+                "day": 18
+              },
+              {
+                "day": 19
+              },
+              {
+                "day": 20
+              },
+              {
+                "day": 21
+              },
+              {
+                "day": 22
+              },
+              {
+                "day": 23
+              },
+              {
+                "day": 24
+              },
+              {
+                "day": 25
+              },
+              {
+                "day": 26
+              },
+              {
+                "day": 27
+              },
+              {
+                "day": 28
+              },
+              {
+                "day": 29
+              },
+              {
+                "day": 30
+              },
+              {
+                "day": 31
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "operator": [
+      {
+        "day": 1,
+        "status": "2424\\"
+      },
+      {
+        "day": 2,
+        "status": "OK"
+      },
+      {
+        "day": 3
+      },
+      {
+        "day": 4
+      },
+      {
+        "day": 5
+      },
+      {
+        "day": 6
+      },
+      {
+        "day": 7
+      },
+      {
+        "day": 8
+      },
+      {
+        "day": 9
+      },
+      {
+        "day": 10
+      },
+      {
+        "day": 11
+      },
+      {
+        "day": 12
+      },
+      {
+        "day": 13
+      },
+      {
+        "day": 14
+      },
+      {
+        "day": 15
+      },
+      {
+        "day": 16
+      },
+      {
+        "day": 17
+      },
+      {
+        "day": 18
+      },
+      {
+        "day": 19
+      },
+      {
+        "day": 20
+      },
+      {
+        "day": 21
+      },
+      {
+        "day": 22
+      },
+      {
+        "day": 23
+      },
+      {
+        "day": 24
+      },
+      {
+        "day": 25
+      },
+      {
+        "day": 26
+      },
+      {
+        "day": 27
+      },
+      {
+        "day": 28
+      },
+      {
+        "day": 29
+      },
+      {
+        "day": 30
+      },
+      {
+        "day": 31
+      }
+    ],
+    "leader": [
+      {
+        "day": 1,
+        "status": "OK"
+      },
+      {
+        "day": 2,
+        "status": "NG"
+      },
+      {
+        "day": 3
+      },
+      {
+        "day": 4
+      },
+      {
+        "day": 5
+      },
+      {
+        "day": 6
+      },
+      {
+        "day": 7
+      },
+      {
+        "day": 8
+      },
+      {
+        "day": 9
+      },
+      {
+        "day": 10
+      },
+      {
+        "day": 11
+      },
+      {
+        "day": 12
+      },
+      {
+        "day": 13
+      },
+      {
+        "day": 14
+      },
+      {
+        "day": 15
+      },
+      {
+        "day": 16
+      },
+      {
+        "day": 17
+      },
+      {
+        "day": 18
+      },
+      {
+        "day": 19
+      },
+      {
+        "day": 20
+      },
+      {
+        "day": 21
+      },
+      {
+        "day": 22
+      },
+      {
+        "day": 23
+      },
+      {
+        "day": 24
+      },
+      {
+        "day": 25
+      },
+      {
+        "day": 26
+      },
+      {
+        "day": 27
+      },
+      {
+        "day": 28
+      },
+      {
+        "day": 29
+      },
+      {
+        "day": 30
+      },
+      {
+        "day": 31
+      }
+    ],
+    "Leaded by": "haha",
+    "Checked by": "hehe",
+    "Approved by": "hihi",
+    "maintenance_code": "8"
+  },
+  {
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Weekly",
+    "maintenance_date": "2024-07-10",
+    "maintenance_start_date": "2024-08-01",
+    "maintenance_end_date": "2024-07-03",
+    "operator_number": "122343",
+    "fields": [
+      {
+        "field_name": "This is a field 1",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": "OK",
+            "corrective_action": "hehe"
+          },
+          {
+            "name": "Req 2",
+            "status": "NG",
+            "corrective_action": "haha"
+          },
+          {
+            "name": "Req 3",
+            "status": "OK",
+            "corrective_action": "huhu"
+          }
+        ]
+      },
+      {
+        "field_name": "This is a field 2",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": "OK",
+            "corrective_action": "hjhj"
+          }
+        ]
+      }
+    ],
+    "remark": "zzz",
+    "Prepared by": "a",
+    "Checked by": "b",
+    "Approved by": "c",
+    "maintenance_code": "9"
+  },
+  {
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Monthly",
+    "maintenance_date": "2024-07-24",
+    "maintenance_start_date": "2024-07-27",
+    "maintenance_end_date": "2024-07-02",
+    "operator_number": "123",
+    "fields": [
+      {
+        "field_name": "Oil 2",
+        "requirement": [
+          {
+            "name": "This is a requirement fix",
+            "status": "OK",
+            "corrective_action": "haha"
+          },
+          {
+            "name": "This is a requirement fix",
+            "status": "NG",
+            "corrective_action": "hshs"
+          }
+        ]
+      },
+      {
+        "field_name": "Filter 3",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": "NG",
+            "corrective_action": "hehe"
+          },
+          {
+            "name": "filter fix",
+            "status": "OK",
+            "corrective_action": "haha"
+          }
+        ]
+      }
+    ],
+    "remark": "f",
+    "Prepared by": "a",
+    "Checked by": "b",
+    "Approved by": "c",
+    "maintenance_code": "10"
   }
 ]

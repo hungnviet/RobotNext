@@ -47,7 +47,11 @@ export default function Machine_history() {
             {listMaintenance.map((maintain, index) => {
               return (
                 <tr key={index}>
-                  <td>{maintain.maintenance_date}</td>
+                  <td>
+                    {maintain.type_of_maintenance === "Daily"
+                      ? `${maintain.month} - ${maintain.year}`
+                      : maintain.maintenance_date}
+                  </td>
                   <td>{maintain.machine_code}</td>
                   <td>{maintain.machine_name}</td>
                   <td>{maintain.type_of_maintenance}</td>
