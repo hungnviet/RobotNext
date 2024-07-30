@@ -319,6 +319,14 @@ const DailyMaintenance = ({
 
   return (
     <div className="formcontainer">
+      <select
+        className="typemaintain"
+        value={dailyType}
+        onChange={(e) => setdaily(e.target.value)}
+      >
+        <option value="first">First half of month</option>
+        <option value="second">Last half of month</option>
+      </select>
       <div className="titleformcontain">
         <img src="/cqs.png" alt="" width={160} height={64} />
         <div className="text-container" style={{ paddingLeft: "20%" }}>
