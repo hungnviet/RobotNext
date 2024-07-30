@@ -1,21 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./maintenance_detail.css";
 import { Router, useParams } from "react-router-dom";
+import Select from "react-select";
+
 import NavbarMaintenance from "../../../component/navbarMaintenance/NavbarMaintenance";
+import DailyMaintenance from "../../../component/fillform/dailyform";
+
+import WeeklyMaintenance from "../../../component/fillform/weeklyform";
 import { ToastContainer, toast } from "react-toastify";
+import { IoCheckmark, IoCloseOutline } from "react-icons/io5";
+
 import "react-toastify/dist/ReactToastify.css";
 export default function Maintenance_detail() {
   const [formMaintain, setformMaintain] = useState("");
   const [searchMachineCode, setSearchMachineCode] = useState("");
   const [searchMaintenanceType, setSearchMaintenanceType] = useState("");
+
+  //Nondaily
   const { machine_code, maintenanceType, maintenance_code } = useParams();
+  const [maintenanceStartDate, setMaintenanceStartDate] = useState("");
+  const [maintenanceEndDate, setMaintenanceEndDate] = useState("");
+  const [maintenace_date, setMaintenace_date] = useState("");
+  const [operatorNumber, setOperatorNumber] = useState("");
+
+  //Daily
+  const [Month, setMonth] = useState("");
+  const [Year, setYear] = useState("");
+  const [checkingMethod, setCheckingMethod] = useState({});
+  const [pic, setPIC] = useState({});
+  const [datechecked, setDateChecked] = useState({});
+
   const [checkboxState, setCheckboxState] = useState({});
-  const [note, setNote] = useState("");
+  const [selectedValues, setSelectedValues] = useState({});
+  const [correctiveAction, setCorrectiveAction] = useState({});
+
   const [remark, setRemark] = useState("");
+  const [preparedBy, setPreparedBy] = useState("");
   const [checkedBy, setCheckedBy] = useState("");
   const [isExist, setIsExist] = useState(false);
   const [approvedBy, setApprovedBy] = useState("");
-  const [maintenace_date, setMaintenace_date] = useState("");
 
   useEffect(() => {
     setSearchMachineCode(machine_code);
@@ -23,7 +46,7 @@ export default function Maintenance_detail() {
     fetchData(machine_code, maintenanceType);
     fetchexistMaintin(maintenance_code);
   }, [machine_code, maintenanceType, maintenance_code]);
-
+  //fetch_function
   async function fetchData(code, type) {
     await fetchformMaintain(code, type);
   }
@@ -40,16 +63,7 @@ export default function Maintenance_detail() {
       setformMaintain("");
     }
   }
-  function updateCheckboxState(fields) {
-    const newState = {};
-    fields.forEach((field, fieldIndex) => {
-      field.requirement.forEach((req, reqIndex) => {
-        const key = `field_${fieldIndex}_req_${reqIndex}`;
-        newState[key] = req.status ? "yes" : "no";
-      });
-    });
-    setCheckboxState(newState);
-  }
+
   async function fetchexistMaintin(code) {
     const response = await fetch(
       `http://localhost:3001/maintenance_detail/${code}`
@@ -60,8 +74,8 @@ export default function Maintenance_detail() {
       setformMaintain(data);
       setIsExist(true);
       updateCheckboxState(data.fields);
-      setNote(data.note);
       setRemark(data.remark);
+      setPreparedBy(data["Prepared by"]);
       setCheckedBy(data["Checked by"]);
       setApprovedBy(data["Approved by"]);
       setMaintenace_date(data.maintenance_date);
@@ -69,17 +83,75 @@ export default function Maintenance_detail() {
       setformMaintain("");
     }
   }
+  //handle_function
   function handleSearch(e) {
+    e.preventDefault();
+    setformMaintain("");
+    setIsExist(false);
+    setPIC({});
+    setCheckingMethod({});
+    setDateChecked({});
+    setCheckboxState({});
+    setCorrectiveAction({});
+    setRemark("");
+    setPreparedBy("");
+    setCheckedBy("");
+
     fetchData(searchMachineCode, searchMaintenanceType);
+  }
+  function updateCheckboxState(fields) {
+    const newState = {};
+    fields.forEach((field, fieldIndex) => {
+      field.requirement.forEach((req, reqIndex) => {
+        const key = `field_${fieldIndex}_req_${reqIndex}`;
+        newState[key] = req.status ? "yes" : "no";
+      });
+    });
+    setCheckboxState(newState);
   }
   const handleCheckboxChange = (fieldIndex, reqIndex, value) => {
     const key = `field_${fieldIndex}_req_${reqIndex}`;
     console.log(`Setting ${key} to ${value}`); // Log the key and value
     setCheckboxState({ ...checkboxState, [key]: value });
+    setSelectedValues({ ...selectedValues, [key]: value });
   };
+  const handleCorrectiveActionChange = (fieldIndex, reqIndex, value) => {
+    const key = `field_${fieldIndex}_req_${reqIndex}`;
+    console.log(`Setting ${key} to ${value}`); // Log the key and value
+    setCorrectiveAction({ ...correctiveAction, [key]: value });
+  };
+  const handleCellChange = (fieldIndex, reqIndex, dayIndex, value) => {
+    const key = `field_${fieldIndex}_req_${reqIndex}_day_${dayIndex + 1}`;
+    setDateChecked((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleCheckingMethod = (fieldIndex, reqIndex, value) => {
+    const key = `field_${fieldIndex}_req_${reqIndex}`;
+    console.log(`Setting ${key} to ${value}`); // Log the key and value
+    setCheckingMethod((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handlePIC = (fieldIndex, reqIndex, value) => {
+    const key = `field_${fieldIndex}_req_${reqIndex}`;
+    console.log(`Setting ${key} to ${value}`); // Log the key and value
+    setPIC((prev) => ({ ...prev, [key]: value }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let allRequirementsChecked = true;
+    if (
+      !maintenace_date ||
+      !maintenanceStartDate ||
+      !maintenanceEndDate ||
+      !operatorNumber ||
+      !preparedBy ||
+      !checkedBy ||
+      !approvedBy
+    ) {
+      toast.info("Please fill in all fields before submitting.");
+      return;
+    }
     formMaintain.fields.forEach((field, index) => {
       field.fieldIndex = index;
     });
@@ -92,7 +164,7 @@ export default function Maintenance_detail() {
         );
         if (
           !checkboxState[key] ||
-          (checkboxState[key] !== "yes" && checkboxState[key] !== "no")
+          (checkboxState[key] !== "OK" && checkboxState[key] !== "NG")
         ) {
           allRequirementsChecked = false;
           break;
@@ -111,20 +183,69 @@ export default function Maintenance_detail() {
     }
 
     const formData = {
-      maintenance_date: new Date().toISOString().split("T")[0],
       machine_name: formMaintain.machine_name,
       machine_code: formMaintain.machine_code,
       type_of_maintenance: formMaintain.type_of_maintenance,
+      maintenance_date: maintenace_date,
+      maintenance_start_date: maintenanceStartDate,
+      maintenance_end_date: maintenanceEndDate,
+      operator_number: operatorNumber,
       fields: formMaintain.fields.map((field) => ({
         field_name: field.field_name,
         requirement: field.requirement.map((req, index) => ({
           name: req.name,
-          status:
-            checkboxState[`field_${field.fieldIndex}_req_${index}`] === "yes",
+          status: checkboxState[`field_${field.fieldIndex}_req_${index}`],
+          corrective_action:
+            correctiveAction[`field_${field.fieldIndex}_req_${index}`],
         })),
       })),
-      note: note,
       remark: remark,
+      "Prepared by": preparedBy,
+      "Checked by": checkedBy,
+      "Approved by": approvedBy,
+    };
+
+    // Send the data to the server
+    try {
+      const response = await fetch("http://localhost:3001/maintenance_new", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result.message);
+        toast.success("Form submitted successfully!");
+      } else {
+        console.error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+  const handleSubmit2 = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      machine_name: formMaintain.machine_name,
+      machine_code: formMaintain.machine_code,
+      type_of_maintenance: formMaintain.type_of_maintenance,
+      month: Month,
+      year: Year,
+      fields: formMaintain.fields.map((field) => ({
+        field_name: field.field_name,
+        requirement: field.requirement.map((req, index) => ({
+          name: req.name,
+          checking_method:
+            checkingMethod[`field_${field.fieldIndex}_req_${index}`],
+          PIC: pic[`field_${field.fieldIndex}_req_${index}`],
+        })),
+      })),
+
+      "Leaded by": preparedBy,
       "Checked by": checkedBy,
       "Approved by": approvedBy,
     };
@@ -173,6 +294,7 @@ export default function Maintenance_detail() {
               onChange={(e) => setSearchMaintenanceType(e.target.value)}
             >
               <option value="">Select Maintenance Type</option>
+              <option value="Daily">Daily</option>
               <option value="Weekly">Weekly</option>
               <option value="Monthly">Monthly</option>
               <option value="HalfYearly">HalfYearly</option>
@@ -182,133 +304,62 @@ export default function Maintenance_detail() {
           </form>
         )}
         {formMaintain ? (
-          <div className="fillformcontainer">
-            <div className="machineinfor">
-              <div>
-                <h3>Machine Name:</h3>
-                <p>{formMaintain.machine_name}</p>
-              </div>
-              <div>
-                <h3>Machine Code:</h3>
-                <p>{formMaintain.machine_code}</p>
-              </div>
-              <div>
-                <h3>Type of Maintenance:</h3>
-                <p>{formMaintain.type_of_maintenance}</p>
-              </div>
-              {isExist ? (
-                <div>
-                  <h3>Maintenance Date:</h3>
-                  <p>{maintenace_date}</p>
-                </div>
-              ) : (
-                <div>
-                  <h3>Current Date:</h3>
-                  <p>{new Date().toLocaleDateString()}</p>
-                </div>
-              )}
-            </div>
-            <div>
-              {formMaintain.fields.map((field, index) => (
-                <div key={index} className="formtable-container">
-                  <table className="formTable">
-                    <thead>
-                      <tr>
-                        <th>{field.field_name}</th>
-                        <th>Yes</th>
-                        <th>No</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {field.requirement.map((req, reqIndex) => {
-                        const key = `field_${index}_req_${reqIndex}`;
-                        return (
-                          <tr key={reqIndex}>
-                            <td>
-                              Requirement {reqIndex + 1}: {req.name}
-                            </td>
-                            <td>
-                              <input
-                                type="checkbox"
-                                name={`yes_${index}_${reqIndex}`}
-                                className="formfillcheck"
-                                checked={checkboxState[key] === "yes"}
-                                onChange={() =>
-                                  handleCheckboxChange(index, reqIndex, "yes")
-                                }
-                                disabled={isExist}
-                              />
-                            </td>
-                            <td>
-                              <input
-                                type="checkbox"
-                                name={`no_${index}_${reqIndex}`}
-                                className="formfillcheck"
-                                checked={checkboxState[key] === "no"}
-                                onChange={() =>
-                                  handleCheckboxChange(index, reqIndex, "no")
-                                }
-                                style={{
-                                  backgroundColor:
-                                    checkboxState[key] === "no"
-                                      ? "red"
-                                      : "transparent",
-                                }}
-                                disabled={isExist}
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              ))}
-            </div>
-            <div className="notefill">
-              <h2>Note</h2>
-              <input
-                type="text"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                disabled={isExist}
-              />
-            </div>
-            <div className="confirmfill">
-              <div>
-                <h3>Remark</h3>
-                <input
-                  type="text"
-                  value={remark}
-                  onChange={(e) => setRemark(e.target.value)}
-                  disabled={isExist}
-                />
-              </div>
-              <div>
-                <h3>Checked by</h3>
-                <input
-                  type="text"
-                  value={checkedBy}
-                  onChange={(e) => setCheckedBy(e.target.value)}
-                  disabled={isExist}
-                />
-              </div>
-              <div>
-                <h3>Approved by</h3>
-                <input
-                  type="text"
-                  value={approvedBy}
-                  onChange={(e) => setApprovedBy(e.target.value)}
-                  disabled={isExist}
-                />
-              </div>
-            </div>
-            {!isExist ? (
-              <button className="submitfill" onClick={handleSubmit}>
-                Save
-              </button>
-            ) : null}
-          </div>
+          searchMaintenanceType !== "Daily" ? (
+            <WeeklyMaintenance
+              formMaintain={formMaintain}
+              maintenanceStartDate={maintenanceStartDate}
+              setMaintenanceStartDate={setMaintenanceStartDate}
+              maintenanceEndDate={maintenanceEndDate}
+              setMaintenanceEndDate={setMaintenanceEndDate}
+              maintenace_date={maintenace_date}
+              setMaintenace_date={setMaintenace_date}
+              operatorNumber={operatorNumber}
+              setOperatorNumber={setOperatorNumber}
+              selectedValues={selectedValues}
+              handleCheckboxChange={handleCheckboxChange}
+              handleCorrectiveActionChange={handleCorrectiveActionChange}
+              remark={remark}
+              setRemark={setRemark}
+              isExist={isExist}
+              preparedBy={preparedBy}
+              setPreparedBy={setPreparedBy}
+              checkedBy={checkedBy}
+              setCheckedBy={setCheckedBy}
+              approvedBy={approvedBy}
+              setApprovedBy={setApprovedBy}
+              handleSubmit={handleSubmit}
+            />
+          ) : (
+            <DailyMaintenance
+              formMaintain={formMaintain}
+              Month={Month}
+              setMonth={setMonth}
+              Year={Year}
+              setYear={setYear}
+              maintenanceStartDate={maintenanceStartDate}
+              handleCellChange={handleCellChange}
+              setMaintenanceStartDate={setMaintenanceStartDate}
+              maintenanceEndDate={maintenanceEndDate}
+              setDateChecked={setDateChecked}
+              setMaintenanceEndDate={setMaintenanceEndDate}
+              maintenace_date={maintenace_date}
+              setMaintenace_date={setMaintenace_date}
+              operatorNumber={operatorNumber}
+              setOperatorNumber={setOperatorNumber}
+              selectedValues={selectedValues}
+              handleCheckingMethod={handleCheckingMethod}
+              handlePIC={handlePIC}
+              datecheck={datechecked}
+              isExist={isExist}
+              preparedBy={preparedBy}
+              setPreparedBy={setPreparedBy}
+              checkedBy={checkedBy}
+              setCheckedBy={setCheckedBy}
+              approvedBy={approvedBy}
+              setApprovedBy={setApprovedBy}
+              handleSubmit={handleSubmit2}
+            />
+          )
         ) : null}
       </div>
     </div>

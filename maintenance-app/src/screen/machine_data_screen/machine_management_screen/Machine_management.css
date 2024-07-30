@@ -5,7 +5,7 @@
   width: 100%;
   height: max-content;
 }
-table {
+.machine_table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
@@ -13,29 +13,28 @@ table {
   text-align: left;
 }
 
-thead {
+.machine_table thead {
   background-color: #f2f2f2;
 }
 
-th,
-td {
+.machine_table th,
+.machine_table td {
   padding: 12px;
   border: 1px solid #ddd;
 }
 
-th {
+.machine_table th {
   background-color: #4caf50;
   color: white;
 }
 
-tr:nth-child(even) {
+.machine_table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-tr:hover {
+.machine_table tr:hover {
   background-color: #f1f1f1;
 }
-
 .machine_management_table_link {
   color: #007bff;
   text-decoration: none;

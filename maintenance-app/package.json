@@ -21,19 +21,19 @@
     "react-pdf": "^7.7.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.15.1",
     "react-toastify": "^10.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "clean": "rm -rf build dist",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build && (cp public/electron.js build/electron.js || copy public\\electron.js build\\electron.js)",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
     "electron-build": "electron-builder",
-    "build": "npm run clean && npm run react-build && npm run electron-build --win",
+    "build": " npm run react-build && npm run electron-build --win",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {

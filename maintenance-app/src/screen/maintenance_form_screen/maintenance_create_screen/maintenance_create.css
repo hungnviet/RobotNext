@@ -55,11 +55,6 @@
   max-height: 220px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 .createform {
   display: flex;
   flex-direction: column;
@@ -130,7 +125,7 @@ table {
 .deletemaintain {
   background: none;
   border: none;
-  color: white;
+  color: black;
   text-align: center;
   padding: 15px 32px;
   font-weight: bold;
@@ -144,14 +139,12 @@ table {
   margin: 10px 0;
 }
 
-.deletemaintain:hover {
-  background-color: #aa1302;
-}
-
 .addmaintain {
-  background-color: #4caf50;
-  border: none;
-  color: white;
+  background-color: white;
+  border: black;
+  color: black;
+  border-style: solid;
+  border-width: 2px;
   text-align: center;
   padding: 15px 32px;
   font-weight: bold;
@@ -166,7 +159,7 @@ table {
 }
 
 .addmaintain:hover {
-  background-color: #45a049;
+  background-color: #3a7bfd;
 }
 
 .submitmaintain {
@@ -198,4 +191,66 @@ table {
   align-items: center;
   margin-top: 20px;
   font-weight: bold;
+}
+.machineinfocontain {
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-style: solid;
+  border-color: black;
+  padding: 8px 8px;
+}
+.formcontainer {
+  border-style: solid;
+  border-color: black;
+  padding: 8px 8px;
+}
+.titleformcontain {
+  display: flex;
+  flex-direction: row;
+  border-bottom-style: solid;
+  border-color: black;
+  padding: 0px 8px;
+}
+.text-container {
+  width: 50%;
+  margin: 0 auto;
+}
+.imagecontainer {
+  border-bottom-style: solid;
+  border-color: black;
+}
+.templateTable {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: black;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+}
+.templateTable th {
+  background-color: white;
+  color: black;
+  border-right-style: solid;
+  border-color: black;
+}
+.templateTable td {
+  background-color: white;
+  color: black;
+  border-right-style: solid;
+  border-color: black;
+}
+.remark {
+  height: 80px;
+  width: 98%;
+  font-size: 18px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 10px;
+  text-align: start;
+}
+.texttemplate {
+  font-weight: bold;
+  text-decoration: underline;
 }

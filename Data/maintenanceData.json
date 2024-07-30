@@ -232,5 +232,50 @@
     "Checked by": "a",
     "Approved by": "a",
     "maintenance_code": "6"
+  },
+  {
+    "machine_name": "CNC Milling Machine",
+    "machine_code": "CNC002",
+    "type_of_maintenance": "Weekly",
+    "maintenance_date": "2024-07-29",
+    "maintenance_start_date": "2024-07-26",
+    "maintenance_end_date": "2024-07-31",
+    "fields": [
+      {
+        "field_name": "oil",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": "OK",
+            "corrective_action": "z"
+          },
+          {
+            "name": "This is a requirement",
+            "status": "NG",
+            "corrective_action": "x"
+          }
+        ]
+      },
+      {
+        "field_name": "filter",
+        "requirement": [
+          {
+            "name": "This is a requirement",
+            "status": "OK",
+            "corrective_action": "c"
+          },
+          {
+            "name": "This is a requirement",
+            "status": "NG",
+            "corrective_action": "v"
+          }
+        ]
+      }
+    ],
+    "remark": "fsfsfs",
+    "Prepared by": "sfsfs",
+    "Checked by": "sfsf",
+    "Approved by": "sfsfsf",
+    "maintenance_code": "7"
   }
 ]

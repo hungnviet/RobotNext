@@ -33,7 +33,7 @@ export default function Machine_management() {
       <NavbarMachine />
       <div>Machine Management ({listMachines.length} machines )</div>
       <div className="machine_management_table">
-        <table>
+        <table class="machine_table">
           <thead>
             <tr>
               <th>Machine Code</th>

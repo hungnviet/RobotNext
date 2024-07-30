@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./maintenance_create.css";
 import { useParams } from "react-router-dom";
-import SearchSparePart from "../../../component/searchSparePart/SearchSparePart";
 import NavbarMaintenance from "../../../component/navbarMaintenance/NavbarMaintenance";
 import { ToastContainer, toast } from "react-toastify";
+import WeeklyTemplate from "../../../component/templateform/weeklyform";
+import DailyTemplate from "../../../component/templateform/dailyform";
+
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Form_Create() {
@@ -12,7 +14,8 @@ export default function Form_Create() {
   const [searchResults, setSearchResults] = useState([]);
   const [listMachines, setListMachines] = useState([]);
   const [machineCode, setMachineCode] = useState("");
-  const [typemaintain, setTypeMaintain] = useState("Weekly");
+  const [machineName, setMachineName] = useState("");
+  const [typemaintain, setTypeMaintain] = useState("Daily");
   const [formData, setFormData] = useState([]);
   const [isValid, setIsValid] = useState(false);
   const [isExist, setExist] = useState(false);
@@ -92,15 +95,16 @@ export default function Form_Create() {
 
     setSearchResults(filteredResults);
   };
+
   const verifyFormData = () => {
     if (!machineCode || !typemaintain) {
       toast.error("Please fill in all fields.");
       return;
     }
-    if (
-      listMachines.find((machine) => machine.machine_code === machineCode) ===
-      undefined
-    ) {
+    const machine = listMachines.find(
+      (machine) => machine.machine_code === machineCode
+    );
+    if (!machine) {
       toast.error("Machine code not found in the system");
       setExist(false);
       setIsValid(false);
@@ -118,12 +122,14 @@ export default function Form_Create() {
         "A form is already created for this machine with the specified type of maintenance. You can edit it now."
       );
       fetchformMaintain(machineCode, typemaintain);
+      setMachineName(machine.machine_name);
       setExist(true);
     } else {
       toast.success(
         "No existing form found for this machine with the specified type of maintenance. You can create a new one."
       );
       setIsValid(true);
+      setMachineName(machine.machine_name);
       setExist(false);
       setFields([
         {
@@ -321,6 +327,7 @@ export default function Form_Create() {
             value={typemaintain}
             onChange={(e) => setTypeMaintain(e.target.value)}
           >
+            <option value="Daily">Daily</option>
             <option value="Weekly">Weekly</option>
             <option value="Monthly">Monthly</option>
             <option value="HalfYearly">HalfYearly</option>
@@ -349,91 +356,33 @@ export default function Form_Create() {
                 The form has existed, you can edit it now!
               </div>
             )}
-            <div>
-              {fields.map((field, fieldIndex) => (
-                <div key={fieldIndex}>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Field Name</th>
-                        <th>Requirement</th>
-                        <th>
-                          <button
-                            className="deletemaintain"
-                            onClick={() => deleteField(fieldIndex)}
-                          >
-                            Delete Field
-                          </button>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {field.requirement.map((req, reqIndex) => (
-                        <tr key={reqIndex}>
-                          {reqIndex === 0 ? (
-                            <td rowSpan={field.requirement.length}>
-                              <input
-                                type="text"
-                                value={field.field_name}
-                                size={40}
-                                style={{
-                                  border: "none",
-                                  borderBottom: "1px solid",
-                                  padding: "10px",
-                                }}
-                                onChange={(e) =>
-                                  handleFieldNameChange(e, fieldIndex)
-                                }
-                              />
-                            </td>
-                          ) : null}
-                          <td>
-                            <input
-                              type="text"
-                              value={req.name}
-                              size={40}
-                              style={{
-                                border: "none",
-                                borderBottom: "1px solid",
-                                padding: "10px",
-                              }}
-                              onChange={(e) =>
-                                handleRequirementNameChange(
-                                  e,
-                                  fieldIndex,
-                                  reqIndex
-                                )
-                              }
-                            />
-                          </td>
-
-                          <td>
-                            <button
-                              className="deletemaintain"
-                              style={{ color: "black" }}
-                              onClick={() =>
-                                deleteRequirement(fieldIndex, reqIndex)
-                              }
-                            >
-                              Delete Requirement
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <button
-                    className="addmaintain"
-                    onClick={() => handleAddRequirement(fieldIndex)}
-                  >
-                    Add Requirement
-                  </button>
-                </div>
-              ))}
-              <button className="addmaintain" onClick={handleAddField}>
-                Add Field
-              </button>
-            </div>
+            {typemaintain !== "Daily" ? (
+              <WeeklyTemplate
+                machineName={machineName}
+                typemaintain={typemaintain}
+                machineCode={machineCode}
+                fields={fields}
+                handleFieldNameChange={handleFieldNameChange}
+                deleteField={deleteField}
+                handleRequirementNameChange={handleRequirementNameChange}
+                deleteRequirement={deleteRequirement}
+                handleAddRequirement={handleAddRequirement}
+                handleAddField={handleAddField}
+              />
+            ) : (
+              <DailyTemplate
+                machineName={machineName}
+                typemaintain={typemaintain}
+                machineCode={machineCode}
+                fields={fields}
+                handleFieldNameChange={handleFieldNameChange}
+                deleteField={deleteField}
+                handleRequirementNameChange={handleRequirementNameChange}
+                deleteRequirement={deleteRequirement}
+                handleAddRequirement={handleAddRequirement}
+                handleAddField={handleAddField}
+              />
+            )}
             {!isExist ? (
               <button className="submitmaintain" onClick={handleSubmit}>
                 CREATE TEMPLATE <br /> (THÊM MẪU ĐƠN)

@@ -69,6 +69,7 @@ export default function Machine_management() {
             <tr>
               <th>Machine Code</th>
               <th>Machine Name</th>
+              <th>Daily</th>
               <th>Weekly</th>
               <th>Monthly</th>
               <th>Half-Yearly</th>
@@ -80,6 +81,34 @@ export default function Machine_management() {
               <tr key={index}>
                 <td>{machine.machine_code}</td>
                 <td>{machine.machine_name}</td>
+                <td>
+                  {checkMaintenanceType(machine.machine_code, "Daily") ? (
+                    <>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_detail/${machine.machine_code}/Daily`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Fill in
+                      </button>
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/maintenance_create/${machine.machine_code}/Daily`
+                          )
+                        }
+                        className="machine_management_table_link"
+                      >
+                        Edit
+                      </button>
+                    </>
+                  ) : (
+                    "No"
+                  )}
+                </td>
                 <td>
                   {checkMaintenanceType(machine.machine_code, "Weekly") ? (
                     <>

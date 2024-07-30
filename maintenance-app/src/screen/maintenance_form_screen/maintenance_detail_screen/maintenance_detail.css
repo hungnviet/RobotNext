@@ -59,7 +59,7 @@
   padding-top: 3%;
 }
 .formtable-container {
-  width: 80%; /* Sets the width of the container to 80% of the screen width */
+  width: 100%; /* Sets the width of the container to 80% of the screen width */
   margin: 0 auto; /* Centers the table container horizontally */
 }
 
@@ -109,27 +109,35 @@
   font-size: 18px;
 }
 .confirmfill {
-  width: 80%;
+  width: 99%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-left: 17%;
-  padding-top: 2%;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
 }
 
 .confirmfill > div {
   flex: 1;
-  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2%;
   font-weight: bold;
-  font-size: 20px;
+  border-right-style: solid;
+  height: 100%;
+  border-color: black;
+  flex-direction: column;
+  font-size: 18px;
+  text-decoration: underline;
 }
 .confirmfill input {
   border: none;
-  border-bottom: 1px solid black;
-  width: 60%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 80px;
   font-size: 18px;
+  text-align: center; /* Center text horizontally */
+  padding: 0; /* Remove default padding */
+  line-height: 80px; /* Center text vertically */
 }
 .submitfill {
   display: flex;
@@ -142,4 +150,46 @@
   margin-top: 2%;
   font-size: 20px;
   cursor: pointer;
+}
+.fillformTable {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: black;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+.fillformTable th {
+  background-color: white;
+  color: black;
+  border-right-style: solid;
+  border-color: black;
+}
+.fillformTable td {
+  background-color: white;
+  color: black;
+  border-right-style: solid;
+  border-color: black;
+}
+.table_title_left div {
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  transform: scale(-1);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px 15px;
+}
+.col-5 {
+  width: 5%;
+}
+
+.col-10 {
+  width: 10%;
+}
+
+.col-20 {
+  width: 20%;
+}
+
+.col-15 {
+  width: 15%;
 }
