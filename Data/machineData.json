@@ -4,6 +4,7 @@
     "machine_code": "HYP001",
     "date_of_purchase": "15-01-2024",
     "plant": "A",
+    "machine_type": "Hydraulic",
     "specification": [
       {
         "specification": "Pressure",
@@ -48,7 +49,8 @@
     "machine_name": "CNC Milling Machine",
     "machine_code": "CNC002",
     "date_of_purchase": "22-03-2024",
-    "plant": "A",
+    "plant": "B",
+    "machine_type": "CNC",
     "specification": [
       {
         "specification": "Spindle Speed",
@@ -97,7 +99,8 @@
     "machine_name": "Laser Cutting Machine",
     "machine_code": "LAS003",
     "date_of_purchase": "30-05-2024",
-    "plant": "A",
+    "plant": "C",
+    "machine_type": "Laser",
     "specification": [
       {
         "specification": "Laser Power",
@@ -146,7 +149,8 @@
     "machine_name": "Industrial Robot Arm",
     "machine_code": "ROB004",
     "date_of_purchase": "12-08-2024",
-    "plant": "A",
+    "plant": "D",
+    "machine_type": "Robot",
     "specification": [
       {
         "specification": "Reach",
@@ -196,6 +200,7 @@
     "machine_code": "ASS005",
     "date_of_purchase": "20-10-2023",
     "plant": "A",
+    "machine_type": "Robot",
     "specification": [
       {
         "specification": "Conveyor Speed",
@@ -245,6 +250,7 @@
     "machine_code": "VMC006",
     "date_of_purchase": "17-02-2024",
     "plant": "A",
+    "machine_type": "Hydraulic",
     "specification": [
       {
         "specification": "Table Size",
@@ -293,7 +299,8 @@
     "machine_name": "Plasma Cutter",
     "machine_code": "PLC007",
     "date_of_purchase": "09-04-2024",
-    "plant": "A",
+    "plant": "B",
+    "machine_type": "Laser",
     "specification": [
       {
         "specification": "Cutting Area",
@@ -342,7 +349,8 @@
     "machine_name": "Water Jet Cutter",
     "machine_code": "WJC008",
     "date_of_purchase": "29-07-2024",
-    "plant": "A",
+    "plant": "C",
+    "machine_type": "Laser",
     "specification": [
       {
         "specification": "Pressure",
@@ -391,7 +399,8 @@
     "machine_name": "Gear Hobbing Machine",
     "machine_code": "GHM009",
     "date_of_purchase": "05-12-2023",
-    "plant": "A",
+    "plant": "D",
+    "machine_type": "Hydraulic",
     "specification": [
       {
         "specification": "Max Gear Diameter",
@@ -440,6 +449,7 @@
     "machine_name": "Test",
     "machine_code": "Test",
     "date_of_purchase": "2004-09-10",
+    "machine_type": "Test",
     "specification": [
       {
         "specification": "Test",
@@ -463,12 +473,13 @@
         "name": "Gears"
       }
     ],
-    "plant": "A"
+    "plant": "B"
   },
   {
     "machine_name": "Test 2",
     "machine_code": "Test 2",
     "date_of_purchase": "2004-09-19",
+    "machine_type": "Test",
     "specification": [
       {
         "specification": "Test 2",
@@ -496,12 +507,13 @@
         "name": "Bearings"
       }
     ],
-    "plant": "A"
+    "plant": "C"
   },
   {
     "machine_name": "Test 3",
     "machine_code": "Test 3",
     "date_of_purchase": "2004-09-10",
+    "machine_type": "Test",
     "specification": [
       {
         "specification": "Test 3",
@@ -525,12 +537,13 @@
         "name": "Chains"
       }
     ],
-    "plant": "A"
+    "plant": "D"
   },
   {
     "machine_name": "Robot Next",
     "machine_code": "RBN",
     "date_of_purchase": "2024-07-08",
+    "machine_type": "Robot",
     "specification": [
       {
         "specification": "weight",
@@ -564,6 +577,7 @@
     "machine_name": "EXP machine",
     "machine_code": "EXPCODE",
     "date_of_purchase": "2024-07-09",
+    "machine_type": "EXP",
     "specification": [
       {
         "specification": "Height ",

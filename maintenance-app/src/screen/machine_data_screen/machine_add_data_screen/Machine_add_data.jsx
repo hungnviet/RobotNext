@@ -12,6 +12,14 @@ export default function Machine_add_data() {
   const [listSpefication, setListSpefication] = useState([
     { specification: "", value: "" },
   ]);
+
+  const [listSpecification, setListSpecification] = useState([
+    {
+      field_of_speicification: "",
+      list_specification_in_field: [{ specification: "", value: "" }],
+    },
+  ]);
+
   const [additional_data, setAdditional_data] = useState("");
   useEffect(() => {
     fetch("http://localhost:3001/list_spare_parts")
@@ -178,62 +186,13 @@ export default function Machine_add_data() {
       </div>
       <div className="spefication_added_container">
         <h4>Input specification data of the machine</h4>
-        <div className="header_spefication">
-          <div>Specification</div>
-          <div>Value</div>
-          <div>Action</div>
-        </div>
-        {listSpefication.map((item, index) => {
-          return (
-            <div className="spefication_added_item">
-              <div>
-                {" "}
-                <input
-                  type="text"
-                  value={item.specification}
-                  onChange={(e) => {
-                    let newList = [...listSpefication];
-                    newList[index].specification = e.target.value;
-                    setListSpefication(newList);
-                  }}
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  value={item.value}
-                  onChange={(e) => {
-                    let newList = [...listSpefication];
-                    newList[index].value = e.target.value;
-                    setListSpefication(newList);
-                  }}
-                />
-              </div>
-              <div>
-                <button
-                  onClick={() => {
-                    let newList = [...listSpefication];
-                    newList.splice(index, 1);
-                    setListSpefication(newList);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
+        {listSpefication.map((oneFieldOfSpecification, index) => {
+          <div className="one_field_of_specification_added">
+            <div className="field_container_of_specification_added"></div>
+            <div className="each_specification_container_added"></div>
+            <button>+</button>
+          </div>;
         })}
-        <div className="footer_add_spefication">
-          <button
-            onClick={() => {
-              let newList = [...listSpefication];
-              newList.push({ specification: "", value: "" });
-              setListSpefication(newList);
-            }}
-          >
-            Add more spefication
-          </button>
-        </div>
       </div>
       <div className="search_spare_part_container_used">
         <SearchSparePart />{" "}

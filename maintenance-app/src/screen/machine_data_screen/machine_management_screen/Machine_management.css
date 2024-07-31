@@ -5,27 +5,40 @@
   width: 100%;
   height: max-content;
 }
+
+.machine_management_table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
 .machine_table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 18px;
-  text-align: left;
-}
-
-.machine_table thead {
-  background-color: #f2f2f2;
 }
 
 .machine_table th,
 .machine_table td {
-  padding: 12px;
   border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top; /* Ensure content aligns to the top */
 }
 
 .machine_table th {
-  background-color: #4caf50;
-  color: white;
+  background-color: #000000;
+  color: #ffffff; /* Set text color for better contrast */
+  font-weight: bold;
+  text-align: center;
+}
+
+.machine_table th select,
+input,
+button {
+  display: block;
+  margin-top: 5px;
+  width: 100%;
 }
 
 .machine_table tr:nth-child(even) {
@@ -35,6 +48,7 @@
 .machine_table tr:hover {
   background-color: #f1f1f1;
 }
+
 .machine_management_table_link {
   color: #007bff;
   text-decoration: none;
