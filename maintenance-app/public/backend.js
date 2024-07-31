@@ -368,3 +368,18 @@ app.post("/search_spare_parts", (req, res) => {
     }
   );
 });
+
+///--------------------------------------------Get Specification Template--------------------------------------------------------------------
+app.get("/list_specification_template", (req, res) => {
+  fs.readFile(
+    path.join(__dirname, "../../Data/formMachineSpecification.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+      } else {
+        res.json(JSON.parse(data));
+      }
+    }
+  );
+});

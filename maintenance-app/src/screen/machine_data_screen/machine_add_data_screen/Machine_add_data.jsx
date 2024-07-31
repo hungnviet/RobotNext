@@ -9,23 +9,31 @@ export default function Machine_add_data() {
   const [machineCode, setMachineCode] = useState("");
   const [dateOfPurchase, setDateOfPurchase] = useState("");
   const [listSparePart, setListSparePart] = useState([]);
-  const [listSpefication, setListSpefication] = useState([
-    { specification: "", value: "" },
-  ]);
+  const [machineType, setMachineType] = useState("");
 
   const [listSpecification, setListSpecification] = useState([
     {
-      field_of_speicification: "",
-      list_specification_in_field: [{ specification: "", value: "" }],
+      specification: "",
+      value: "",
     },
   ]);
 
+  const [listSpecificationTemplate, setListSpecificationTemplate] = useState(
+    []
+  );
+  const [isShowTemplate, setIsShowTemplate] = useState(false);
   const [additional_data, setAdditional_data] = useState("");
   useEffect(() => {
     fetch("http://localhost:3001/list_spare_parts")
       .then((res) => res.json())
       .then((data) => {
         setListSparePart(data);
+      });
+
+    fetch("http://localhost:3001/list_specification_template")
+      .then((res) => res.json())
+      .then((data) => {
+        setListSpecificationTemplate(data);
       });
   }, []);
 
@@ -123,7 +131,8 @@ export default function Machine_add_data() {
       machine_name: machineName,
       machine_code: machineCode,
       date_of_purchase: dateOfPurchase,
-      specification: listSpefication,
+      machineType: machineType,
+      specification: listSpecification,
       additional_data: additional_data,
       spare_part_for_half_yearly_maintenance: listSparePartForHalfYearly,
       spare_part_for_yearly_maintenance: listSparePartForYearly,
@@ -151,6 +160,15 @@ export default function Machine_add_data() {
       alert("Error saving machine data");
     }
   };
+
+  ///-----------------Handle Specification-------------------///
+  function applyTemplate(template) {
+    const specifications = template.map((spec) => ({
+      specification: spec,
+      value: "",
+    }));
+    setListSpecification(specifications);
+  }
   return (
     <div>
       <NavbarMachine />
@@ -176,6 +194,16 @@ export default function Machine_add_data() {
           />
         </div>
         <div>
+          <p>Machine Type</p>
+          <input
+            type="text"
+            value={machineType}
+            onChange={(e) => {
+              setMachineType(e.target.value);
+            }}
+          />
+        </div>
+        <div>
           <p>Date of purchase</p>
           <input
             type="date"
@@ -186,13 +214,90 @@ export default function Machine_add_data() {
       </div>
       <div className="spefication_added_container">
         <h4>Input specification data of the machine</h4>
-        {listSpefication.map((oneFieldOfSpecification, index) => {
-          <div className="one_field_of_specification_added">
-            <div className="field_container_of_specification_added"></div>
-            <div className="each_specification_container_added"></div>
-            <button>+</button>
-          </div>;
+
+        <div className="suggested_template_container">
+          {isShowTemplate ? (
+            <button onClick={() => setIsShowTemplate(!isShowTemplate)}>
+              Hide Template
+            </button>
+          ) : (
+            <button onClick={() => setIsShowTemplate(!isShowTemplate)}>
+              Show Template
+            </button>
+          )}
+          {isShowTemplate && (
+            <div className="list_template_container">
+              {listSpecificationTemplate.map((item) => {
+                return (
+                  <div>
+                    <p>{item.machineType}</p>
+                    <button
+                      onClick={() => {
+                        applyTemplate(item.listSpecification);
+                      }}
+                    >
+                      Use Template
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {listSpecification.map((item, index) => {
+          return (
+            <div className="each_specification_container">
+              <input
+                type="text"
+                value={item.specification}
+                onChange={(e) => {
+                  const newSpecification = e.target.value;
+                  setListSpecification((prevList) => {
+                    const newList = [...prevList];
+                    newList[index].specification = newSpecification;
+                    return newList;
+                  });
+                }}
+                placeholder="Specification"
+              />
+              <input
+                type="text"
+                value={item.value}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  setListSpecification((prevList) => {
+                    const newList = [...prevList];
+                    newList[index].value = newValue;
+                    return newList;
+                  });
+                }}
+                placeholder="Value"
+              />
+              <button
+                onClick={() => {
+                  setListSpecification((prevList) => {
+                    const newList = [...prevList];
+                    newList.splice(index, 1);
+                    return newList;
+                  });
+                }}
+              >
+                -
+              </button>
+            </div>
+          );
         })}
+        <button
+          className="btn_add_specifiation"
+          onClick={() => {
+            setListSpecification((prevList) => {
+              return [...prevList, { specification: "", value: "" }];
+            });
+          }}
+        >
+          +
+        </button>
       </div>
       <div className="search_spare_part_container_used">
         <SearchSparePart />{" "}

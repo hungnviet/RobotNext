@@ -6,7 +6,7 @@
   margin-top: 20px;
 }
 .div1_add_machine_data div {
-  width: 30%;
+  width: 22%;
 }
 .div1_add_machine_data div input {
   width: 100%;
@@ -186,4 +186,66 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.btn_add_specifiation {
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.each_specification_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.each_specification_container input {
+  width: 40%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+}
+
+.each_specification_container button {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.list_template_container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.list_template_container div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.list_template_container div button {
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
 }

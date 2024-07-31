@@ -1,0 +1,36 @@
+[
+  {
+    "machineType": "Die Cast",
+    "listSpecification": [
+      "Locking Force",
+      "Platen Size",
+      "Clearance Between Tie Bars (V x H)",
+      "Tie-Bar Diameter",
+      "Die Stroke (max - min)",
+      "Die Thickness (max - min)",
+      "Shot Force",
+      "Shot Positions",
+      "Ejection Stroke",
+      "Ejection Force",
+      "Machine Weight",
+      "Machine Size"
+    ]
+  },
+  {
+    "machineType": "CNC",
+    "listSpecification": [
+      "Brand",
+      "Model",
+      "Spindle Bearing Diameter",
+      "Max. Swing Diameter",
+      "Max. swing over saddle",
+      "Max. turning diameter",
+      "Max. turning length",
+      "Spindle Nose",
+      "Spindle Speed",
+      "Through-Spindle Hole diameter",
+      "Bar capacity",
+      "Through-Spindle Hole diameter"
+    ]
+  }
+]
