@@ -14,6 +14,7 @@ import MaintenanceHistory from "./screen/maintenance_form_screen/maintenance_his
 import Maintenance from "./screen/maintenance_form_screen/maintenance_list_screen/maintenance_list";
 import MaintenanceCreate from "./screen/maintenance_form_screen/maintenance_create_screen/maintenance_create";
 import MaintenanceDetail from "./screen/maintenance_form_screen/maintenance_detail_screen/maintenance_detail";
+import MachineTemplateSpecification from "./screen/machine_data_screen/machine_template_specification_screen/machine_template_specification";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -49,6 +50,10 @@ root.render(
           <Route
             path="/maintenance_detail/:machine_code?/:maintenanceType?/:maintenance_code?"
             element={<MaintenanceDetail />}
+          ></Route>
+          <Route
+            path="/machine_template_specification"
+            element={<MachineTemplateSpecification />}
           ></Route>
         </Routes>
       </div>

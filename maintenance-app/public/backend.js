@@ -383,3 +383,116 @@ app.get("/list_specification_template", (req, res) => {
     }
   );
 });
+
+app.post("/list_specification_template", (req, res) => {
+  fs.readFile(
+    path.join(__dirname, "../../Data/formMachineSpecification.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+      } else {
+        let curTemplate = JSON.parse(data);
+        curTemplate.push(req.body);
+        fs.writeFile(
+          path.join(__dirname, "../../Data/formMachineSpecification.json"),
+          JSON.stringify(curTemplate, null, 2),
+          (err) => {
+            if (err) {
+              console.error(err);
+              res.status(500).send("Error writing file");
+            } else {
+              res
+                .status(200)
+                .json({ status: "success", message: "Template added" });
+            }
+          }
+        );
+      }
+    }
+  );
+});
+
+app.delete("/list_specification_template", (req, res) => {
+  const { machineType } = req.body;
+
+  fs.readFile(
+    path.join(__dirname, "../../Data/formMachineSpecification.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+      } else {
+        let templates = JSON.parse(data);
+        console.log("templates", templates);
+        const index = templates.findIndex(
+          (template) => template.machineType == machineType
+        );
+        if (index !== -1) {
+          templates.splice(index, 1);
+
+          fs.writeFile(
+            path.join(__dirname, "../../Data/formMachineSpecification.json"),
+            JSON.stringify(templates, null, 2),
+            (err) => {
+              if (err) {
+                console.error(err);
+                res.status(500).send("Error writing file");
+              } else {
+                res.json({ status: "success", message: "Template deleted" });
+              }
+            }
+          );
+        } else {
+          console.log("Template not found");
+          res
+            .status(404)
+            .json({ status: "error", message: "Template not found" });
+        }
+      }
+    }
+  );
+});
+
+app.put("/list_specification_template", (req, res) => {
+  const { machineType, listSpecification } = req.body;
+  console.log("machineType", machineType);
+  console.log("listSpecification", listSpecification);
+
+  fs.readFile(
+    path.join(__dirname, "../../Data/formMachineSpecification.json"),
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error reading file");
+      } else {
+        let templates = JSON.parse(data);
+        console.log("templates", templates);
+        const index = templates.findIndex(
+          (template) => template.machineType == machineType
+        );
+        if (index !== -1) {
+          templates[index].listSpecification = listSpecification;
+
+          fs.writeFile(
+            path.join(__dirname, "../../Data/formMachineSpecification.json"),
+            JSON.stringify(templates, null, 2),
+            (err) => {
+              if (err) {
+                console.error(err);
+                res.status(500).send("Error writing file");
+              } else {
+                res.json({ status: "success", message: "Template deleted" });
+              }
+            }
+          );
+        } else {
+          console.log("Template not found");
+          res
+            .status(404)
+            .json({ status: "error", message: "Template not found" });
+        }
+      }
+    }
+  );
+});

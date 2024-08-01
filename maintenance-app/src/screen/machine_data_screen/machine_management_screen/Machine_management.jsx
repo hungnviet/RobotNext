@@ -11,10 +11,10 @@ export default function Machine_management() {
   const [listMachineType, setListMachineType] = useState([]);
   const [listPlant, setListPlant] = useState([]);
 
-  const [selectedMachineType, setSelectedMachineType] = useState("all");
+  const [selectedMachineType, setSelectedMachineType] = useState("All");
   const [searchMachineCode, setSearchMachineCode] = useState("");
   const [searchMachineName, setSearchMachineName] = useState("");
-  const [selectedPlant, setSelectedPlant] = useState("all");
+  const [selectedPlant, setSelectedPlant] = useState("All");
 
   async function getMachineData(count = 0) {
     const response = await fetch("http://localhost:3001/list_machines");
@@ -60,9 +60,11 @@ export default function Machine_management() {
     const filteredMachines = listMachines.filter((machine) => {
       const isMachineTypeMatch =
         selectedMachineType === "All" ||
-        machine.machine_type === selectedMachineType;
+        machine.machine_type.toLowerCase() ===
+          selectedMachineType.toLowerCase();
       const isPlantMatch =
-        selectedPlant === "All" || machine.plant === selectedPlant;
+        selectedPlant === "All" ||
+        machine.plant.toLowerCase() === selectedPlant.toLowerCase();
       const isMachineCodeMatch =
         searchMachineCode === "" ||
         machine.machine_code.includes(searchMachineCode);

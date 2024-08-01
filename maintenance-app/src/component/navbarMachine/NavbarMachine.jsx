@@ -38,6 +38,16 @@ export default function NavbarMachine() {
         >
           Machine detail information
         </Link>
+        <Link
+          to="/machine_template_specification"
+          className={
+            location.pathname.includes("/machine_template_specification")
+              ? "active_machine_link"
+              : "machine_link"
+          }
+        >
+          Specification Template
+        </Link>
       </div>
     </div>
   );

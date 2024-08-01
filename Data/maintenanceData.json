@@ -1295,5 +1295,51 @@
     "Checked by": "b",
     "Approved by": "c",
     "maintenance_code": "10"
+  },
+  {
+    "machine_name": "Hydraulic Press",
+    "machine_code": "HYP001",
+    "type_of_maintenance": "Weekly",
+    "maintenance_date": "2024-08-03",
+    "maintenance_start_date": "2024-08-02",
+    "maintenance_end_date": "2024-08-04",
+    "operator_number": "aaaaa",
+    "fields": [
+      {
+        "field_name": "This is a field 1",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": "NG",
+            "corrective_action": "no"
+          },
+          {
+            "name": "Req 2",
+            "status": "OK",
+            "corrective_action": "no"
+          },
+          {
+            "name": "Req 3",
+            "status": "OK",
+            "corrective_action": "no"
+          }
+        ]
+      },
+      {
+        "field_name": "This is a field 2",
+        "requirement": [
+          {
+            "name": "Req 1",
+            "status": "OK",
+            "corrective_action": "no"
+          }
+        ]
+      }
+    ],
+    "remark": "no",
+    "Prepared by": "a",
+    "Checked by": "b",
+    "Approved by": "c",
+    "maintenance_code": "11"
   }
 ]

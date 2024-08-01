@@ -1,0 +1,140 @@
+.body_machine_template_specification_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-y: auto;
+
+  justify-content: space-around;
+  align-items: flex-start;
+
+  margin-top: 10px;
+}
+
+.left_section_machine_template_specification_container {
+  width: 45%;
+  height: 80vh;
+  overflow: auto;
+  border: 1px solid #e0e0e0;
+}
+.right_section_machine_template_specification_container {
+  width: 45%;
+  height: 80vh;
+  overflow: auto;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list_existed_specification_template {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 10px;
+  margin-top: 20px;
+  height: 90%;
+  overflow: auto;
+}
+
+.each_existed_specification_template {
+  width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+}
+
+.btn_container_action_each_specification {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.btn_container_action_each_specification button {
+  cursor: pointer;
+}
+
+.create_template_specification_big_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 10px;
+  margin-top: 20px;
+  height: 100%;
+  overflow: auto;
+}
+
+.machine_type_container_create_template {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.machine_type_container_create_template input {
+  width: 70%;
+}
+.list_create_template_specification_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 10px;
+  height: 90%;
+  overflow: auto;
+}
+.each_create_template_specification {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  column-gap: 10px;
+}
+
+.each_create_template_specification button {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  border: none;
+}
+
+.add_specification_create_template {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  background-color: green;
+  border: none;
+}
+
+.create_template_specification_btn {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  border: none;
+}
+.btn_cancle_edite_form {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  border: none;
+}
