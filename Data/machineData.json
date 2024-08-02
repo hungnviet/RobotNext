@@ -606,5 +606,102 @@
       }
     ],
     "plant": "A"
+  },
+  {
+    "machine_name": "Toshiba",
+    "machine_code": "TSB",
+    "date_of_purchase": "2024-08-03",
+    "machine_type": "Die Casting",
+    "specification": [
+      {
+        "specification": "Locking Force",
+        "value": "1"
+      },
+      {
+        "specification": "Platen Size",
+        "value": "3"
+      },
+      {
+        "specification": "Clearance Between Tie Bars (V x H)",
+        "value": "4"
+      },
+      {
+        "specification": "Tie-Bar Diameter",
+        "value": "5"
+      },
+      {
+        "specification": "Die Stroke (max - min)",
+        "value": "4"
+      },
+      {
+        "specification": "Die Thickness (max - min)",
+        "value": "1"
+      },
+      {
+        "specification": "Shot Force",
+        "value": "2"
+      },
+      {
+        "specification": "Shot Positions",
+        "value": "4"
+      },
+      {
+        "specification": "Ejection Stroke",
+        "value": "3"
+      },
+      {
+        "specification": "Ejection Force",
+        "value": "2"
+      },
+      {
+        "specification": "Machine Weight",
+        "value": "1"
+      },
+      {
+        "specification": "Machine Size",
+        "value": "3"
+      }
+    ],
+    "additional_data": "No data",
+    "spare_part_for_half_yearly_maintenance": [
+      {
+        "spare_part_code": "SP007",
+        "quantity": 1,
+        "price": 1997,
+        "name": "Motors"
+      },
+      {
+        "spare_part_code": "SP007",
+        "quantity": 1,
+        "price": 1997,
+        "name": "Motors"
+      },
+      {
+        "spare_part_code": "SP007",
+        "quantity": 1,
+        "price": 1997,
+        "name": "Motors"
+      }
+    ],
+    "spare_part_for_yearly_maintenance": [
+      {
+        "spare_part_code": "SP010",
+        "quantity": 1,
+        "price": 2801,
+        "name": "Cables"
+      },
+      {
+        "spare_part_code": "SP009",
+        "quantity": 1,
+        "price": 290,
+        "name": "Lubricants"
+      }
+    ],
+    "plant": "A",
+    "imagePaths": [
+      "/images/TSBimage1.jpeg",
+      "/images/TSBimage2.jpeg",
+      "/images/TSBimage3.jpeg"
+    ]
   }
 ]

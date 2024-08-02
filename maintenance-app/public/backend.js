@@ -2,8 +2,10 @@ const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
 const path = require("path");
+const fileUpload = require("express-fileupload");
 const app = express();
 
+app.use(fileUpload());
 app.use(cors());
 app.use(express.json()); // This middleware is used to parse JSON bodies
 const maintenanceRoutes = require("./maintenance.js");
@@ -495,4 +497,45 @@ app.put("/list_specification_template", (req, res) => {
       }
     }
   );
+});
+
+///------------------------------Handle Save Image--------------------------------------------------------------------
+
+// Serve static files from the "Data/image" directory
+const imageDir = path.join(__dirname, "../../maintenance-app/public/images");
+
+app.post("/upload_image", (req, res) => {
+  const { machineCode } = req.body;
+  const images = ["image1", "image2", "image3"];
+
+  if (!machineCode || !req.files) {
+    return res
+      .status(400)
+      .send("Invalid request. Ensure machineCode and images are provided.");
+  }
+
+  const imagePaths = [];
+
+  images.forEach((image, index) => {
+    if (req.files[image]) {
+      const imageFile = req.files[image];
+      const imageName = `${machineCode}image${index + 1}${path.extname(
+        imageFile.name
+      )}`;
+      const imagePath = path.join(imageDir, imageName);
+
+      imageFile.mv(imagePath, (err) => {
+        if (err) {
+          return res.status(500).send(err);
+        }
+      });
+
+      imagePaths.push(`/images/${imageName}`);
+    }
+  });
+
+  res.json({
+    message: "Images uploaded and paths saved successfully.",
+    imagePaths,
+  });
 });

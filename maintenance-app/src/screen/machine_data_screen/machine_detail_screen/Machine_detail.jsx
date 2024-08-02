@@ -56,7 +56,6 @@ export default function Machine_detail() {
   return (
     <div>
       <NavbarMachine />
-      <p>{machineCodeSearch}</p>
       <div className="machine_detail_input_code">
         <div>
           <input
@@ -80,8 +79,32 @@ export default function Machine_detail() {
               <p>{machineDetail.machine_code}</p>
             </div>
             <div>
+              <h4>Machine Type</h4>
+              <p>{machineDetail.machine_type}</p>
+            </div>
+            <div>
               <h4>Date of purchase</h4>
               <p>{machineDetail.date_of_purchase}</p>
+            </div>
+            <div className="display_plant_machine_detail">
+              <h4>Plant</h4>
+              <p>{machineDetail.plant}</p>
+            </div>
+          </div>
+
+          <div className="display_image_machine_detail">
+            <div className="section_display_image_machine_detail">
+              <div className="display_image_machine_detail_1">
+                <img src={machineDetail.imagePaths[1]} alt="machine" />
+              </div>
+            </div>
+            <div className="section_display_image_machine_detail">
+              <div className="display_image_machine_detail_2">
+                <img src={machineDetail.imagePaths[1]} alt="machine" />
+              </div>
+              <div className="display_image_machine_detail_2">
+                <img src={machineDetail.imagePaths[2]} alt="machine" />
+              </div>
             </div>
           </div>
           <div className="spefication_container_machine_detail">

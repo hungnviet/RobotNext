@@ -18,12 +18,15 @@
   margin-top: 20px;
 }
 .general_information_detail_machine div {
-  width: 30%;
+  width: 22%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   border-bottom: 1px solid #000000;
+}
+.display_plant_machine_detail {
+  width: 50px !important;
 }
 
 .general_information_detail_machine div p,
@@ -125,4 +128,56 @@ h4 {
 .additional_data_machine_detail textarea {
   width: 100%;
   height: 50px;
+}
+
+.display_image_machine_detail {
+  width: 95%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 2vw;
+  border: 1px solid #6c757d;
+  border-radius: 8px;
+}
+
+.section_display_image_machine_detail {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+  height: 100%;
+}
+
+.display_image_machine_detail_1 {
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display_image_machine_detail_1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.display_image_machine_detail_2 {
+  height: 49%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display_image_machine_detail_2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }

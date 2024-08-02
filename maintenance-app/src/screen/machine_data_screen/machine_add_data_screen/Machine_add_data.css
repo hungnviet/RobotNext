@@ -8,6 +8,9 @@
 .div1_add_machine_data div {
   width: 22%;
 }
+.select_plant_add_machine {
+  width: 50px !important;
+}
 .div1_add_machine_data div input {
   width: 100%;
   border-top: none;
@@ -248,4 +251,58 @@
   color: white;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.add_img_big_container {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-left: 2vw;
+  height: 80vh;
+}
+
+.section_add_image_right {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub_section_add_image_right {
+  width: 100%;
+  height: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section_add_image_left {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 10px;
+}
+
+.display_img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border: 1px solid #e0e1dd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.display_img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }

@@ -10,6 +10,7 @@ export default function Machine_add_data() {
   const [dateOfPurchase, setDateOfPurchase] = useState("");
   const [listSparePart, setListSparePart] = useState([]);
   const [machineType, setMachineType] = useState("");
+  const [plant, setPlant] = useState("A");
 
   const [listSpecification, setListSpecification] = useState([
     {
@@ -23,6 +24,14 @@ export default function Machine_add_data() {
   );
   const [isShowTemplate, setIsShowTemplate] = useState(false);
   const [additional_data, setAdditional_data] = useState("");
+
+  const [img1, setImg1] = useState(null);
+  const [img2, setImg2] = useState(null);
+  const [img3, setImg3] = useState(null);
+  const [img1Preview, setImg1Preview] = useState(null);
+  const [img2Preview, setImg2Preview] = useState(null);
+  const [img3Preview, setImg3Preview] = useState(null);
+
   useEffect(() => {
     fetch("http://localhost:3001/list_spare_parts")
       .then((res) => res.json())
@@ -127,19 +136,38 @@ export default function Machine_add_data() {
 
   ///-----------------Save Machine-------------------///
   const saveMachine = async () => {
-    const newMachine = {
-      machine_name: machineName,
-      machine_code: machineCode,
-      date_of_purchase: dateOfPurchase,
-      machineType: machineType,
-      specification: listSpecification,
-      additional_data: additional_data,
-      spare_part_for_half_yearly_maintenance: listSparePartForHalfYearly,
-      spare_part_for_yearly_maintenance: listSparePartForYearly,
-      plant: "A",
-    };
-
+    const formData = new FormData();
+    formData.append("machineCode", machineCode);
+    formData.append("image1", img1);
+    formData.append("image2", img2);
+    formData.append("image3", img3);
+    let formDataString = "";
     try {
+      const uploadResponse = await fetch("http://localhost:3001/upload_image", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!uploadResponse.ok) {
+        alert("Error uploading images");
+      }
+
+      const uploadResult = await uploadResponse.json();
+      const imagePaths = uploadResult.imagePaths;
+
+      const newMachine = {
+        machine_name: machineName,
+        machine_code: machineCode,
+        date_of_purchase: dateOfPurchase,
+        machine_type: machineType,
+        specification: listSpecification,
+        additional_data: additional_data,
+        spare_part_for_half_yearly_maintenance: listSparePartForHalfYearly,
+        spare_part_for_yearly_maintenance: listSparePartForYearly,
+        plant: plant,
+        imagePaths: imagePaths,
+      };
+
       const response = await fetch("http://localhost:3001/list_machines", {
         method: "POST",
         headers: {
@@ -169,6 +197,17 @@ export default function Machine_add_data() {
     }));
     setListSpecification(specifications);
   }
+
+  ///-----------------Handle Image-------------------///
+  const handleImageChange = (e, setImage, setPreview) => {
+    const file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    setImage(file);
+    setPreview(URL.createObjectURL(file));
+  };
+
   return (
     <div>
       <NavbarMachine />
@@ -210,6 +249,15 @@ export default function Machine_add_data() {
             value={dateOfPurchase}
             onChange={(e) => setDateOfPurchase(e.target.value)}
           />
+        </div>
+        <div className="select_plant_add_machine">
+          <p>Plant</p>
+          <select value={plant} onChange={(e) => setPlant(e.target.value)}>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
         </div>
       </div>
       <div className="spefication_added_container">
@@ -299,6 +347,50 @@ export default function Machine_add_data() {
           +
         </button>
       </div>
+      <p style={{ fontWeight: "bold" }}>Add Machine Image</p>
+      <div className="add_img_big_container">
+        <div className="section_add_image_left">
+          <input
+            type="file"
+            onChange={(e) => handleImageChange(e, setImg1, setImg1Preview)}
+          />
+          <div className="display_img">
+            {img1 ? (
+              <img src={img1Preview} alt="Preview" />
+            ) : (
+              <p>No image selected</p>
+            )}
+          </div>
+        </div>
+        <div className="section_add_image_right">
+          <div className="sub_section_add_image_right">
+            <input
+              type="file"
+              onChange={(e) => handleImageChange(e, setImg2, setImg2Preview)}
+            />
+            <div className="display_img">
+              {img2 ? (
+                <img src={img2Preview} alt="Preview" />
+              ) : (
+                <p>No image selected</p>
+              )}
+            </div>
+          </div>
+          <div className="sub_section_add_image_right">
+            <input
+              type="file"
+              onChange={(e) => handleImageChange(e, setImg3, setImg3Preview)}
+            />
+            <div className="display_img">
+              {img3 ? (
+                <img src={img3Preview} alt="Preview" />
+              ) : (
+                <p>No image selected</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="search_spare_part_container_used">
         <SearchSparePart />{" "}
       </div>
@@ -355,6 +447,7 @@ export default function Machine_add_data() {
           );
         })}
       </div>
+
       <div className="header_add_spare_part_for_machine">
         <p>
           List of spare parts for yearly maintenance ( danh sách vật tư dùng cho
