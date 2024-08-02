@@ -73,7 +73,8 @@
       "public/electron.js",
       "build/**/*",
       "node_modules/**/*",
-      "public/images/**/*"
+      "public/images/**/*",
+      "cqs.png"
     ],
     "extraResources": [
       {
@@ -86,6 +87,13 @@
       {
         "from": "../images/",
         "to": "images",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "public/",
+        "to": "public/",
         "filter": [
           "**/*"
         ]

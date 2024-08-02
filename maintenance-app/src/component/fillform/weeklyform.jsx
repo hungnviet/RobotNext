@@ -82,7 +82,7 @@ const WeeklyMaintenance = ({
   return (
     <div className="formcontainer">
       <div className="titleformcontain">
-        <img src="/cqs.png" alt="" width={160} height={64} />
+        <img src="./cqs.png" alt="./images/cqs.png" width={160} height={64} />
         <div className="text-container">
           <p className="texttemplate">
             {formMaintain.machine_name} Preventive Maintenance{" "}

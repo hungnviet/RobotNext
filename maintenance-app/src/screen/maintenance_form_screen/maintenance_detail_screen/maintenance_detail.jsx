@@ -114,21 +114,18 @@ export default function Maintenance_detail() {
           newCorrectiveAction[key] = req.corrective_action;
           newCheckingMethod[key] = req.checking_method;
           newPIC[key] = req.PIC;
-          req.date.forEach((dayData) => {
+          req.date?.forEach((dayData) => {
             const dayKey = `field_${fieldIndex}_req_${reqIndex}_day_${dayData.day}`;
             newDateChecked[dayKey] = dayData.status || "";
           });
         });
-
-        console.log(checkingMethod);
-        console.log(pic);
-        console.log(datechecked);
       });
-      data.operator.forEach((dayData) => {
+      console.log(newCheckboxState);
+      data.operator?.forEach((dayData) => {
         const dayKey = `field_operator_req_operator_day_${dayData.day}`;
         newDateChecked[dayKey] = dayData.status || "";
       });
-      data.leader.forEach((dayData) => {
+      data.leader?.forEach((dayData) => {
         const dayKey = `field_leader_req_leader_day_${dayData.day}`;
         newDateChecked[dayKey] = dayData.status || "";
       });
