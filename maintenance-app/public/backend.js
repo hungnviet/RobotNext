@@ -530,7 +530,7 @@ app.post("/upload_image", (req, res) => {
         }
       });
 
-      imagePaths.push(`/images/${imageName}`);
+      imagePaths.push(`./images/${imageName}`);
     }
   });
 
